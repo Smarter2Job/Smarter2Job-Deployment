@@ -82,10 +82,32 @@ export default function Smarter2JobLanding() {
               KI dekodiert Job-Beschreibungen, optimiert deinen CV für ATS-Systeme 
               und zeigt dir Red Flags, bevor du dich bewirbst.
             </p>
+            
+            <button 
+              onClick={() => {
+                document.getElementById('red-flag-teaser')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+              style={{ 
+                backgroundColor: '#ff6b35',
+                color: 'white',
+                padding: '16px 32px',
+                borderRadius: '8px',
+                fontSize: '18px',
+                fontWeight: '600',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 10px 25px rgba(0,0,0,0.15)',
+                marginTop: '16px'
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#e55a2b')}
+              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#ff6b35')}
+            >
+              🎴 Erste Karte aufdecken
+            </button>
           </div>
-
-          {/* RED FLAG TEASER COMPONENT */}
-          <RedFlagTeaser />
         </div>
       </section>
 
@@ -454,6 +476,13 @@ export default function Smarter2JobLanding() {
               Welches Package passt zu dir? → Zu den Preisen
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Red Flag Teaser Section */}
+      <section id="red-flag-teaser" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <RedFlagTeaser />
         </div>
       </section>
 
