@@ -45,7 +45,26 @@ export default function Smarter2JobLanding() {
               <a href="#pricing" className="text-gray-600 hover:text-[#0a4f5c] transition">Pricing</a>
               <a href="#faq" className="text-gray-600 hover:text-[#0a4f5c] transition">FAQ</a>
             </div>
-            <button style={{ backgroundColor: '#ff6b35', color: 'white', padding: '8px 24px', borderRadius: '8px', fontWeight: '500', border: 'none', cursor: 'pointer' }}>
+            <button 
+              onClick={() => {
+                document.getElementById('red-flag-teaser')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+              style={{ 
+                backgroundColor: '#ff6b35', 
+                color: 'white', 
+                padding: '8px 24px', 
+                borderRadius: '8px', 
+                fontWeight: '500', 
+                border: 'none', 
+                cursor: 'pointer',
+                transition: 'background-color 0.2s'
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#e55a2b')}
+              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#ff6b35')}
+            >
               Jetzt starten
             </button>
           </div>
