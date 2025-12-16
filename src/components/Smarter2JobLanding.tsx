@@ -1,0 +1,1182 @@
+import { useState } from 'react';
+import { Target, Zap, FileText, Linkedin, CheckCircle, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import RedFlagTeaser from './RedFlagTeaser';
+
+export default function Smarter2JobLanding() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const faqs = [
+    {
+      question: "Wie funktioniert die KI-Analyse?",
+      answer: "Unsere KI analysiert Stellenbeschreibungen auf über 50 Indikatoren: Formulierungsmuster, versteckte Anforderungen, Kultur-Signale und Red Flags. Gleichzeitig optimieren wir deinen CV so, dass er ATS-Systeme passiert und perfekt auf die Stelle matcht."
+    },
+    {
+      question: "Sind meine Daten sicher?",
+      answer: "Absolut. Alle Daten werden verschlüsselt übertragen und gespeichert. Wir verkaufen keine Daten an Dritte. Du kannst deine Daten jederzeit vollständig löschen."
+    },
+    {
+      question: "Kann ich jederzeit kündigen?",
+      answer: "Ja, monatlich kündbar ohne Mindestlaufzeit. Bei Unzufriedenheit in den ersten 7 Tagen: volle Rückerstattung, keine Fragen."
+    },
+    {
+      question: "Funktioniert das für alle Branchen?",
+      answer: "Ja. Unsere KI ist auf Tech, Finance, Consulting, Healthcare, Marketing und viele weitere Branchen trainiert. Egal ob Startup oder Konzern."
+    },
+    {
+      question: "Was unterscheidet euch von anderen Services?",
+      answer: "Wir sind die Einzigen, die Red-Flag-Dekodierung, ATS-Optimierung UND LinkedIn-Profil-Optimierung in einem Tool vereinen. Keine Beratung, kein Coaching – pure Analyse-Power."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="text-2xl font-bold text-[#0a4f5c]">Smarter2Job</div>
+            <div className="hidden md:flex gap-8">
+              <a href="#karten" className="text-gray-600 hover:text-[#0a4f5c] transition">Karten</a>
+              <a href="#pricing" className="text-gray-600 hover:text-[#0a4f5c] transition">Pricing</a>
+              <a href="#faq" className="text-gray-600 hover:text-[#0a4f5c] transition">FAQ</a>
+            </div>
+            <button style={{ backgroundColor: '#ff6b35', color: 'white', padding: '8px 24px', borderRadius: '8px', fontWeight: '500', border: 'none', cursor: 'pointer' }}>
+              Jetzt starten
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section 
+        className="pt-32 pb-20 px-4 sm:px-6 lg:px-8"
+        style={{ 
+          background: 'linear-gradient(135deg, #0a4f5c 0%, #083d47 100%)'
+        }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              Viele Recruiter spielen mit <span className="text-[#ff6b35] font-extrabold">gezinkten Karten</span>.
+            </h1>
+            
+            <p 
+              className="text-xl mb-6 leading-relaxed italic"
+              style={{ color: '#e2e8f0' }}
+            >
+              Das ist zumindest das Gefühl, das viele von uns haben. 
+              Aber oft sind wir als Bewerber selbst das Problem – 
+              weil wir gar nicht wissen, wie das Spiel wirklich gespielt wird.
+            </p>
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 leading-tight">
+              Lass uns dir zeigen, welche Karten das sind.
+            </h2>
+            
+            <p className="text-xl mb-8 leading-relaxed" style={{ color: '#cbd5e1' }}>
+              KI dekodiert Job-Beschreibungen, optimiert deinen CV für ATS-Systeme 
+              und zeigt dir Red Flags, bevor du dich bewirbst.
+            </p>
+          </div>
+
+          {/* RED FLAG TEASER COMPONENT */}
+          <RedFlagTeaser />
+        </div>
+      </section>
+
+      {/* Problem Section - STORYTELLING */}
+      <section style={{ 
+        paddingTop: '80px', 
+        paddingBottom: '80px', 
+        backgroundColor: '#0f172a'
+      }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px' }}>
+          
+          {/* Intro mit direkter Ansprache */}
+          <div style={{ 
+            textAlign: 'center', 
+            marginBottom: '64px',
+            maxWidth: '800px',
+            margin: '0 auto 64px'
+          }}>
+            <h2 style={{ 
+              fontSize: '42px', 
+              fontWeight: 'bold', 
+              color: '#ffffff',
+              marginBottom: '24px',
+              lineHeight: '1.2'
+            }}>
+              Kennst du das Gefühl?
+            </h2>
+            <p style={{ 
+              fontSize: '22px', 
+              color: '#cbd5e1',
+              lineHeight: '1.6',
+              marginBottom: '16px'
+            }}>
+              Du bewirbst dich, aber Jobbeschreibungen sind nicht immer klar. Und während du hunderte CVs verschickst, passiert... nichts.
+            </p>
+            <p style={{ 
+              fontSize: '18px', 
+              color: '#ef4444',
+              fontWeight: '600'
+            }}>
+              Du bist nicht allein. Hier sind echte Geschichten – und wie wir gemeinsam besser werden können:
+            </p>
+          </div>
+
+          {/* Story Cards */}
+          <div style={{ 
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '32px',
+            marginBottom: '56px'
+          }}>
+            
+            {/* Sabrina's Story */}
+            <div style={{ 
+              backgroundColor: '#1e293b', 
+              padding: '32px', 
+              borderRadius: '12px', 
+              borderLeft: '4px solid #ef4444',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+            }}>
+              <div style={{ marginBottom: '16px' }}>
+                <div style={{ 
+                  display: 'inline-block',
+                  backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                  color: '#ef4444',
+                  padding: '6px 12px',
+                  borderRadius: '6px',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  marginBottom: '12px'
+                }}>
+                  REAL STORY
+                </div>
+                <h3 style={{ 
+                  fontSize: '24px', 
+                  fontWeight: 'bold', 
+                  color: '#ffffff',
+                  marginBottom: '16px'
+                }}>
+                  Sabrina: 400 Bewerbungen. 3 Gespräche. 0 Jobangebote.
+                </h3>
+              </div>
+              <blockquote style={{ 
+                borderLeft: '3px solid #ef4444',
+                paddingLeft: '20px',
+                marginBottom: '16px',
+                fontStyle: 'italic',
+                color: '#e2e8f0',
+                fontSize: '17px',
+                lineHeight: '1.7'
+              }}>
+                "Master mit 1,4. Werkstudentenjobs bei namhaften Unternehmen. Drei Sprachen. Digital-Schwerpunkt. Aber keine 10 Jahre Berufserfahrung mit Tools, die es erst seit 2 gibt? Game Over."
+              </blockquote>
+              <p style={{ 
+                color: '#cbd5e1', 
+                fontSize: '16px',
+                lineHeight: '1.6'
+              }}>
+                Von 400+ Bewerbungen wurde sie von der Hälfte geghostet. Der Rest? Copy-Paste-Absagen. <strong style={{ color: '#ffffff' }}>Die Erkenntnis: Sie wusste nicht, welche Jobs wirklich zu ihr passen – und wie sie sich richtig präsentiert.</strong>
+              </p>
+            </div>
+
+            {/* Marta's Story */}
+            <div style={{ 
+              backgroundColor: '#1e293b', 
+              padding: '32px', 
+              borderRadius: '12px', 
+              borderLeft: '4px solid #ef4444',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+            }}>
+              <div style={{ marginBottom: '16px' }}>
+                <div style={{ 
+                  display: 'inline-block',
+                  backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                  color: '#ef4444',
+                  padding: '6px 12px',
+                  borderRadius: '6px',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  marginBottom: '12px'
+                }}>
+                  REAL STORY
+                </div>
+                <h3 style={{ 
+                  fontSize: '24px', 
+                  fontWeight: 'bold', 
+                  color: '#ffffff',
+                  marginBottom: '16px'
+                }}>
+                  Marta: Musste viral gehen, um überhaupt gesehen zu werden.
+                </h3>
+              </div>
+              <p style={{ 
+                color: '#e2e8f0', 
+                fontSize: '17px',
+                lineHeight: '1.7',
+                marginBottom: '16px'
+              }}>
+                Eine 29-jährige Marketing Managerin aus Madrid. Nach ihrer Entlassung: Dutzende Bewerbungen. Nur automatisierte Ablehnungen. Sie war qualifiziert, motiviert – aber <strong style={{ color: '#ffffff' }}>unsichtbar für das System</strong>.
+              </p>
+              <p style={{ 
+                color: '#cbd5e1', 
+                fontSize: '16px',
+                lineHeight: '1.6'
+              }}>
+                Erst als sie ein virales LinkedIn-Video erstellte und 300 Jobangebote bekam, meldeten sich plötzlich die Recruiter, die sie zuvor abgelehnt hatten. <strong style={{ color: '#ffffff' }}>Warum? Weil ihr CV am ATS gescheitert war, nicht an ihrer Qualifikation.</strong>
+              </p>
+            </div>
+
+            {/* Die Wahrheit Cards - kompakt */}
+            <div style={{ 
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '20px'
+            }}>
+              <div style={{ 
+                backgroundColor: '#1e293b', 
+                padding: '24px', 
+                borderRadius: '12px', 
+                borderLeft: '4px solid #ef4444'
+              }}>
+                <h4 style={{ 
+                  fontSize: '18px', 
+                  fontWeight: '600', 
+                  color: '#f1f5f9',
+                  marginBottom: '10px'
+                }}>
+                  10 Jahre Erfahrung in 2-Jahre-alten Tools
+                </h4>
+                <p style={{ color: '#cbd5e1', fontSize: '15px', lineHeight: '1.5' }}>
+                  Unrealistische Anforderungen, die nicht immer klar kommuniziert werden – wir helfen dir, sie zu erkennen
+                </p>
+              </div>
+
+              <div style={{ 
+                backgroundColor: '#1e293b', 
+                padding: '24px', 
+                borderRadius: '12px', 
+                borderLeft: '4px solid #ef4444'
+              }}>
+                <h4 style={{ 
+                  fontSize: '18px', 
+                  fontWeight: '600', 
+                  color: '#f1f5f9',
+                  marginBottom: '10px'
+                }}>
+                  50% Ghosting-Rate
+                </h4>
+                <p style={{ color: '#cbd5e1', fontSize: '15px', lineHeight: '1.5' }}>
+                  Viele Bewerbungen bleiben unbeantwortet. Oft liegt es am ATS-System – wir helfen dir, durchzukommen
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Der Pivot - Das ist das Spiel */}
+          <div style={{
+            textAlign: 'center',
+            padding: '40px 32px',
+            backgroundColor: '#1e293b',
+            borderRadius: '12px',
+            border: '2px solid #ef4444',
+            maxWidth: '700px',
+            margin: '0 auto'
+          }}>
+            <p style={{
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: '#ffffff',
+              marginBottom: '16px',
+              lineHeight: '1.3'
+            }}>
+              Das ist das Spiel.<br/>
+              Und es hat klare Regeln.
+            </p>
+            <p style={{
+              fontSize: '18px',
+              color: '#cbd5e1',
+              marginBottom: '24px'
+            }}>
+              Du musst nicht viral gehen oder 400 Bewerbungen schreiben, um gesehen zu werden.
+            </p>
+            <p style={{
+              fontSize: '20px',
+              color: '#ef4444',
+              fontWeight: '600'
+            }}>
+              Du musst nur die Regeln verstehen – und die richtigen Karten spielen.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Solution Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center mb-4">So funktioniert Smarter2Job</h2>
+          <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+            Drei simple Schritte zu strategischer Bewerbung
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <div className="text-center">
+              <div style={{ backgroundColor: '#0a4f5c', color: 'white', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 'bold', margin: '0 auto 24px' }}>
+                1
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Job-URL & CV hochladen</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Stellenbeschreibung und deinen Lebenslauf eingeben. Unsere KI startet die Analyse.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div style={{ backgroundColor: '#0a4f5c', color: 'white', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 'bold', margin: '0 auto 24px' }}>
+                2
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Zwischen-den-Zeilen-Report</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Erhalte Red Flags, versteckte Anforderungen, Fit-Score und klare Handlungsempfehlung.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div style={{ backgroundColor: '#0a4f5c', color: 'white', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 'bold', margin: '0 auto 24px' }}>
+                3
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">CV & LinkedIn optimieren</h3>
+              <p className="text-gray-600 leading-relaxed">
+                ATS-proof Lebenslauf und LinkedIn-Profil perfekt auf die Stelle zugeschnitten.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Karten Section */}
+      <section id="karten" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center mb-4">
+            Dein Blatt hat bis zu 9 Karten
+          </h2>
+          <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+            Von der Analyse bis zur Optimierung – jede Karte bringt dich näher ans Ziel
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="w-full max-w-6xl mx-auto bg-white rounded-lg shadow-md">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Karte</th>
+                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Name</th>
+                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Was sie macht</th>
+                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Verfügbar in</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr>
+                  <td className="px-6 py-4 text-2xl">🆓 1</td>
+                  <td className="px-6 py-4 font-medium">Red Flag Teaser</td>
+                  <td className="text-gray-600 px-6 py-4">3-5 Top Red Flags kostenlos</td>
+                  <td className="px-6 py-4 text-green-600 font-medium">Kostenlos</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-2xl">🔍 2</td>
+                  <td className="px-6 py-4 font-medium">Objektive Stellenanalyse</td>
+                  <td className="px-6 py-4 text-gray-600">10-15 Red Flags, Kultur-Score</td>
+                  <td className="px-6 py-4">Alle Packages</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-2xl">🎯 3</td>
+                  <td className="px-6 py-4 font-medium">Persönliche Red Flags</td>
+                  <td className="px-6 py-4 text-gray-600">Passt zu deinen Prioritäten?</td>
+                  <td className="px-6 py-4">Alle Packages*</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-2xl">✅ 4</td>
+                  <td className="px-6 py-4 font-medium">Fit-Score</td>
+                  <td className="px-6 py-4 text-gray-600">BEWIRB DICH oder LASS ES</td>
+                  <td className="px-6 py-4">Alle Packages</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-2xl">🔑 5</td>
+                  <td className="px-6 py-4 font-medium">ATS Keyword Research</td>
+                  <td className="px-6 py-4 text-gray-600">Welche Keywords brauchst du?</td>
+                  <td className="px-6 py-4">Alle Packages</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-2xl">💰 6</td>
+                  <td className="px-6 py-4 font-medium">Gehaltsband-Indikationen</td>
+                  <td className="px-6 py-4 text-gray-600">Was kannst du erwarten?</td>
+                  <td className="px-6 py-4 text-[#0a4f5c] font-medium">Professional+</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-2xl">✍️ 7</td>
+                  <td className="px-6 py-4 font-medium">CV-Umformulierung</td>
+                  <td className="px-6 py-4 text-gray-600">Pro Stelle ATS-optimiert</td>
+                  <td className="px-6 py-4 text-[#0a4f5c] font-medium">Professional+</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-2xl">📈 8</td>
+                  <td className="px-6 py-4 font-medium">LinkedIn-Optimierung</td>
+                  <td className="px-6 py-4 text-gray-600">Recruiter-Search-Match</td>
+                  <td className="px-6 py-4 text-[#0a4f5c] font-medium">Executive</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-2xl">🃏 9</td>
+                  <td className="px-6 py-4 font-medium">Anschreiben-Service</td>
+                  <td className="px-6 py-4 text-gray-600">Individuell pro Stelle</td>
+                  <td className="px-6 py-4 text-[#ff6b35] font-medium">Add-on</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-sm text-gray-500 mt-6 text-center">
+            *Karte 3 braucht ABC-Listen (via Workshop oder Loom-Video)
+          </p>
+
+          <div className="text-center mt-12">
+            <a 
+              href="#pricing"
+              className="inline-block bg-[#ff6b35] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#e55a2b] transition"
+            >
+              Welches Package passt zu dir? → Zu den Preisen
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Karten Details Section */}
+      <section 
+        id="karten-details" 
+        className="py-20"
+        style={{ backgroundColor: '#1e293b' }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center mb-4 text-white">
+            Dein Blatt kann bis zu 9 Karten haben
+          </h2>
+          <p className="text-xl text-center mb-16 max-w-3xl mx-auto" style={{ color: '#cbd5e1' }}>
+            Verschaffe dir einen unfairen Vorteil gegenüber deinen Mitspieler:innen – je mehr Karten du ins Spiel bringst, desto strategischer wird deine Bewerbung.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Karte 1: Red Flag Teaser */}
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-green-500 hover-lift">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-5xl">🆓</span>
+                <div>
+                  <h3 className="text-2xl font-semibold">Karte 1 – Red Flag Teaser</h3>
+                  <p className="text-gray-600 italic">"Die ersten 3 Karten aufdecken"</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">3-5 Top Red Flags sofort erkannt</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Per E-Mail binnen 1-2 Minuten</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Keine Anmeldung nötig</span>
+                </li>
+              </ul>
+
+              <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-lg font-semibold text-sm">
+                🆓 KOSTENLOS
+              </div>
+            </div>
+
+            {/* Karte 2: Objektive Stellenanalyse */}
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-5xl">🔍</span>
+                <div>
+                  <h3 className="text-2xl font-semibold">Karte 2 – Objektive Stellenanalyse</h3>
+                  <p className="text-gray-600 italic">"Zwischen den Zeilen lesen"</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">10-15 detaillierte Red Flags identifiziert</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Kultur-Score (0-100) mit Begründung</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Gesamtbewertung: Für wen geeignet?</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Realistischer Anforderungs-Check</span>
+                </li>
+              </ul>
+
+              <div className="inline-block bg-[#0a4f5c] bg-opacity-10 text-[#0a4f5c] px-4 py-2 rounded-lg font-semibold text-sm">
+                AB STARTER
+              </div>
+            </div>
+
+            {/* Karte 3: Persönliche Red Flags */}
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-5xl">🎯</span>
+                <div>
+                  <h3 className="text-2xl font-semibold">Karte 3 – Persönliche Red Flags</h3>
+                  <p className="text-gray-600 italic">"Passt die Stelle zu deinen Prioritäten?"</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-4">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Präferenz-Match-Score (0-100%)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Deal-Breaker-Check (deine No-Gos)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Empfehlung: Passt / Passt nicht</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Kritische Fragen fürs Interview</span>
+                </li>
+              </ul>
+
+              <p className="text-sm text-gray-500 italic mb-4">
+                Benötigt: Karriere-Navi + CV
+              </p>
+
+              <div className="inline-block bg-[#0a4f5c] bg-opacity-10 text-[#0a4f5c] px-4 py-2 rounded-lg font-semibold text-sm">
+                AB STARTER
+              </div>
+            </div>
+
+            {/* Karte 4: Fit-Score */}
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-5xl">✅</span>
+                <div>
+                  <h3 className="text-2xl font-semibold">Karte 4 – Fit-Score</h3>
+                  <p className="text-gray-600 italic">"Solltest du dich bewerben?"</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Fit-Score (0-100%) mit Visualisierung</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Skill-Match-Analyse (Was passt? Was fehlt?)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Gap-Analyse (Kritisch vs. Nice-to-have)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Klare Empfehlung: BEWIRB DICH oder LASS ES</span>
+                </li>
+              </ul>
+
+              <div className="inline-block bg-[#0a4f5c] bg-opacity-10 text-[#0a4f5c] px-4 py-2 rounded-lg font-semibold text-sm">
+                AB STARTER
+              </div>
+            </div>
+
+            {/* Karte 5: ATS Keyword Research */}
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-5xl">🔑</span>
+                <div>
+                  <h3 className="text-2xl font-semibold">Karte 5 – ATS Keyword Research</h3>
+                  <p className="text-gray-600 italic">"Welche Keywords brauchst du?"</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Must-have-Keywords aus Job-Description</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Fehlende Keywords in deinem CV</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Platzierungs-Tipps (wo ergänzen?)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Keyword-Stuffing-Warnung</span>
+                </li>
+              </ul>
+
+              <div className="inline-block bg-[#0a4f5c] bg-opacity-10 text-[#0a4f5c] px-4 py-2 rounded-lg font-semibold text-sm">
+                AB STARTER
+              </div>
+            </div>
+
+            {/* Karte 6: Gehaltsband-Indikationen */}
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#083d47] hover-lift">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-5xl">💰</span>
+                <div>
+                  <h3 className="text-2xl font-semibold">Karte 6 – Gehaltsband-Indikationen</h3>
+                  <p className="text-gray-600 italic">"Was kannst du erwarten?"</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Geschätzte Gehaltsspanne (z.B. 58.000-72.000€)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Marktvergleich (Branche, Rolle, Region)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Verhandlungstipps</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Warnung bei fehlenden Gehaltsangaben</span>
+                </li>
+              </ul>
+
+              <div className="inline-block bg-[#083d47] bg-opacity-10 text-[#083d47] px-4 py-2 rounded-lg font-semibold text-sm">
+                AB PROFESSIONAL
+              </div>
+            </div>
+
+            {/* Karte 7: CV-Umformulierung */}
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#083d47] hover-lift">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-5xl">✍️</span>
+                <div>
+                  <h3 className="text-2xl font-semibold">Karte 7 – CV-Umformulierung</h3>
+                  <p className="text-gray-600 italic">"ATS-optimiert &amp; überzeugend"</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Professional Summary neu formuliert</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Alle Job-Stationen achievement-basiert</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Skills-Section strukturiert</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Copy-paste-fertige Texte</span>
+                </li>
+              </ul>
+
+              <div className="inline-block bg-[#083d47] bg-opacity-10 text-[#083d47] px-4 py-2 rounded-lg font-semibold text-sm">
+                AB PROFESSIONAL
+              </div>
+            </div>
+
+            {/* Karte 8: LinkedIn-Optimierung */}
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-orange-500 hover-lift">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-5xl">📈</span>
+                <div>
+                  <h3 className="text-2xl font-semibold">Karte 8 – LinkedIn-Optimierung</h3>
+                  <p className="text-gray-600 italic">"Werde von Recruitern gefunden"</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Keyword-optimierte Headline (220 Zeichen)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">About-Section komplett neu (3-4 Absätze)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Experience-Bullets pro Station optimiert</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Recruiter-Search-Match-Check</span>
+                </li>
+              </ul>
+
+              <div className="inline-block bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-semibold text-sm">
+                NUR EXECUTIVE
+              </div>
+            </div>
+
+            {/* Karte 9: Anschreiben-Service */}
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-orange-500 hover-lift">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-5xl">🃏</span>
+                <div>
+                  <h3 className="text-2xl font-semibold">Karte 9 – Anschreiben-Service</h3>
+                  <p className="text-gray-600 italic">"Individuell pro Stelle"</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Stellenspezifisches Anschreiben (3-4 Absätze)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Adressiert Red Flags proaktiv</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Betont Top-Matches aus Fit-Score</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">ATS-optimiert mit Keywords</span>
+                </li>
+              </ul>
+
+              <div className="inline-block bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-semibold text-sm">
+                ADD-ON (ab 49€)
+              </div>
+            </div>
+          </div>
+
+          {/* CTA nach den Karten */}
+          <div className="text-center mt-16">
+            <a 
+              href="#pricing"
+              className="inline-block bg-[#ff6b35] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              Wähle dein Set → Zu den Preisen
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center mb-16">Dein unfairer Vorteil</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+            <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
+              <Target className="w-12 h-12 text-[#ff6b35] mb-6" />
+              <h3 className="text-2xl font-semibold mb-4">Red-Flag-Detektor</h3>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Erkenne versteckte Warnzeichen, bevor du Zeit verschwendest. Unsere KI analysiert Formulierungen, die auf Probleme hindeuten.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Unterbesetzungs-Indikatoren
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Unrealistische Anforderungen
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Kultur-Warnsignale
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
+              <Zap className="w-12 h-12 text-[#ff6b35] mb-6" />
+              <h3 className="text-2xl font-semibold mb-4">Fit-Score & Handlungsempfehlung</h3>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Objektive Bewertung: Solltest du dich bewerben oder nicht? Keine Bauchgefühle mehr – klare Daten.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Skill-Match-Prozentsatz
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Kritische Gap-Analyse
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Bewirb dich / Lass es
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
+              <FileText className="w-12 h-12 text-[#ff6b35] mb-6" />
+              <h3 className="text-2xl font-semibold mb-4">ATS-Optimierung</h3>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Dein CV kommt durch den Robot zum Menschen. Wir optimieren Keywords, Format und Struktur für maximale ATS-Kompatibilität.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Keyword-Matching
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Format-Check
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  ATS-Score
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
+              <Linkedin className="w-12 h-12 text-[#ff6b35] mb-6" />
+              <h3 className="text-2xl font-semibold mb-4">LinkedIn-Profil-Optimierung</h3>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Matche mit Recruiter-Suchen und werde gefunden. Optimierung von Header, About und Experience für maximale Sichtbarkeit.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Keyword-optimierte Headline
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  About-Section-Rewrite
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Recruiter-Search-Match
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
+              <span className="text-5xl mb-6 block">💰</span>
+              <h3 className="text-2xl font-semibold mb-4">Gehaltsband-Indikationen</h3>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Erfahre, was du finanziell erwarten kannst. Marktgerechte Einschätzung basierend auf Branche, Rolle und Standort.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Geschätzte Gehaltsspanne
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Marktvergleich
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  Verhandlungstipps
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <p className="text-2xl font-semibold text-[#0a4f5c] mb-4">
+              10 strategische Bewerbungen statt 100 Blindflüge
+            </p>
+            <p className="text-lg text-gray-600">Mehr Erfolgsquote, weniger Frust</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center mb-4">Wähle dein Set</h2>
+          <p className="text-xl text-gray-600 text-center mb-16">
+            7 Tage Geld-zurück-Garantie
+          </p>
+
+          <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto items-stretch justify-center">
+            {/* Starter */}
+            <div className="flex-1 bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200 hover:border-[#0a4f5c] transition flex flex-col">
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold mb-2 text-gray-900">Starter</h3>
+                <p className="text-gray-600">Für erste Schritte</p>
+              </div>
+              <div className="mb-6">
+                <span className="text-5xl font-bold text-gray-900">49€</span>
+                <span className="text-gray-600">/Monat</span>
+              </div>
+              <ul className="space-y-4 mb-8 flex-grow">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">3 Job-Analysen</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Red-Flag-Analyse</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Fit-Score &amp; Handlungsempfehlung</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">ATS Keyword Research</span>
+                </li>
+              </ul>
+              <a
+                href="mailto:post@martinbeyer.de?subject=Ich%20m%C3%B6chte%20gerne%20das%20Starter%20Paket%20f%C3%BCr%2049%20Euro%20buchen.&body=Hallo,%0A%0Aich%20m%C3%B6chte%20gerne%20das%20Starter%20Paket%20buchen.%0A%0AVorname:%0ANachname:%0AAdresse:%0A%0AViele%20Gr%C3%BC%C3%9Fe"
+                className="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition shadow-md hover:shadow-lg mt-auto text-center"
+              >
+                Jetzt starten
+              </a>
+            </div>
+
+            {/* Professional - Featured */}
+            <div className="flex-1 rounded-xl shadow-2xl p-8 border-4 relative flex flex-col" style={{ backgroundColor: '#0a4f5c', borderColor: '#ff6b35' }}>
+              <div style={{ position: 'absolute', top: '-16px', left: '50%', transform: 'translateX(-50%)', backgroundColor: '#ff6b35', color: 'white', padding: '8px 24px', borderRadius: '9999px', fontSize: '14px', fontWeight: 'bold' }}>
+                Beliebteste
+              </div>
+              <div className="mb-6 mt-4">
+                <h3 className="text-2xl font-bold mb-2" style={{ color: 'white' }}>Professional</h3>
+                <p style={{ color: '#d1d5db' }}>Für aktive Jobsuche</p>
+              </div>
+              <div className="mb-6">
+                <span className="text-5xl font-bold" style={{ color: 'white' }}>129€</span>
+                <span style={{ color: '#d1d5db' }}>/Monat</span>
+              </div>
+              <ul className="space-y-4 mb-8 flex-grow">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
+                  <span style={{ color: 'white' }}>7 Job-Analysen</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
+                  <span style={{ color: 'white' }}>CV-Optimierung (pro Stelle ATS-optimiert)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
+                  <span style={{ color: 'white' }}>Erweiterte Red-Flag-Analyse</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
+                  <span style={{ color: 'white' }}>Gehaltsband-Indikationen</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
+                  <span style={{ color: 'white' }}>ATS Keyword Research</span>
+                </li>
+              </ul>
+              <a
+                href="mailto:post@martinbeyer.de?subject=Ich%20m%C3%B6chte%20gerne%20das%20Professional%20Paket%20f%C3%BCr%20129%20Euro%20buchen.&body=Hallo,%0A%0Aich%20m%C3%B6chte%20gerne%20das%20Professional%20Paket%20buchen.%0A%0AVorname:%0ANachname:%0AAdresse:%0A%0AViele%20Gr%C3%BC%C3%9Fe"
+                className="w-full py-3 rounded-lg font-semibold transition shadow-lg hover:shadow-xl transform hover:scale-105 mt-auto text-center"
+                style={{ backgroundColor: '#ff6b35', color: 'white', border: 'none', cursor: 'pointer' }}
+              >
+                Jetzt starten
+              </a>
+            </div>
+
+            {/* Executive */}
+            <div className="flex-1 bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200 hover:border-[#0a4f5c] transition flex flex-col">
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold mb-2 text-gray-900">Executive</h3>
+                <p className="text-gray-600">Für Volloptimierung</p>
+              </div>
+              <div className="mb-6">
+                <span className="text-5xl font-bold text-gray-900">249€</span>
+                <span className="text-gray-600">/Monat</span>
+              </div>
+              <ul className="space-y-4 mb-8 flex-grow">
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">10 Job-Analysen</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">CV-Optimierung (pro Stelle)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">LinkedIn-Optimierung (1-2x)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Erweiterte Red-Flag-Analyse</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Gehaltsband-Indikationen</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Priorisierte Verarbeitung (24h)</span>
+                </li>
+              </ul>
+              <a
+                href="mailto:post@martinbeyer.de?subject=Ich%20m%C3%B6chte%20gerne%20das%20Executive%20Paket%20f%C3%BCr%20249%20Euro%20buchen.&body=Hallo,%0A%0Aich%20m%C3%B6chte%20gerne%20das%20Executive%20Paket%20buchen.%0A%0AVorname:%0ANachname:%0AAdresse:%0A%0AViele%20Gr%C3%BC%C3%9Fe"
+                className="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition shadow-md hover:shadow-lg mt-auto text-center"
+              >
+                Jetzt starten
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center mb-16">Häufige Fragen</h2>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full px-6 py-5 flex justify-between items-center text-left hover:bg-gray-50 transition rounded-lg"
+                >
+                  <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
+                  <ChevronDown 
+                    className={`w-5 h-5 text-gray-500 transition-transform ${
+                      openFaq === index ? 'transform rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-5">
+                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section style={{ 
+        paddingTop: '80px', 
+        paddingBottom: '80px',
+        backgroundColor: '#0a4f5c'
+      }}>
+        <div style={{ 
+          maxWidth: '1024px', 
+          margin: '0 auto', 
+          textAlign: 'center',
+          padding: '0 24px'
+        }}>
+          <h2 style={{ 
+            fontSize: '48px',
+            fontWeight: 'bold',
+            marginBottom: '24px',
+            color: '#ffffff',
+            lineHeight: '1.2'
+          }}>
+            Bewirb dich smarter, nicht härter
+          </h2>
+          <p style={{ 
+            fontSize: '20px',
+            marginBottom: '32px',
+            color: '#e5e7eb'
+          }}>
+            Nimm dir die Zeit am Desktop, die deine Karriere verdient.
+          </p>
+          <button 
+            style={{ 
+              backgroundColor: '#ff6b35',
+              color: '#ffffff',
+              padding: '16px 40px',
+              borderRadius: '8px',
+              fontSize: '18px',
+              fontWeight: '600',
+              border: 'none',
+              cursor: 'pointer',
+              boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = '#e55a2b';
+              e.currentTarget.style.transform = 'scale(1.05)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = '#ff6b35';
+              e.currentTarget.style.transform = 'scale(1)';
+            }}
+          >
+            Jetzt einsteigen
+          </button>
+          <p style={{ 
+            fontSize: '14px',
+            marginTop: '16px',
+            color: '#d1d5db'
+          }}>
+            7 Tage Geld-zurück-Garantie • Monatlich kündbar
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-400 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <div className="text-2xl font-bold text-white mb-4">Smarter2Job</div>
+              <p className="text-sm">Das Spiel hat Regeln. Wir zeigen dir, wie du mitspielen kannst.</p>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Produkt</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#karten" className="hover:text-white transition">Karten</a></li>
+                <li><a href="#karten-details" className="hover:text-white transition">Features</a></li>
+                <li><a href="#pricing" className="hover:text-white transition">Pricing</a></li>
+                <li><a href="#faq" className="hover:text-white transition">FAQ</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link to="/impressum" className="hover:text-white transition">Impressum</Link></li>
+                <li><Link to="/datenschutz" className="hover:text-white transition">Datenschutz</Link></li>
+                <li><Link to="/agb" className="hover:text-white transition">AGB</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+            <p>&copy; 2025 Martin Beyer / Smarter2Job. Alle Rechte vorbehalten.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
