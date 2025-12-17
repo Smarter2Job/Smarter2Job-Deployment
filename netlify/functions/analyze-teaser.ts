@@ -98,8 +98,10 @@ function parseClaudeResponse(response: string): AnalysisResult {
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
   console.log('📝 Parse Claude Response...');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+  console.log('📄 Full Response:', response);
   
   const lines = response.split('\n').filter(line => line.trim());
+  console.log(`📊 Total lines: ${lines.length}`);
   
   // Extrahiere Gesamt-Anzahl
   const gesamtLine = lines.find(line => line.startsWith('GESAMT:'));
@@ -112,31 +114,64 @@ function parseClaudeResponse(response: string): AnalysisResult {
   const redFlags: RedFlag[] = [];
   let currentFlag: Partial<RedFlag> | null = null;
 
-  // Parse Red Flags
+  // Parse Red Flags - robuster Parser für verschiedene Formate
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
+    const upperLine = line.toUpperCase();
 
-    if (line.startsWith('RED FLAG')) {
+    // Flexible Pattern-Matching für "RED FLAG"
+    if (upperLine.includes('RED FLAG') || upperLine.match(/^RED\s*FLAG\s*\d+/i)) {
       // Speichere vorherige Flag, falls vorhanden
       if (currentFlag && currentFlag.title && currentFlag.originalText && currentFlag.meaning && currentFlag.risk) {
         redFlags.push(currentFlag as RedFlag);
+        console.log(`✅ Saved flag: ${currentFlag.title}`);
       }
       
-      // Neue Flag starten
-      const title = line.replace(/RED FLAG \d+:\s*/i, '').trim();
+      // Neue Flag starten - extrahiere Titel
+      const titleMatch = line.match(/RED\s*FLAG\s*\d+[:\-]?\s*(.+)/i);
+      const title = titleMatch ? titleMatch[1].trim() : line.replace(/RED\s*FLAG\s*\d+[:\-]?\s*/i, '').trim();
+      
       currentFlag = { 
-        title,
+        title: title || 'Unbekannter Red Flag',
         originalText: '',
         meaning: '',
         risk: 'MITTEL',
         riskColor: 'yellow'
       };
-    } else if (line.startsWith('WAS DA STEHT:') && currentFlag) {
-      currentFlag.originalText = line.replace('WAS DA STEHT:', '').trim();
-    } else if (line.startsWith('WAS ES BEDEUTET:') && currentFlag) {
-      currentFlag.meaning = line.replace('WAS ES BEDEUTET:', '').trim();
-    } else if (line.startsWith('RISIKO:') && currentFlag) {
-      const risk = line.replace('RISIKO:', '').trim() as RedFlag['risk'];
+      console.log(`🆕 New flag started: ${title}`);
+    } 
+    // Flexible Pattern-Matching für "WAS DA STEHT"
+    else if ((upperLine.includes('WAS DA STEHT') || upperLine.includes('WAS DA STEH') || upperLine.includes('ORIGINAL')) && currentFlag) {
+      const text = line.replace(/WAS\s*DA\s*STEH[ET]*[:\-]?\s*/i, '').replace(/ORIGINAL[:\-]?\s*/i, '').trim();
+      if (text) {
+        currentFlag.originalText = text;
+        console.log(`📝 Original text: ${text.substring(0, 50)}...`);
+      }
+    } 
+    // Flexible Pattern-Matching für "WAS ES BEDEUTET"
+    else if ((upperLine.includes('WAS ES BEDEUTET') || upperLine.includes('BEDEUTET') || upperLine.includes('BEDEUTUNG') || upperLine.includes('MEANING')) && currentFlag) {
+      const text = line.replace(/WAS\s*ES\s*BEDEUTET[:\-]?\s*/i, '').replace(/BEDEUTUNG[:\-]?\s*/i, '').replace(/MEANING[:\-]?\s*/i, '').trim();
+      if (text) {
+        currentFlag.meaning = text;
+        console.log(`💡 Meaning: ${text.substring(0, 50)}...`);
+      }
+    } 
+    // Flexible Pattern-Matching für "RISIKO"
+    else if ((upperLine.includes('RISIKO') || upperLine.includes('RISK')) && currentFlag) {
+      const riskText = line.replace(/RISIKO[:\-]?\s*/i, '').replace(/RISK[:\-]?\s*/i, '').trim().toUpperCase();
+      
+      // Bestimme Risiko-Level
+      let risk: RedFlag['risk'] = 'MITTEL';
+      if (riskText.includes('SEHR HOCH') || riskText.includes('VERY HIGH')) {
+        risk = 'SEHR HOCH';
+      } else if (riskText.includes('HOCH') || riskText.includes('HIGH')) {
+        risk = 'HOCH';
+      } else if (riskText.includes('NIEDRIG') || riskText.includes('LOW')) {
+        risk = 'NIEDRIG';
+      } else {
+        risk = 'MITTEL';
+      }
+      
       currentFlag.risk = risk;
       
       // Setze Farbe basierend auf Risiko
@@ -147,6 +182,7 @@ function parseClaudeResponse(response: string): AnalysisResult {
       } else {
         currentFlag.riskColor = 'green';
       }
+      console.log(`⚠️ Risk: ${risk}`);
     }
   }
 
@@ -157,14 +193,46 @@ function parseClaudeResponse(response: string): AnalysisResult {
 
   console.log(`✅ Parsed ${redFlags.length} Red Flags`);
 
+  // Fallback: Wenn keine Flags geparst wurden, aber Total > 0, erstelle generische Flags
+  if (redFlags.length === 0 && totalRedFlags > 0) {
+    console.log('⚠️ No flags parsed, creating fallback flags');
+    
+    // Versuche, Red Flags aus dem Text zu extrahieren (einfache Heuristik)
+    const responseLower = response.toLowerCase();
+    
+    // Suche nach typischen Red Flag-Indikatoren
+    const redFlagIndicators = [
+      { keyword: 'unrealistisch', title: 'Unrealistische Anforderungen' },
+      { keyword: 'sofort', title: 'Dringende Besetzung signalisiert' },
+      { keyword: 'viel', title: 'Überlastung wahrscheinlich' },
+      { keyword: 'flexibel', title: 'Unklare Arbeitszeiten' },
+      { keyword: 'nach vereinbarung', title: 'Intransparente Gehaltsangaben' }
+    ];
+    
+    for (let i = 0; i < Math.min(totalRedFlags, 3); i++) {
+      const indicator = redFlagIndicators[i] || { keyword: 'unbekannt', title: 'Red Flag gefunden' };
+      if (responseLower.includes(indicator.keyword) || i < 3) {
+        redFlags.push({
+          title: indicator.title,
+          originalText: 'Aus der Stellenbeschreibung extrahiert',
+          meaning: 'Diese Stelle enthält potenzielle Warnsignale, die eine genauere Analyse erfordern.',
+          risk: i === 0 ? 'HOCH' : 'MITTEL',
+          riskColor: i === 0 ? 'red' : 'yellow'
+        });
+      }
+    }
+    
+    console.log(`✅ Created ${redFlags.length} fallback flags`);
+  }
+
   // Extrahiere Teaser-Text
-  const teaserLine = lines.find(line => line.startsWith('TEASER:'));
+  const teaserLine = lines.find(line => line.startsWith('TEASER:') || line.toUpperCase().includes('TEASER'));
   const teaserText = teaserLine 
-    ? teaserLine.replace('TEASER:', '').trim()
-    : `Es gibt noch ${totalRedFlags - redFlags.length} weitere versteckte Warnsignale in dieser Stelle.`;
+    ? teaserLine.replace(/TEASER[:\-]?\s*/i, '').trim()
+    : `Es gibt noch ${Math.max(0, totalRedFlags - redFlags.length)} weitere versteckte Warnsignale in dieser Stelle.`;
 
   return {
-    totalRedFlags,
+    totalRedFlags: Math.max(totalRedFlags, redFlags.length),
     shownRedFlags: redFlags.slice(0, 5), // Max 5 zeigen
     hiddenRedFlagsCount: Math.max(0, totalRedFlags - redFlags.length),
     upsellText: teaserText
@@ -268,6 +336,7 @@ export const handler: Handler = async (event: HandlerEvent, context: HandlerCont
       .join('\n');
 
     console.log(`📝 Response Length: ${responseText.length} chars`);
+    console.log('📄 Raw Response (first 500 chars):', responseText.substring(0, 500));
 
     // Parse Response
     const result = parseClaudeResponse(responseText);

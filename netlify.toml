@@ -10,8 +10,3 @@
 [functions]
   node_bundler = "esbuild"
   included_files = ["netlify/functions/**"]
-
-[[functions]]
-  path = "netlify/functions/analyze-teaser.ts"
-  timeout = 26
-
