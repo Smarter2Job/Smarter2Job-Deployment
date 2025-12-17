@@ -247,9 +247,11 @@ export const handler: Handler = async (event: HandlerEvent, context: HandlerCont
     const startTime = Date.now();
 
     // Claude API Call
+    // Haiku 4.5: 3-5x schneller und 10x günstiger als Sonnet
+    // Perfekt für Red Flag Teaser (3-5 Red Flags reichen völlig aus)
     const message = await anthropic.messages.create({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 2000,
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 1000,
       messages: [{
         role: 'user',
         content: `${MODUL_0_PROMPT}\n\n${jobText}`
