@@ -71,7 +71,9 @@ export default function Smarter2JobLanding() {
             <div className="hidden md:flex gap-8">
               <a href="#karten" className="text-gray-600 hover:text-[#0a4f5c] transition">Karten</a>
               <a href="#pricing" className="text-gray-600 hover:text-[#0a4f5c] transition">Pricing</a>
-              <a href="#checkliste" className="text-gray-600 hover:text-[#0a4f5c] transition">Checkliste</a>
+              <a href="#checkliste" className="text-gray-600 hover:text-[#0a4f5c] transition font-semibold">
+                🎁 Gratis Checkliste
+              </a>
               <a href="#faq" className="text-gray-600 hover:text-[#0a4f5c] transition">FAQ</a>
             </div>
             <button 
