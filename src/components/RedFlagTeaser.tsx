@@ -50,7 +50,20 @@ export default function RedFlagTeaser() {
       }
 
       const data: AnalysisResult = await response.json();
+      
+      console.log('📊 Received data:', data);
+      console.log('📊 Red Flags count:', data.shownRedFlags?.length || 0);
+      
+      // Prüfe ob Daten vorhanden sind
+      if (!data || !data.shownRedFlags || data.shownRedFlags.length === 0) {
+        console.warn('⚠️ No red flags in response:', data);
+        setError('Die Analyse wurde durchgeführt, aber es wurden keine Red Flags gefunden. Bitte versuche es mit einer anderen Stellenbeschreibung.');
+        setLoading(false);
+        return;
+      }
+      
       setResult(data);
+      setLoading(false);
 
       // Smooth scroll zum Ergebnis
       setTimeout(() => {
@@ -197,54 +210,70 @@ export default function RedFlagTeaser() {
           {/* Header */}
           <div className="bg-white rounded-xl shadow-lg p-8 text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              🚨 Wir haben {result.totalRedFlags} krasse Red Flags gefunden
+              🚨 Wir haben {result.totalRedFlags || 0} krasse Red Flags gefunden
             </h2>
             <p className="text-gray-600">
-              Hier sind die {result.shownRedFlags.length} kritischsten:
+              Hier sind die {result.shownRedFlags?.length || 0} kritischsten:
             </p>
+            {(!result.shownRedFlags || result.shownRedFlags.length === 0) && (
+              <div className="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded">
+                <p className="text-yellow-700">
+                  ⚠️ Die Analyse wurde durchgeführt, aber es wurden keine detaillierten Red Flags extrahiert. 
+                  Bitte versuche es mit einer längeren Stellenbeschreibung (mindestens 200 Zeichen).
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Red Flag Cards */}
-          {result.shownRedFlags.map((flag, index) => (
-            <div
-              key={index}
-              className={`bg-white rounded-xl shadow-md p-6 border-l-4 ${getBorderColor(flag.riskColor)} hover:shadow-lg transition`}
-            >
-              <div className="flex items-start gap-3 mb-3">
-                <span className="text-3xl">{getRiskIcon(flag.risk)}</span>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                    RED FLAG #{index + 1}: {flag.title}
-                  </h3>
+          {result.shownRedFlags && result.shownRedFlags.length > 0 ? (
+            result.shownRedFlags.map((flag, index) => (
+              <div
+                key={index}
+                className={`bg-white rounded-xl shadow-md p-6 border-l-4 ${getBorderColor(flag.riskColor)} hover:shadow-lg transition`}
+              >
+                <div className="flex items-start gap-3 mb-3">
+                  <span className="text-3xl">{getRiskIcon(flag.risk)}</span>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-1">
+                      RED FLAG #{index + 1}: {flag.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="ml-12 space-y-3">
+                  <div>
+                    <p className="text-sm font-semibold text-gray-700 mb-1">Was da steht:</p>
+                    <p className="text-gray-600 italic">"{flag.originalText}"</p>
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold text-gray-700 mb-1">Was es bedeutet:</p>
+                    <p className="text-gray-800">{flag.meaning}</p>
+                  </div>
+
+                  <div className="flex items-center gap-2 pt-2">
+                    <span className="text-sm font-semibold text-gray-700">Risiko:</span>
+                    <span className={`px-3 py-1 rounded-full text-sm font-bold ${
+                      flag.riskColor === 'red' 
+                        ? 'bg-red-100 text-red-700' 
+                        : flag.riskColor === 'yellow'
+                        ? 'bg-yellow-100 text-yellow-700'
+                        : 'bg-green-100 text-green-700'
+                    }`}>
+                      {getRiskIcon(flag.risk)} {flag.risk}
+                    </span>
+                  </div>
                 </div>
               </div>
-
-              <div className="ml-12 space-y-3">
-                <div>
-                  <p className="text-sm font-semibold text-gray-700 mb-1">Was da steht:</p>
-                  <p className="text-gray-600 italic">"{flag.originalText}"</p>
-                </div>
-
-                <div>
-                  <p className="text-sm font-semibold text-gray-700 mb-1">Was es bedeutet:</p>
-                  <p className="text-gray-800">{flag.meaning}</p>
-                </div>
-
-                <div className="flex items-center gap-2 pt-2">
-                  <span className="text-sm font-semibold text-gray-700">Risiko:</span>
-                  <span className={`px-3 py-1 rounded-full text-sm font-bold ${
-                    flag.riskColor === 'red' 
-                      ? 'bg-red-100 text-red-700' 
-                      : flag.riskColor === 'yellow'
-                      ? 'bg-yellow-100 text-yellow-700'
-                      : 'bg-green-100 text-green-700'
-                  }`}>
-                    {getRiskIcon(flag.risk)} {flag.risk}
-                  </span>
-                </div>
-              </div>
+            ))
+          ) : (
+            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded">
+              <p className="text-yellow-700">
+                ⚠️ Keine Red Flags konnten extrahiert werden. Bitte versuche es mit einer längeren Stellenbeschreibung (mindestens 200 Zeichen).
+              </p>
             </div>
-          ))}
+          )}
 
           {/* Upsell Box */}
           <div className="bg-[#0a4f5c] rounded-xl shadow-xl p-8 text-white">
