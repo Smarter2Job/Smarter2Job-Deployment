@@ -212,11 +212,12 @@ export const handler: Handler = async (event: HandlerEvent, context: HandlerCont
     
     if (!apiKey) {
       console.error('❌ KRITISCHER FEHLER: Kein API Key gefunden!');
+      console.error('   ⚠️  Bitte CLAUDE_API_KEY in Netlify Environment Variables setzen');
       return {
-        statusCode: 500,
+        statusCode: 503,
         headers,
         body: JSON.stringify({ 
-          error: 'Claude API Key nicht konfiguriert. Bitte setze CLAUDE_API_KEY in Netlify Environment Variables.' 
+          error: 'Die Analyse ist vorübergehend nicht verfügbar. Bitte versuche es später erneut.' 
         }),
       };
     }

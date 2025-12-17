@@ -3,6 +3,7 @@ import Smarter2JobLanding from './components/Smarter2JobLanding'
 import Impressum from './pages/Impressum'
 import Datenschutz from './pages/Datenschutz'
 import AGB from './pages/AGB'
+import Danke from './pages/Danke'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/impressum" element={<Impressum />} />
       <Route path="/datenschutz" element={<Datenschutz />} />
       <Route path="/agb" element={<AGB />} />
+      <Route path="/danke" element={<Danke />} />
     </Routes>
   )
 }

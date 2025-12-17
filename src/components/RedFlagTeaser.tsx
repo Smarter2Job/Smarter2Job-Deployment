@@ -62,7 +62,17 @@ export default function RedFlagTeaser() {
 
     } catch (err: any) {
       console.error('Analysis error:', err);
-      setError(err.message || 'Etwas ist schiefgelaufen. Bitte versuche es erneut.');
+      
+      // Benutzerfreundliche Fehlermeldung, verstecke technische Details
+      let userFriendlyError = 'Etwas ist schiefgelaufen. Bitte versuche es erneut.';
+      
+      if (err.message && err.message.includes('API Key')) {
+        userFriendlyError = 'Die Analyse ist vorübergehend nicht verfügbar. Bitte versuche es später erneut oder kontaktiere uns unter post@martinbeyer.de';
+      } else if (err.message && err.message.includes('zu kurz')) {
+        userFriendlyError = err.message; // Diese Meldung ist benutzerfreundlich
+      }
+      
+      setError(userFriendlyError);
       setLoading(false);
     }
   };

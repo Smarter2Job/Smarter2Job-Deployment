@@ -5,9 +5,37 @@ import RedFlagTeaser from './RedFlagTeaser';
 
 export default function Smarter2JobLanding() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [checklistSubmitted, setChecklistSubmitted] = useState(false);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const handleChecklistSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString()
+      });
+      
+      setChecklistSubmitted(true);
+      
+      // Trigger Download
+      window.location.href = '/downloads/CV_Basics_Checkliste.pdf';
+      
+      // Redirect nach 2 Sekunden
+      setTimeout(() => {
+        window.location.href = '/danke';
+      }, 2000);
+      
+    } catch (error) {
+      alert('Fehler beim Absenden. Bitte versuche es erneut.');
+    }
   };
 
   const faqs = [
@@ -43,6 +71,7 @@ export default function Smarter2JobLanding() {
             <div className="hidden md:flex gap-8">
               <a href="#karten" className="text-gray-600 hover:text-[#0a4f5c] transition">Karten</a>
               <a href="#pricing" className="text-gray-600 hover:text-[#0a4f5c] transition">Pricing</a>
+              <a href="#checkliste" className="text-gray-600 hover:text-[#0a4f5c] transition">Checkliste</a>
               <a href="#faq" className="text-gray-600 hover:text-[#0a4f5c] transition">FAQ</a>
             </div>
             <button 
@@ -1190,6 +1219,112 @@ export default function Smarter2JobLanding() {
           }}>
             7 Tage Geld-zurück-Garantie • Monatlich kündbar
           </p>
+        </div>
+      </section>
+
+      {/* Lead-Magnet Section: CV-Basics-Checkliste */}
+      <section id="checkliste" className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          
+          {/* Icon/Badge */}
+          <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold text-sm mb-6">
+            🎁 KOSTENLOS
+          </div>
+
+          {/* Headline */}
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            CV-Basics-Checkliste: ATS-optimiert
+          </h2>
+
+          {/* Subheadline */}
+          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            70% aller CVs scheitern am ATS-Robot, BEVOR ein Mensch sie sieht.<br/>
+            Mit dieser Checkliste gehörst du zu den 30%, die durchkommen.
+          </p>
+
+          {/* Value Bullets */}
+          <div className="grid md:grid-cols-3 gap-6 mb-10 max-w-3xl mx-auto">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="text-3xl mb-3">✅</div>
+              <h3 className="font-semibold mb-2">10 Checkpunkte</h3>
+              <p className="text-sm text-gray-600">Von Format bis Keywords – alles abgedeckt</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="text-3xl mb-3">📊</div>
+              <h3 className="font-semibold mb-2">Vorher/Nachher</h3>
+              <p className="text-sm text-gray-600">Konkrete Beispiele zeigen den Unterschied</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="text-3xl mb-3">🚀</div>
+              <h3 className="font-semibold mb-2">Sofort umsetzbar</h3>
+              <p className="text-sm text-gray-600">Keine Theorie, nur Praxis</p>
+            </div>
+          </div>
+
+          {/* Email Opt-in Form */}
+          {checklistSubmitted ? (
+            <div className="bg-green-50 p-6 rounded-lg border-2 border-green-500 max-w-lg mx-auto">
+              <h3 className="text-xl font-semibold text-green-700 mb-2">
+                🎉 Fast geschafft!
+              </h3>
+              <p className="text-green-600 mb-2">
+                Der Download startet automatisch. Falls nicht, klicke{' '}
+                <a href="/downloads/CV_Basics_Checkliste.pdf" className="underline font-semibold" download>
+                  hier
+                </a>.
+              </p>
+              <p className="text-sm text-gray-600 mt-4">
+                Prüfe dein Postfach für die Workshop-Einladung!
+              </p>
+            </div>
+          ) : (
+            <div className="bg-white p-8 rounded-xl shadow-lg max-w-lg mx-auto">
+              <form 
+                name="cv-checklist" 
+                method="POST" 
+                data-netlify="true"
+                onSubmit={handleChecklistSubmit}
+                className="space-y-4"
+              >
+                <input type="hidden" name="form-name" value="cv-checklist" />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Deine E-Mail-Adresse"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ff6b35] focus:border-transparent"
+                />
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: '#ff6b35',
+                    color: 'white',
+                    padding: '16px 32px',
+                    borderRadius: '8px',
+                    fontSize: '18px',
+                    fontWeight: '600',
+                    width: '100%',
+                    border: 'none',
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 12px rgba(255, 107, 53, 0.3)'
+                  }}
+                  onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#e55a2b')}
+                  onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#ff6b35')}
+                >
+                  Checkliste kostenlos herunterladen
+                </button>
+              </form>
+              <p className="text-xs text-gray-500 mt-4">
+                Kein Spam. Du erhältst die Checkliste sofort per E-Mail + Einladung zum kostenlosen Workshop.
+              </p>
+            </div>
+          )}
+
+          {/* Social Proof */}
+          <p className="text-sm text-gray-600 mt-8">
+            ✅ Bereits <strong>500+</strong> Downloads
+          </p>
+
         </div>
       </section>
 
