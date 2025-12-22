@@ -40,8 +40,12 @@ export default function Smarter2JobLanding() {
 
   const faqs = [
     {
+      question: "Was ist ein ATS und warum ist das wichtig für meine Bewerbung?",
+      answer: "ATS steht für Applicant Tracking System – auf Deutsch: Bewerbungsroboter. Das ist eine Software, die Lebensläufe automatisch nach bestimmten Schlüsselwörtern durchsucht und bewertet, BEVOR ein Mensch sie sieht. 70% aller Bewerbungen scheitern an diesen Systemen, weil wichtige Keywords fehlen oder das Format nicht passt. Smarter2Job zeigt dir genau, welche Schlüsselwörter du brauchst und optimiert deinen Lebenslauf (CV) für diese Systeme."
+    },
+    {
       question: "Wie funktioniert die KI-Analyse?",
-      answer: "Unsere KI analysiert Stellenbeschreibungen auf über 50 Indikatoren: Formulierungsmuster, versteckte Anforderungen, Kultur-Signale und Red Flags. Gleichzeitig optimieren wir deinen CV so, dass er ATS-Systeme passiert und perfekt auf die Stelle matcht."
+      answer: "Unsere KI analysiert Stellenbeschreibungen auf über 50 Indikatoren: Formulierungsmuster, versteckte Anforderungen, Kultur-Signale und Warnzeichen (Red Flags). Gleichzeitig optimieren wir deinen Lebenslauf (CV) so, dass er ATS - den Bewerbungsroboter - passiert und perfekt auf die Stelle matcht."
     },
     {
       question: "Sind meine Daten sicher?",
@@ -57,7 +61,7 @@ export default function Smarter2JobLanding() {
     },
     {
       question: "Was unterscheidet euch von anderen Services?",
-      answer: "Wir sind die Einzigen, die Red-Flag-Dekodierung, ATS-Optimierung UND LinkedIn-Profil-Optimierung in einem Tool vereinen. Keine Beratung, kein Coaching – pure Analyse-Power."
+      answer: "Wir sind die Einzigen, die Warnzeichen-Dekodierung (Red-Flag-Analyse), ATS-Optimierung (für den Bewerbungsroboter) UND LinkedIn-Profil-Optimierung in einem Tool vereinen. Keine Beratung, kein Coaching – pure Analyse-Power."
     }
   ];
 
@@ -129,8 +133,8 @@ export default function Smarter2JobLanding() {
             </h2>
             
             <p className="text-xl mb-8 leading-relaxed" style={{ color: '#cbd5e1' }}>
-              KI dekodiert Job-Beschreibungen, optimiert deinen CV für ATS-Systeme 
-              und zeigt dir Red Flags, bevor du dich bewirbst.
+              KI dekodiert Stellenbeschreibungen, optimiert deinen Lebenslauf (CV) für ATS - den Bewerbungsroboter - 
+              und zeigt dir Warnzeichen (Red Flags), bevor du dich bewirbst.
             </p>
             
             <button 
@@ -191,7 +195,7 @@ export default function Smarter2JobLanding() {
               lineHeight: '1.6',
               marginBottom: '16px'
             }}>
-              Du bewirbst dich, aber Jobbeschreibungen sind nicht immer klar. Und während du hunderte CVs verschickst, passiert... nichts.
+              Du bewirbst dich, aber Stellenbeschreibungen sind nicht immer klar. Und während du hunderte Lebensläufe (CVs) verschickst, passiert... nichts.
             </p>
             <p style={{ 
               fontSize: '18px', 
@@ -303,7 +307,7 @@ export default function Smarter2JobLanding() {
                 fontSize: '16px',
                 lineHeight: '1.6'
               }}>
-                Erst als sie ein virales LinkedIn-Video erstellte und 300 Jobangebote bekam, meldeten sich plötzlich die Recruiter, die sie zuvor abgelehnt hatten. <strong style={{ color: '#ffffff' }}>Warum? Weil ihr CV am ATS gescheitert war, nicht an ihrer Qualifikation.</strong>
+                Erst als sie ein virales LinkedIn-Video erstellte und 300 Jobangebote bekam, meldeten sich plötzlich die Recruiter, die sie zuvor abgelehnt hatten. <strong style={{ color: '#ffffff' }}>Warum? Weil ihr Lebenslauf (CV) am ATS - dem Bewerbungsroboter - gescheitert war, nicht an ihrer Qualifikation.</strong>
               </p>
             </div>
 
@@ -347,7 +351,7 @@ export default function Smarter2JobLanding() {
                   50% Ghosting-Rate
                 </h4>
                 <p style={{ color: '#cbd5e1', fontSize: '15px', lineHeight: '1.5' }}>
-                  Viele Bewerbungen bleiben unbeantwortet. Oft liegt es am ATS-System – wir helfen dir, durchzukommen
+                  Viele Bewerbungen bleiben unbeantwortet. Oft liegt es am ATS - dem Bewerbungsroboter - wir helfen dir, durchzukommen
                 </p>
               </div>
             </div>
@@ -406,9 +410,9 @@ export default function Smarter2JobLanding() {
               <div style={{ backgroundColor: '#0a4f5c', color: 'white', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 'bold', margin: '0 auto 24px' }}>
                 1
               </div>
-              <h3 className="text-2xl font-semibold mb-4">Job-URL & CV hochladen</h3>
+              <h3 className="text-2xl font-semibold mb-4">Stellen-URL & Lebenslauf (CV) hochladen</h3>
               <p className="text-gray-600 leading-relaxed">
-                Stellenbeschreibung und deinen Lebenslauf eingeben. Unsere KI startet die Analyse.
+                Stellenbeschreibung und deinen Lebenslauf (CV) eingeben. Unsere KI startet die Analyse.
               </p>
             </div>
 
@@ -418,7 +422,7 @@ export default function Smarter2JobLanding() {
               </div>
               <h3 className="text-2xl font-semibold mb-4">Zwischen-den-Zeilen-Report</h3>
               <p className="text-gray-600 leading-relaxed">
-                Erhalte Red Flags, versteckte Anforderungen, Fit-Score und klare Handlungsempfehlung.
+                Erhalte Warnzeichen (Red Flags), versteckte Anforderungen, Fit-Score (Passgenauigkeit) und klare Handlungsempfehlung.
               </p>
             </div>
 
@@ -426,9 +430,9 @@ export default function Smarter2JobLanding() {
               <div style={{ backgroundColor: '#0a4f5c', color: 'white', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 'bold', margin: '0 auto 24px' }}>
                 3
               </div>
-              <h3 className="text-2xl font-semibold mb-4">CV & LinkedIn optimieren</h3>
+              <h3 className="text-2xl font-semibold mb-4">Lebenslauf (CV) & LinkedIn optimieren</h3>
               <p className="text-gray-600 leading-relaxed">
-                ATS-proof Lebenslauf und LinkedIn-Profil perfekt auf die Stelle zugeschnitten.
+                ATS-proof (roboter-sicher) Lebenslauf (CV) und LinkedIn-Profil perfekt auf die Stelle zugeschnitten.
               </p>
             </div>
           </div>
@@ -458,32 +462,32 @@ export default function Smarter2JobLanding() {
               <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-6 py-4 text-2xl">🆓 1</td>
-                  <td className="px-6 py-4 font-medium">Red Flag Teaser</td>
-                  <td className="text-gray-600 px-6 py-4">3-5 Top Red Flags kostenlos</td>
+                  <td className="px-6 py-4 font-medium">Warnzeichen-Teaser (Red Flag Teaser)</td>
+                  <td className="text-gray-600 px-6 py-4">3-5 Top Warnzeichen (Red Flags) kostenlos</td>
                   <td className="px-6 py-4 text-green-600 font-medium">Kostenlos</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-2xl">🔍 2</td>
                   <td className="px-6 py-4 font-medium">Objektive Stellenanalyse</td>
-                  <td className="px-6 py-4 text-gray-600">10-15 Red Flags, Kultur-Score</td>
+                  <td className="px-6 py-4 text-gray-600">10-15 Warnzeichen (Red Flags), Kultur-Score</td>
                   <td className="px-6 py-4">Alle Packages</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-2xl">🎯 3</td>
-                  <td className="px-6 py-4 font-medium">Persönliche Red Flags</td>
+                  <td className="px-6 py-4 font-medium">Persönliche Warnzeichen (Red Flags)</td>
                   <td className="px-6 py-4 text-gray-600">Passt zu deinen Prioritäten?</td>
                   <td className="px-6 py-4">Alle Packages*</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-2xl">✅ 4</td>
-                  <td className="px-6 py-4 font-medium">Fit-Score</td>
+                  <td className="px-6 py-4 font-medium">Fit-Score (Passgenauigkeit)</td>
                   <td className="px-6 py-4 text-gray-600">BEWIRB DICH oder LASS ES</td>
                   <td className="px-6 py-4">Alle Packages</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-2xl">🔑 5</td>
-                  <td className="px-6 py-4 font-medium">ATS Keyword Research</td>
-                  <td className="px-6 py-4 text-gray-600">Welche Keywords brauchst du?</td>
+                  <td className="px-6 py-4 font-medium">ATS Keyword Research (für den Bewerbungsroboter)</td>
+                  <td className="px-6 py-4 text-gray-600">Welche Keywords (Schlüsselwörter) brauchst du?</td>
                   <td className="px-6 py-4">Alle Packages</td>
                 </tr>
                 <tr>
@@ -494,14 +498,14 @@ export default function Smarter2JobLanding() {
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-2xl">✍️ 7</td>
-                  <td className="px-6 py-4 font-medium">CV-Umformulierung</td>
-                  <td className="px-6 py-4 text-gray-600">Pro Stelle ATS-optimiert</td>
+                  <td className="px-6 py-4 font-medium">Lebenslauf-Umformulierung (CV)</td>
+                  <td className="px-6 py-4 text-gray-600">Pro Stelle ATS-optimiert (für den Bewerbungsroboter)</td>
                   <td className="px-6 py-4 text-[#0a4f5c] font-medium">Professional+</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-2xl">📈 8</td>
                   <td className="px-6 py-4 font-medium">LinkedIn-Optimierung</td>
-                  <td className="px-6 py-4 text-gray-600">Recruiter-Search-Match</td>
+                  <td className="px-6 py-4 text-gray-600">Recruiter-Search-Match (Personaler-Sichtbarkeit)</td>
                   <td className="px-6 py-4 text-[#0a4f5c] font-medium">Executive</td>
                 </tr>
                 <tr>
@@ -556,7 +560,7 @@ export default function Smarter2JobLanding() {
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🆓</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 1 – Red Flag Teaser</h3>
+                  <h3 className="text-2xl font-semibold">Karte 1 – Warnzeichen-Teaser (Red Flag Teaser)</h3>
                   <p className="text-gray-600 italic">"Die ersten 3 Karten aufdecken"</p>
                 </div>
               </div>
@@ -564,7 +568,7 @@ export default function Smarter2JobLanding() {
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">3-5 Top Red Flags sofort erkannt</span>
+                  <span className="text-gray-700">3-5 Top Warnzeichen (Red Flags) sofort erkannt</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -594,7 +598,7 @@ export default function Smarter2JobLanding() {
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">10-15 detaillierte Red Flags identifiziert</span>
+                  <span className="text-gray-700">10-15 detaillierte Warnzeichen (Red Flags) identifiziert</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -620,7 +624,7 @@ export default function Smarter2JobLanding() {
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🎯</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 3 – Persönliche Red Flags</h3>
+                  <h3 className="text-2xl font-semibold">Karte 3 – Persönliche Warnzeichen (Red Flags)</h3>
                   <p className="text-gray-600 italic">"Passt die Stelle zu deinen Prioritäten?"</p>
                 </div>
               </div>
@@ -645,7 +649,7 @@ export default function Smarter2JobLanding() {
               </ul>
 
               <p className="text-sm text-gray-500 italic mb-4">
-                Benötigt: Karriere-Navi + CV
+                Benötigt: Karriere-Navi + Lebenslauf (CV)
               </p>
 
               <div className="inline-block bg-[#0a4f5c] bg-opacity-10 text-[#0a4f5c] px-4 py-2 rounded-lg font-semibold text-sm">
@@ -658,7 +662,7 @@ export default function Smarter2JobLanding() {
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">✅</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 4 – Fit-Score</h3>
+                  <h3 className="text-2xl font-semibold">Karte 4 – Fit-Score (Passgenauigkeit)</h3>
                   <p className="text-gray-600 italic">"Solltest du dich bewerben?"</p>
                 </div>
               </div>
@@ -670,11 +674,11 @@ export default function Smarter2JobLanding() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Skill-Match-Analyse (Was passt? Was fehlt?)</span>
+                  <span className="text-gray-700">Skill-Match-Analyse (Fähigkeiten-Abgleich) - Was passt? Was fehlt?</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Gap-Analyse (Kritisch vs. Nice-to-have)</span>
+                  <span className="text-gray-700">Lückenanalyse (Gap-Analyse) - Kritisch vs. Nice-to-have</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -692,19 +696,19 @@ export default function Smarter2JobLanding() {
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🔑</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 5 – ATS Keyword Research</h3>
-                  <p className="text-gray-600 italic">"Welche Keywords brauchst du?"</p>
+                  <h3 className="text-2xl font-semibold">Karte 5 – ATS Keyword Research (für den Bewerbungsroboter)</h3>
+                  <p className="text-gray-600 italic">"Welche Keywords (Schlüsselwörter) brauchst du?"</p>
                 </div>
               </div>
 
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Must-have-Keywords aus Job-Description</span>
+                  <span className="text-gray-700">Must-have-Keywords (unverzichtbare Schlüsselwörter) aus der Stellenbeschreibung</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Fehlende Keywords in deinem CV</span>
+                  <span className="text-gray-700">Fehlende Keywords in deinem Lebenslauf (CV)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -760,8 +764,8 @@ export default function Smarter2JobLanding() {
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">✍️</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 7 – CV-Umformulierung</h3>
-                  <p className="text-gray-600 italic">"ATS-optimiert &amp; überzeugend"</p>
+                  <h3 className="text-2xl font-semibold">Karte 7 – Lebenslauf-Umformulierung (CV)</h3>
+                  <p className="text-gray-600 italic">"ATS-optimiert (für den Bewerbungsroboter) &amp; überzeugend"</p>
                 </div>
               </div>
 
@@ -802,19 +806,19 @@ export default function Smarter2JobLanding() {
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Keyword-optimierte Headline (220 Zeichen)</span>
+                  <span className="text-gray-700">Keyword-optimierte LinkedIn-Headline (Profil-Überschrift, 220 Zeichen)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">About-Section komplett neu (3-4 Absätze)</span>
+                  <span className="text-gray-700">About-Section komplett neu (Über-mich-Bereich, 3-4 Absätze)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Experience-Bullets pro Station optimiert</span>
+                  <span className="text-gray-700">Experience-Bullets (Berufserfahrung) pro Station optimiert</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Recruiter-Search-Match-Check</span>
+                  <span className="text-gray-700">Recruiter-Search-Match-Check (Wie gut finden dich Personaler?)</span>
                 </li>
               </ul>
 
@@ -840,15 +844,15 @@ export default function Smarter2JobLanding() {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Adressiert Red Flags proaktiv</span>
+                  <span className="text-gray-700">Adressiert Warnzeichen (Red Flags) proaktiv</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Betont Top-Matches aus Fit-Score</span>
+                  <span className="text-gray-700">Betont Top-Matches aus Fit-Score (Passgenauigkeit)</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">ATS-optimiert mit Keywords</span>
+                  <span className="text-gray-700">ATS-optimiert (für den Bewerbungsroboter) mit Keywords (Schlüsselwörtern)</span>
                 </li>
               </ul>
 
@@ -878,9 +882,9 @@ export default function Smarter2JobLanding() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
             <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
               <Target className="w-12 h-12 text-[#ff6b35] mb-6" />
-              <h3 className="text-2xl font-semibold mb-4">Red-Flag-Detektor</h3>
+              <h3 className="text-2xl font-semibold mb-4">Warnzeichen-Detektor (Red-Flag-Analyse)</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Erkenne versteckte Warnzeichen, bevor du Zeit verschwendest. Unsere KI analysiert Formulierungen, die auf Probleme hindeuten.
+                Erkenne versteckte Warnzeichen (Red Flags), bevor du Zeit verschwendest. Unsere KI analysiert Formulierungen, die auf Probleme hindeuten.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-gray-700">
@@ -900,18 +904,18 @@ export default function Smarter2JobLanding() {
 
             <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
               <Zap className="w-12 h-12 text-[#ff6b35] mb-6" />
-              <h3 className="text-2xl font-semibold mb-4">Fit-Score & Handlungsempfehlung</h3>
+              <h3 className="text-2xl font-semibold mb-4">Fit-Score (Passgenauigkeit) & Handlungsempfehlung</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Objektive Bewertung: Solltest du dich bewerben oder nicht? Keine Bauchgefühle mehr – klare Daten.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  Skill-Match-Prozentsatz
+                  Skill-Match-Prozentsatz (Fähigkeiten-Übereinstimmung)
                 </li>
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  Kritische Gap-Analyse
+                  Lückenanalyse (Gap-Analyse) - Was fehlt dir?
                 </li>
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -922,14 +926,14 @@ export default function Smarter2JobLanding() {
 
             <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
               <FileText className="w-12 h-12 text-[#ff6b35] mb-6" />
-              <h3 className="text-2xl font-semibold mb-4">ATS-Optimierung</h3>
+              <h3 className="text-2xl font-semibold mb-4">ATS-Optimierung (für den Bewerbungsroboter)</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Dein CV kommt durch den Robot zum Menschen. Wir optimieren Keywords, Format und Struktur für maximale ATS-Kompatibilität.
+                Dein Lebenslauf (CV) kommt durch den Bewerbungsroboter (ATS) zum Menschen. Wir optimieren Keywords (Schlüsselwörter), Format und Struktur für maximale ATS-Kompatibilität (Roboter-Freundlichkeit).
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  Keyword-Matching
+                  Keyword-Matching (Schlüsselwort-Abgleich)
                 </li>
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -937,7 +941,7 @@ export default function Smarter2JobLanding() {
                 </li>
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  ATS-Score
+                  ATS-Score (Bewerbungsroboter-Bewertung)
                 </li>
               </ul>
             </div>
@@ -946,20 +950,20 @@ export default function Smarter2JobLanding() {
               <Linkedin className="w-12 h-12 text-[#ff6b35] mb-6" />
               <h3 className="text-2xl font-semibold mb-4">LinkedIn-Profil-Optimierung</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Matche mit Recruiter-Suchen und werde gefunden. Optimierung von Header, About und Experience für maximale Sichtbarkeit.
+                Matche mit Recruiter-Suchen und werde gefunden. Optimierung von Header, About-Section (Über mich) und Experience (Berufserfahrung) für maximale Sichtbarkeit.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  Keyword-optimierte Headline
+                  Keyword-optimierte LinkedIn-Headline (Profil-Überschrift)
                 </li>
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  About-Section-Rewrite
+                  About-Section komplett neu (Über-mich-Bereich)
                 </li>
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  Recruiter-Search-Match
+                  Recruiter-Search-Match (Personaler-Sichtbarkeit)
                 </li>
               </ul>
             </div>
@@ -1022,15 +1026,15 @@ export default function Smarter2JobLanding() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Red-Flag-Analyse</span>
+                  <span className="text-gray-700">Warnzeichen-Analyse (Red-Flag-Analyse)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Fit-Score &amp; Handlungsempfehlung</span>
+                  <span className="text-gray-700">Fit-Score (Passgenauigkeit) &amp; Handlungsempfehlung</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">ATS Keyword Research</span>
+                  <span className="text-gray-700">ATS Keyword Research (für den Bewerbungsroboter)</span>
                 </li>
               </ul>
               <a
@@ -1061,11 +1065,11 @@ export default function Smarter2JobLanding() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
-                  <span style={{ color: 'white' }}>CV-Optimierung (pro Stelle ATS-optimiert)</span>
+                  <span style={{ color: 'white' }}>Lebenslauf-Optimierung (CV) - pro Stelle ATS-optimiert (für den Bewerbungsroboter)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
-                  <span style={{ color: 'white' }}>Erweiterte Red-Flag-Analyse</span>
+                  <span style={{ color: 'white' }}>Erweiterte Warnzeichen-Analyse (Red-Flag-Analyse)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
@@ -1073,7 +1077,7 @@ export default function Smarter2JobLanding() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
-                  <span style={{ color: 'white' }}>ATS Keyword Research</span>
+                  <span style={{ color: 'white' }}>ATS Keyword Research (für den Bewerbungsroboter)</span>
                 </li>
               </ul>
               <a
@@ -1102,7 +1106,7 @@ export default function Smarter2JobLanding() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">CV-Optimierung (pro Stelle)</span>
+                  <span className="text-gray-700">Lebenslauf-Optimierung (CV) - pro Stelle</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -1110,7 +1114,7 @@ export default function Smarter2JobLanding() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Erweiterte Red-Flag-Analyse</span>
+                  <span className="text-gray-700">Erweiterte Warnzeichen-Analyse (Red-Flag-Analyse)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -1235,12 +1239,12 @@ export default function Smarter2JobLanding() {
 
           {/* Headline */}
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            CV-Basics-Checkliste: ATS-optimiert
+            CV-Basics-Checkliste: ATS-optimiert (für den Bewerbungsroboter)
           </h2>
 
           {/* Subheadline */}
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            70% aller CVs scheitern am ATS-Robot, BEVOR ein Mensch sie sieht.<br/>
+            70% aller Lebensläufe (CVs) scheitern am ATS - dem Bewerbungsroboter -, BEVOR ein Mensch sie sieht.<br/>
             Mit dieser Checkliste gehörst du zu den 30%, die durchkommen.
           </p>
 
@@ -1249,7 +1253,7 @@ export default function Smarter2JobLanding() {
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <div className="text-3xl mb-3">✅</div>
               <h3 className="font-semibold mb-2">10 Checkpunkte</h3>
-              <p className="text-sm text-gray-600">Von Format bis Keywords – alles abgedeckt</p>
+              <p className="text-sm text-gray-600">Von Format bis Keywords (Schlüsselwörter) – alles abgedeckt</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <div className="text-3xl mb-3">📊</div>

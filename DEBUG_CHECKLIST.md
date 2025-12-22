@@ -139,3 +139,4 @@ setResult(mockResult);
 
 **Function Logs:** https://app.netlify.com/projects/smarter2job/logs/functions
 
+

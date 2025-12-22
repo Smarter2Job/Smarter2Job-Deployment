@@ -89,3 +89,4 @@ Die `RedFlagTeaser.tsx` Komponente verwendet aktuell Mock-Daten, wenn die API ni
 6. ⏳ Echte API-Integration testen
 7. ⏳ Deployment
 
+
