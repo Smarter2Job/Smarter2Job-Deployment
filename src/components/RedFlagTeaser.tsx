@@ -26,7 +26,7 @@ export default function RedFlagTeaser() {
   // Analyse starten
   const handleAnalyze = async () => {
     if (!jobInput.trim()) {
-      setError('Bitte gib eine Job-URL oder Job-Beschreibung ein');
+      setError('Bitte gib eine Stellen-URL oder Stellenbeschreibung ein');
       return;
     }
 
@@ -133,7 +133,7 @@ export default function RedFlagTeaser() {
         <textarea
           value={jobInput}
           onChange={(e) => setJobInput(e.target.value)}
-          placeholder="Job-URL einfügen (z.B. von StepStone, LinkedIn) oder Job-Beschreibung hier copy-pasten..."
+          placeholder="Stellen-URL einfügen (z.B. von StepStone, LinkedIn) oder Stellenbeschreibung hier hinein kopieren..."
           className="w-full min-h-[120px] p-4 border-2 border-gray-200 rounded-lg focus:border-[#0a4f5c] focus:outline-none resize-y text-gray-900"
           disabled={loading}
         />

@@ -49,7 +49,7 @@ export default function AGB() {
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-700 mb-4">
               <li>
-                <strong>Karte 1:</strong> Red Flag Teaser (kostenlos)
+                <strong>Karte 1:</strong> Warnzeichen-Schnellcheck (kostenlos)
               </li>
               <li>
                 <strong>Karte 2:</strong> Objektive Stellenanalyse (10-15 Red Flags, Kultur-Score)

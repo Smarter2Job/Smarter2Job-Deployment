@@ -41,7 +41,7 @@ export default function Smarter2JobLanding() {
   const faqs = [
     {
       question: "Was ist ein ATS und warum ist das wichtig für meine Bewerbung?",
-      answer: "ATS steht für Applicant Tracking System – auf Deutsch: Bewerbungsroboter. Das ist eine Software, die Lebensläufe automatisch nach bestimmten Schlüsselwörtern durchsucht und bewertet, BEVOR ein Mensch sie sieht. 70% aller Bewerbungen scheitern an diesen Systemen, weil wichtige Keywords fehlen oder das Format nicht passt. Smarter2Job zeigt dir genau, welche Schlüsselwörter du brauchst und optimiert deinen Lebenslauf (CV) für diese Systeme."
+      answer: "ATS steht für Applicant Tracking System – auf Deutsch: Bewerbungsroboter. Das ist eine Software, die Lebensläufe automatisch nach bestimmten Schlüsselwörtern durchsucht und bewertet, BEVOR ein Mensch sie sieht. 70% aller Lebensläufe (CVs) scheitern am ATS - dem Bewerbungsroboter - und landen im digitalen Papierkorb, bevor ein Recruiter sie überhaupt in die Hand bekommt. Das liegt daran, dass wichtige Keywords fehlen oder das Format nicht passt. Smarter2Job zeigt dir genau, welche Schlüsselwörter du brauchst und optimiert deinen Lebenslauf (CV) für diese Systeme."
     },
     {
       question: "Wie funktioniert die KI-Analyse?",
@@ -462,7 +462,7 @@ export default function Smarter2JobLanding() {
               <tbody className="divide-y divide-gray-200">
                 <tr>
                   <td className="px-6 py-4 text-2xl">🆓 1</td>
-                  <td className="px-6 py-4 font-medium">Warnzeichen-Teaser (Red Flag Teaser)</td>
+                  <td className="px-6 py-4 font-medium">Warnzeichen-Schnellcheck</td>
                   <td className="text-gray-600 px-6 py-4">3-5 Top Warnzeichen (Red Flags) kostenlos</td>
                   <td className="px-6 py-4 text-green-600 font-medium">Kostenlos</td>
                 </tr>
@@ -533,7 +533,7 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Red Flag Teaser Section */}
+      {/* Warnzeichen-Schnellcheck Section */}
       <section id="red-flag-teaser" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <RedFlagTeaser />
@@ -555,12 +555,12 @@ export default function Smarter2JobLanding() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* Karte 1: Red Flag Teaser */}
+            {/* Karte 1: Warnzeichen-Schnellcheck */}
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-green-500 hover-lift">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🆓</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 1 – Warnzeichen-Teaser (Red Flag Teaser)</h3>
+                  <h3 className="text-2xl font-semibold">Karte 1 – Warnzeichen-Schnellcheck</h3>
                   <p className="text-gray-600 italic">"Die ersten 3 Karten aufdecken"</p>
                 </div>
               </div>
@@ -1244,7 +1244,7 @@ export default function Smarter2JobLanding() {
 
           {/* Subheadline */}
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            70% aller Lebensläufe (CVs) scheitern am ATS - dem Bewerbungsroboter -, BEVOR ein Mensch sie sieht.<br/>
+            70% aller Lebensläufe (CVs) scheitern am ATS - dem Bewerbungsroboter - und landen im digitalen Papierkorb, bevor ein Recruiter sie überhaupt in die Hand bekommt.<br/>
             Mit dieser Checkliste gehörst du zu den 30%, die durchkommen.
           </p>
 
