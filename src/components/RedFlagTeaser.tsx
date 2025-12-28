@@ -124,10 +124,10 @@ export default function RedFlagTeaser() {
       {/* Input Section */}
       <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Erste Karte aufdecken
+          Nebel lichten – Durchblick verschaffen
         </h2>
         <p className="text-gray-600 mb-6 leading-relaxed">
-          Oft verbergen sich hinter schön klingenden Stellenbeschreibungen oder Stellentiteln eine ganz andere Wirklichkeit, als es sich für uns auf den ersten Blick beim Lesen darstellt. Deswegen lohnt es sich, zwischen den Zeilen zu lesen. Wenn du magst, lass uns gerne mal die Stelle, die dich interessiert, beginnen zu dekodieren, um zu verstehen, wo und wie die "Karten gezinkt" sind. Um aber bei deiner Bewerbung bestehen zu können, solltest du wissen, wie das Spiel gespielt wird. Daher kannst du jetzt hier die erste Karte aufdecken. Es wird vermutlich ein Aha-Erlebnis.
+          Oft verbergen sich hinter schön klingenden Stellenbeschreibungen oder Stellentiteln eine ganz andere Wirklichkeit, als es sich für uns auf den ersten Blick beim Lesen darstellt. Deswegen lohnt es sich, zwischen den Zeilen zu lesen. Wenn du magst, lass uns gerne mal die Stelle, die dich interessiert, beginnen zu durchleuchten, um zu verstehen, was wirklich dahintersteckt. Um bei deiner Bewerbung bestehen zu können, solltest du wissen, wie Stellenanzeigen wirklich funktionieren. Daher kannst du jetzt hier den Nebel lichten und Durchblick bekommen. Es wird vermutlich ein Aha-Erlebnis.
         </p>
 
         <textarea
@@ -159,7 +159,7 @@ export default function RedFlagTeaser() {
             </>
           ) : (
             <>
-              🎴 Erste Karte aufdecken
+              🔍 Jetzt Durchblick verschaffen
             </>
           )}
         </button>
@@ -278,9 +278,9 @@ export default function RedFlagTeaser() {
           {/* Upsell Box */}
           <div className="bg-[#0a4f5c] rounded-xl shadow-xl p-8 text-white">
             <div className="text-center mb-6">
-              <div className="text-6xl mb-4">🎴</div>
+              <div className="text-6xl mb-4">🔍</div>
               <h3 className="text-3xl font-bold mb-3">
-                Du hast gerade Karte 1 aufgedeckt
+                Du hast gerade den ersten Nebel gelichtet
               </h3>
               <p className="text-xl text-gray-200 mb-2">
                 Das waren die ersten {result.shownRedFlags.length} von <strong className="text-white">{result.totalRedFlags} Stolpersteinen</strong> bei dieser Stelle.
@@ -292,36 +292,36 @@ export default function RedFlagTeaser() {
 
             <div className="bg-white/10 rounded-lg p-6 mb-6">
               <p className="text-white font-bold text-lg mb-4 text-center">
-                Damit du optimal vorbereitet bist und weißt, wie du das Spiel für dich gewinnst, haben wir noch <span className="text-[#ff6b35]">8 weitere Karten</span> für dich:
+                Damit du optimal vorbereitet bist und weißt, was wirklich dahintersteckt, haben wir noch <span className="text-[#ff6b35]">8 weitere Module</span> für dich:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-200 text-sm">
                 <div className="flex items-start gap-2">
                   <span className="text-[#ff6b35] font-bold">🔍</span>
-                  <span><strong>Karte 2:</strong> Deine persönlichen Red Flags</span>
+                  <span><strong>Modul 2:</strong> Deine persönlichen Red Flags</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#ff6b35] font-bold">🎯</span>
-                  <span><strong>Karte 3:</strong> Fit-Score (BEWIRB DICH oder LASS ES)</span>
+                  <span><strong>Modul 3:</strong> Fit-Score (BEWIRB DICH oder LASS ES)</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#ff6b35] font-bold">🔑</span>
-                  <span><strong>Karte 4:</strong> ATS Keywords (fehlt was in deinem CV?)</span>
+                  <span><strong>Modul 4:</strong> ATS Keywords (fehlt was in deinem CV?)</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#ff6b35] font-bold">💰</span>
-                  <span><strong>Karte 5:</strong> Gehaltsband (was kannst du fordern?)</span>
+                  <span><strong>Modul 5:</strong> Gehaltsband (was kannst du fordern?)</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#ff6b35] font-bold">✏️</span>
-                  <span><strong>Karte 6:</strong> CV-Umformulierung (ATS-optimiert)</span>
+                  <span><strong>Modul 6:</strong> CV-Umformulierung (ATS-optimiert)</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#ff6b35] font-bold">📈</span>
-                  <span><strong>Karte 7:</strong> LinkedIn-Optimierung</span>
+                  <span><strong>Modul 7:</strong> LinkedIn-Optimierung</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#ff6b35] font-bold">🃏</span>
-                  <span><strong>Karte 8:</strong> Anschreiben-Service</span>
+                  <span><strong>Modul 8:</strong> Anschreiben-Service</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="text-[#ff6b35] font-bold">📊</span>
@@ -332,7 +332,7 @@ export default function RedFlagTeaser() {
 
             <div className="bg-[#ff6b35] bg-opacity-20 border-2 border-[#ff6b35] rounded-lg p-4 mb-6">
               <p className="text-white text-center font-bold text-lg">
-                🎯 Wähle dein Blatt und decke alle Karten auf
+                🎯 Wähle dein Set und verschaff dir vollständigen Durchblick
               </p>
             </div>
 
@@ -340,7 +340,7 @@ export default function RedFlagTeaser() {
               href="#pricing"
               className="block w-full bg-[#ff6b35] text-white py-4 px-8 rounded-lg font-bold text-xl hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
             >
-              Jetzt Blatt wählen – ab 49€
+              Jetzt Set wählen – ab 49€
             </a>
 
             <p className="text-gray-300 text-sm text-center mt-4">

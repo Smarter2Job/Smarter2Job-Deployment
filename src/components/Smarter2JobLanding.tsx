@@ -73,7 +73,7 @@ export default function Smarter2JobLanding() {
           <div className="flex justify-between items-center h-16">
             <div className="text-2xl font-bold text-[#0a4f5c]">Smarter2Job</div>
             <div className="hidden md:flex gap-8">
-              <a href="#karten" className="text-gray-600 hover:text-[#0a4f5c] transition">Karten</a>
+              <a href="#karten" className="text-gray-600 hover:text-[#0a4f5c] transition">Module</a>
               <a href="#pricing" className="text-gray-600 hover:text-[#0a4f5c] transition">Pricing</a>
               <a href="#checkliste" className="text-gray-600 hover:text-[#0a4f5c] transition font-semibold">
                 🎁 Gratis Checkliste
@@ -116,7 +116,7 @@ export default function Smarter2JobLanding() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Viele Recruiter spielen mit <span className="text-[#ff6b35] font-extrabold">gezinkten Karten</span>.
+              Stellenanzeigen sind wie <span className="text-[#ff6b35] font-extrabold">dichter Nebel</span> – du siehst nicht, was dich wirklich erwartet.
             </h1>
             
             <p 
@@ -125,11 +125,11 @@ export default function Smarter2JobLanding() {
             >
               Das ist zumindest das Gefühl, das viele von uns haben. 
               Aber oft sind wir als Bewerber selbst das Problem – 
-              weil wir gar nicht wissen, wie das Spiel wirklich gespielt wird.
+              weil wir gar nicht wissen, was wirklich zwischen den Zeilen steht.
             </p>
             
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 leading-tight">
-              Lass uns dir zeigen, welche Karten das sind.
+              Lass uns dir Durchblick verschaffen.
             </h2>
             
             <p className="text-xl mb-8 leading-relaxed" style={{ color: '#cbd5e1' }}>
@@ -159,7 +159,7 @@ export default function Smarter2JobLanding() {
               onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#e55a2b')}
               onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#ff6b35')}
             >
-              🎴 Erste Karte aufdecken
+              🔍 Jetzt Durchblick verschaffen
             </button>
           </div>
         </div>
@@ -358,7 +358,7 @@ export default function Smarter2JobLanding() {
 
           </div>
 
-          {/* Der Pivot - Das ist das Spiel */}
+          {/* Der Pivot - Nebel/Durchblick */}
           <div style={{
             textAlign: 'center',
             padding: '40px 32px',
@@ -375,8 +375,8 @@ export default function Smarter2JobLanding() {
               marginBottom: '16px',
               lineHeight: '1.3'
             }}>
-              Das ist das Spiel.<br/>
-              Und es hat klare Regeln.
+              Stellenanzeigen sind verschleiert.<br/>
+              Aber es gibt Methoden, sie zu durchschauen.
             </p>
             <p style={{
               fontSize: '18px',
@@ -390,7 +390,7 @@ export default function Smarter2JobLanding() {
               color: '#ef4444',
               fontWeight: '600'
             }}>
-              Du musst nur die Regeln verstehen – und die richtigen Karten spielen.
+              Du musst nur wissen, wie du den Nebel lichtest – und was wirklich dahinter steckt.
             </p>
           </div>
 
@@ -439,23 +439,87 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Karten Section */}
+      {/* Testimonial Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center mb-4">
+            Was Teilnehmer sagen
+          </h2>
+          <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+            Echtes Feedback aus dem ersten Webinar
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            
+            {/* Testimonial 1 */}
+            <div className="bg-gray-50 p-8 rounded-xl border-l-4 border-[#0a4f5c] shadow-sm hover:shadow-md transition">
+              <p className="text-gray-700 italic mb-6 leading-relaxed">
+                "Danke Martin, für dieses spannende Webinar. Du hast wirklich einige Punkte aufgewirbelt, die mir so gar nicht bewusst..."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-[#0a4f5c] rounded-full flex items-center justify-center text-white font-semibold">
+                  TN
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900">Webinar-Teilnehmer</p>
+                  <p className="text-sm text-gray-500">LinkedIn</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-gray-50 p-8 rounded-xl border-l-4 border-[#0a4f5c] shadow-sm hover:shadow-md transition">
+              <p className="text-gray-700 italic mb-6 leading-relaxed">
+                "Das Meeting war sehr inspirierend. Vielen Dank Martin. Gerne wieder. 🥂"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-[#0a4f5c] rounded-full flex items-center justify-center text-white font-semibold">
+                  TN
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900">Webinar-Teilnehmer</p>
+                  <p className="text-sm text-gray-500">LinkedIn</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-gray-50 p-8 rounded-xl border-l-4 border-[#0a4f5c] shadow-sm hover:shadow-md transition">
+              <p className="text-gray-700 italic mb-6 leading-relaxed">
+                "Martin Beyer ich danke dir! Mit deiner Hilfe habe ich sehr genau definieren können, was ich will und was nicht. 🙏"
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-[#0a4f5c] rounded-full flex items-center justify-center text-white font-semibold">
+                  CK
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900">Cathrin Kröll</p>
+                  <p className="text-sm text-gray-500">Communications Expert</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Module Section */}
       <section id="karten" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4">
-            Dein Blatt hat bis zu 9 Karten
+            Dein Durchblick kommt in bis zu 9 Modulen
           </h2>
           <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
-            Von der Analyse bis zur Optimierung – jede Karte bringt dich näher ans Ziel
+            Von der Analyse bis zur Optimierung – jedes Modul bringt dich näher ans Ziel. Je mehr Module du nutzt, desto strategischer wird deine Bewerbung.
           </p>
 
           <div className="overflow-x-auto">
             <table className="w-full max-w-6xl mx-auto bg-white rounded-lg shadow-md">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Karte</th>
+                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Modul</th>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Name</th>
-                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Was sie macht</th>
+                  <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Was es macht</th>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-gray-700">Verfügbar in</th>
                 </tr>
               </thead>
@@ -519,7 +583,7 @@ export default function Smarter2JobLanding() {
           </div>
 
           <p className="text-sm text-gray-500 mt-6 text-center">
-            *Karte 3 braucht ABC-Listen (via Workshop oder Loom-Video)
+            *Modul 3 braucht ABC-Listen (via Workshop oder Loom-Video)
           </p>
 
           <div className="text-center mt-12">
@@ -540,7 +604,7 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Karten Details Section */}
+      {/* Module Details Section */}
       <section 
         id="karten-details" 
         className="py-20"
@@ -548,20 +612,20 @@ export default function Smarter2JobLanding() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4 text-white">
-            Dein Blatt kann bis zu 9 Karten haben
+            Dein Durchblick kommt in bis zu 9 Modulen
           </h2>
           <p className="text-xl text-center mb-16 max-w-3xl mx-auto" style={{ color: '#cbd5e1' }}>
-            Verschaffe dir einen unfairen Vorteil gegenüber deinen Mitspieler:innen – je mehr Karten du ins Spiel bringst, desto strategischer wird deine Bewerbung.
+            Von der Analyse bis zur Optimierung – jedes Modul bringt dich näher ans Ziel. Je mehr Module du nutzt, desto strategischer wird deine Bewerbung.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* Karte 1: Warnzeichen-Schnellcheck */}
+            {/* Modul 1: Warnzeichen-Schnellcheck */}
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-green-500 hover-lift">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🆓</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 1 – Warnzeichen-Schnellcheck</h3>
-                  <p className="text-gray-600 italic">"Die ersten 3 Karten aufdecken"</p>
+                  <h3 className="text-2xl font-semibold">Modul 1 – Warnzeichen-Schnellcheck</h3>
+                  <p className="text-gray-600 italic">"Die ersten 3 Warnzeichen erkennen"</p>
                 </div>
               </div>
 
@@ -585,12 +649,12 @@ export default function Smarter2JobLanding() {
               </div>
             </div>
 
-            {/* Karte 2: Objektive Stellenanalyse */}
+            {/* Modul 2: Objektive Stellenanalyse */}
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🔍</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 2 – Objektive Stellenanalyse</h3>
+                  <h3 className="text-2xl font-semibold">Modul 2 – Objektive Stellenanalyse</h3>
                   <p className="text-gray-600 italic">"Zwischen den Zeilen lesen"</p>
                 </div>
               </div>
@@ -619,12 +683,12 @@ export default function Smarter2JobLanding() {
               </div>
             </div>
 
-            {/* Karte 3: Persönliche Red Flags */}
+            {/* Modul 3: Persönliche Red Flags */}
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🎯</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 3 – Persönliche Warnzeichen (Red Flags)</h3>
+                  <h3 className="text-2xl font-semibold">Modul 3 – Persönliche Warnzeichen (Red Flags)</h3>
                   <p className="text-gray-600 italic">"Passt die Stelle zu deinen Prioritäten?"</p>
                 </div>
               </div>
@@ -657,12 +721,12 @@ export default function Smarter2JobLanding() {
               </div>
             </div>
 
-            {/* Karte 4: Fit-Score */}
+            {/* Modul 4: Fit-Score */}
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">✅</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 4 – Fit-Score (Passgenauigkeit)</h3>
+                  <h3 className="text-2xl font-semibold">Modul 4 – Fit-Score (Passgenauigkeit)</h3>
                   <p className="text-gray-600 italic">"Solltest du dich bewerben?"</p>
                 </div>
               </div>
@@ -691,12 +755,12 @@ export default function Smarter2JobLanding() {
               </div>
             </div>
 
-            {/* Karte 5: ATS Keyword Research */}
+            {/* Modul 5: ATS Keyword Research */}
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🔑</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 5 – ATS Keyword Research (für den Bewerbungsroboter)</h3>
+                  <h3 className="text-2xl font-semibold">Modul 5 – ATS Keyword Research (für den Bewerbungsroboter)</h3>
                   <p className="text-gray-600 italic">"Welche Keywords (Schlüsselwörter) brauchst du?"</p>
                 </div>
               </div>
@@ -725,12 +789,12 @@ export default function Smarter2JobLanding() {
               </div>
             </div>
 
-            {/* Karte 6: Gehaltsband-Indikationen */}
+            {/* Modul 6: Gehaltsband-Indikationen */}
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#083d47] hover-lift">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">💰</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 6 – Gehaltsband-Indikationen</h3>
+                  <h3 className="text-2xl font-semibold">Modul 6 – Gehaltsband-Indikationen</h3>
                   <p className="text-gray-600 italic">"Was kannst du erwarten?"</p>
                 </div>
               </div>
@@ -759,12 +823,12 @@ export default function Smarter2JobLanding() {
               </div>
             </div>
 
-            {/* Karte 7: CV-Umformulierung */}
+            {/* Modul 7: CV-Umformulierung */}
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#083d47] hover-lift">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">✍️</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 7 – Lebenslauf-Umformulierung (CV)</h3>
+                  <h3 className="text-2xl font-semibold">Modul 7 – Lebenslauf-Umformulierung (CV)</h3>
                   <p className="text-gray-600 italic">"ATS-optimiert (für den Bewerbungsroboter) &amp; überzeugend"</p>
                 </div>
               </div>
@@ -793,12 +857,12 @@ export default function Smarter2JobLanding() {
               </div>
             </div>
 
-            {/* Karte 8: LinkedIn-Optimierung */}
+            {/* Modul 8: LinkedIn-Optimierung */}
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-orange-500 hover-lift">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">📈</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 8 – LinkedIn-Optimierung</h3>
+                  <h3 className="text-2xl font-semibold">Modul 8 – LinkedIn-Optimierung</h3>
                   <p className="text-gray-600 italic">"Werde von Recruitern gefunden"</p>
                 </div>
               </div>
@@ -827,12 +891,12 @@ export default function Smarter2JobLanding() {
               </div>
             </div>
 
-            {/* Karte 9: Anschreiben-Service */}
+            {/* Modul 9: Anschreiben-Service */}
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-orange-500 hover-lift">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🃏</span>
                 <div>
-                  <h3 className="text-2xl font-semibold">Karte 9 – Anschreiben-Service</h3>
+                  <h3 className="text-2xl font-semibold">Modul 9 – Anschreiben-Service</h3>
                   <p className="text-gray-600 italic">"Individuell pro Stelle"</p>
                 </div>
               </div>
@@ -862,7 +926,7 @@ export default function Smarter2JobLanding() {
             </div>
           </div>
 
-          {/* CTA nach den Karten */}
+          {/* CTA nach den Modulen */}
           <div className="text-center mt-16">
             <a 
               href="#pricing"
@@ -1340,12 +1404,12 @@ export default function Smarter2JobLanding() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="text-2xl font-bold text-white mb-4">Smarter2Job</div>
-              <p className="text-sm">Das Spiel hat Regeln. Wir zeigen dir, wie du mitspielen kannst.</p>
+              <p className="text-sm">Stellenanzeigen sind verschleiert. Wir verschaffen dir Durchblick.</p>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Produkt</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#karten" className="hover:text-white transition">Karten</a></li>
+                <li><a href="#karten" className="hover:text-white transition">Module</a></li>
                 <li><a href="#karten-details" className="hover:text-white transition">Features</a></li>
                 <li><a href="#pricing" className="hover:text-white transition">Pricing</a></li>
                 <li><a href="#faq" className="hover:text-white transition">FAQ</a></li>
