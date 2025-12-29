@@ -71,7 +71,24 @@ export default function Smarter2JobLanding() {
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="text-2xl font-bold text-[#0a4f5c]">Smarter2Job</div>
+            <a href="#" className="flex items-center">
+              <img 
+                src="/logo.png" 
+                alt="Smarter2Job Logo" 
+                className="h-10 w-auto"
+                onError={(e) => {
+                  // Fallback zu Text, falls Logo nicht gefunden wird
+                  e.currentTarget.style.display = 'none';
+                  const parent = e.currentTarget.parentElement;
+                  if (parent && !parent.querySelector('.logo-fallback')) {
+                    const fallback = document.createElement('div');
+                    fallback.className = 'logo-fallback text-2xl font-bold text-[#0a4f5c]';
+                    fallback.textContent = 'Smarter2Job';
+                    parent.appendChild(fallback);
+                  }
+                }}
+              />
+            </a>
             <div className="hidden md:flex gap-8">
               <a href="#karten" className="text-gray-600 hover:text-[#0a4f5c] transition">Module</a>
               <a href="#pricing" className="text-gray-600 hover:text-[#0a4f5c] transition">Pricing</a>
