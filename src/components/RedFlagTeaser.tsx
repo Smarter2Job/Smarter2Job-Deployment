@@ -332,7 +332,7 @@ export default function RedFlagTeaser() {
 
             <div className="bg-[#ff6b35] bg-opacity-20 border-2 border-[#ff6b35] rounded-lg p-4 mb-6">
               <p className="text-white text-center font-bold text-lg">
-                🎯 Wähle dein Set und verschaff dir vollständigen Durchblick
+                🎯 Verschaff dir vollständigen Durchblick
               </p>
             </div>
 
@@ -340,7 +340,7 @@ export default function RedFlagTeaser() {
               href="#pricing"
               className="block w-full bg-[#ff6b35] text-white py-4 px-8 rounded-lg font-bold text-xl hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
             >
-              Jetzt Set wählen – ab 49€
+              Jetzt starten – ab 49€
             </a>
 
             <p className="text-gray-300 text-sm text-center mt-4">

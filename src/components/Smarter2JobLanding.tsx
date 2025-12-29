@@ -959,7 +959,7 @@ export default function Smarter2JobLanding() {
               href="#pricing"
               className="inline-block bg-[#ff6b35] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Wähle dein Set → Zu den Preisen
+              Jetzt Durchblick verschaffen → Zu den Preisen
             </a>
           </div>
         </div>
@@ -1094,7 +1094,7 @@ export default function Smarter2JobLanding() {
       {/* Pricing Section */}
       <section id="pricing" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4">Wähle dein Set</h2>
+          <h2 className="text-4xl font-bold text-center mb-4">Jetzt Durchblick verschaffen</h2>
           <p className="text-xl text-gray-600 text-center mb-16">
             7 Tage Geld-zurück-Garantie
           </p>
@@ -1307,7 +1307,7 @@ export default function Smarter2JobLanding() {
               e.currentTarget.style.transform = 'scale(1)';
             }}
           >
-            Jetzt einsteigen
+            Jetzt starten
           </button>
           <p style={{ 
             fontSize: '14px',
@@ -1431,7 +1431,7 @@ export default function Smarter2JobLanding() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="text-2xl font-bold text-white mb-4">Smarter2Job</div>
-              <p className="text-sm">Stellenanzeigen sind verschleiert. Wir verschaffen dir Durchblick.</p>
+              <p className="text-sm">Stellenanzeigen sind verschleiert. Wir verschaffen dir Durchblick, damit du dich einfacher, strategisch besser bewerben kannst.</p>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Produkt</h4>
