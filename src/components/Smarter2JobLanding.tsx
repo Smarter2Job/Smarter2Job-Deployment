@@ -457,63 +457,73 @@ export default function Smarter2JobLanding() {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20" style={{ backgroundColor: '#1e293b' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4">
+          <h2 className="text-4xl font-bold text-center mb-4 text-white">
             Was Teilnehmer sagen
           </h2>
-          <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
             Echtes Feedback aus dem ersten Webinar
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             
-            {/* Testimonial 1 */}
-            <div className="bg-gray-50 p-8 rounded-xl border-l-4 border-[#0a4f5c] shadow-sm hover:shadow-md transition">
-              <p className="text-gray-700 italic mb-6 leading-relaxed">
-                "Danke Martin, für dieses spannende Webinar. Du hast wirklich einige Punkte aufgewirbelt, die mir so gar nicht bewusst..."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#0a4f5c] rounded-full flex items-center justify-center text-white font-semibold">
-                  TN
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">Webinar-Teilnehmer</p>
-                  <p className="text-sm text-gray-500">LinkedIn</p>
-                </div>
-              </div>
+            {/* Testimonial 1 - Screenshot */}
+            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
+              <img 
+                src="/testimonials/Testimonial 1.png" 
+                alt="Testimonial 1 - Webinar Feedback"
+                className="w-full h-auto object-contain"
+                onError={(e) => {
+                  // Fallback falls Screenshot nicht gefunden wird
+                  e.currentTarget.style.display = 'none';
+                  const parent = e.currentTarget.parentElement;
+                  if (parent && !parent.querySelector('.testimonial-fallback')) {
+                    const fallback = document.createElement('div');
+                    fallback.className = 'testimonial-fallback p-8 text-gray-700 italic';
+                    fallback.textContent = 'Screenshot wird geladen...';
+                    parent.appendChild(fallback);
+                  }
+                }}
+              />
             </div>
 
-            {/* Testimonial 2 */}
-            <div className="bg-gray-50 p-8 rounded-xl border-l-4 border-[#0a4f5c] shadow-sm hover:shadow-md transition">
-              <p className="text-gray-700 italic mb-6 leading-relaxed">
-                "Das Meeting war sehr inspirierend. Vielen Dank Martin. Gerne wieder. 🥂"
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#0a4f5c] rounded-full flex items-center justify-center text-white font-semibold">
-                  TN
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">Webinar-Teilnehmer</p>
-                  <p className="text-sm text-gray-500">LinkedIn</p>
-                </div>
-              </div>
+            {/* Testimonial 2 - Screenshot */}
+            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
+              <img 
+                src="/testimonials/Testimonial 2.png" 
+                alt="Testimonial 2 - Webinar Feedback"
+                className="w-full h-auto object-contain"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const parent = e.currentTarget.parentElement;
+                  if (parent && !parent.querySelector('.testimonial-fallback')) {
+                    const fallback = document.createElement('div');
+                    fallback.className = 'testimonial-fallback p-8 text-gray-700 italic';
+                    fallback.textContent = 'Screenshot wird geladen...';
+                    parent.appendChild(fallback);
+                  }
+                }}
+              />
             </div>
 
-            {/* Testimonial 3 */}
-            <div className="bg-gray-50 p-8 rounded-xl border-l-4 border-[#0a4f5c] shadow-sm hover:shadow-md transition">
-              <p className="text-gray-700 italic mb-6 leading-relaxed">
-                "Martin Beyer ich danke dir! Mit deiner Hilfe habe ich sehr genau definieren können, was ich will und was nicht. 🙏"
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#0a4f5c] rounded-full flex items-center justify-center text-white font-semibold">
-                  CK
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-900">Cathrin Kröll</p>
-                  <p className="text-sm text-gray-500">Communications Expert</p>
-                </div>
-              </div>
+            {/* Testimonial 3 - Screenshot */}
+            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition overflow-hidden">
+              <img 
+                src="/testimonials/Testimonial 3.png" 
+                alt="Testimonial 3 - Cathrin Kröll Feedback"
+                className="w-full h-auto object-contain"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const parent = e.currentTarget.parentElement;
+                  if (parent && !parent.querySelector('.testimonial-fallback')) {
+                    const fallback = document.createElement('div');
+                    fallback.className = 'testimonial-fallback p-8 text-gray-700 italic';
+                    fallback.textContent = 'Screenshot wird geladen...';
+                    parent.appendChild(fallback);
+                  }
+                }}
+              />
             </div>
 
           </div>
