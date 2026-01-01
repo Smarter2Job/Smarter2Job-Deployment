@@ -124,16 +124,20 @@ export default function RedFlagTeaser() {
       {/* Input Section */}
       <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Nebel lichten – Durchblick verschaffen
+          Durchblick verschaffen – Stolpersteine erkennen
         </h2>
         <p className="text-gray-600 mb-6 leading-relaxed">
-          Oft verbergen sich hinter schön klingenden Stellenbeschreibungen oder Stellentiteln eine ganz andere Wirklichkeit, als es sich für uns auf den ersten Blick beim Lesen darstellt. Deswegen lohnt es sich, zwischen den Zeilen zu lesen. Wenn du magst, lass uns gerne mal die Stelle, die dich interessiert, beginnen zu durchleuchten, um zu verstehen, was wirklich dahintersteckt. Um bei deiner Bewerbung bestehen zu können, solltest du wissen, wie Stellenanzeigen wirklich funktionieren. Daher kannst du jetzt hier den Nebel lichten und Durchblick bekommen. Es wird vermutlich ein Aha-Erlebnis.
+          Oft verbergen sich hinter schön klingenden Stellenbeschreibungen oder Stellentiteln eine ganz andere Wirklichkeit, als es sich auf den ersten Blick darstellt. Deswegen lohnt es sich, zwischen den Zeilen zu lesen. 
+          <br /><br />
+          Lass uns die Stelle, die dich interessiert, durchleuchten: Welche Stolpersteine verstecken sich in der Anzeige? Welche Warnsignale solltest du kennen? Welche unausgesprochenen Anforderungen werden vorausgesetzt?
+          <br /><br />
+          Um bei deiner Bewerbung zu bestehen, solltest du wissen, wie Stellenanzeigen wirklich funktionieren. Verschaff dir jetzt Durchblick – kostenlos, ohne Anmeldung, in 30-60 Sekunden.
         </p>
 
         <textarea
           value={jobInput}
           onChange={(e) => setJobInput(e.target.value)}
-          placeholder="Stellen-URL einfügen (z.B. von StepStone, LinkedIn) oder Stellenbeschreibung hier hinein kopieren..."
+          placeholder="Stellen-URL oder Stellenbeschreibung einfügen – wir analysieren in 30-60 Sekunden kostenlos"
           className="w-full min-h-[120px] p-4 border-2 border-gray-200 rounded-lg focus:border-[#0a4f5c] focus:outline-none resize-y text-gray-900"
           disabled={loading}
         />
@@ -159,7 +163,7 @@ export default function RedFlagTeaser() {
             </>
           ) : (
             <>
-              🔍 Jetzt Durchblick verschaffen
+              🔍 Jetzt strategisch auf deine Bewerbung vorbereiten
             </>
           )}
         </button>
@@ -210,10 +214,10 @@ export default function RedFlagTeaser() {
           {/* Header */}
           <div className="bg-white rounded-xl shadow-lg p-8 text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              🚨 Wir haben {result.totalRedFlags || 0} krasse Red Flags gefunden
+              🚩 Wir haben {result.totalRedFlags || 0} Stolpersteine bei dieser Stelle gefunden
             </h2>
             <p className="text-gray-600">
-              Hier sind die {result.shownRedFlags?.length || 0} kritischsten:
+              Hier sind die ersten 3 für dich:
             </p>
             {(!result.shownRedFlags || result.shownRedFlags.length === 0) && (
               <div className="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded">
@@ -225,9 +229,9 @@ export default function RedFlagTeaser() {
             )}
           </div>
 
-          {/* Red Flag Cards */}
+          {/* Red Flag Cards - Nur erste 3 anzeigen */}
           {result.shownRedFlags && result.shownRedFlags.length > 0 ? (
-            result.shownRedFlags.map((flag, index) => (
+            result.shownRedFlags.slice(0, 3).map((flag, index) => (
               <div
                 key={index}
                 className={`bg-white rounded-xl shadow-md p-6 border-l-4 ${getBorderColor(flag.riskColor)} hover:shadow-lg transition`}
@@ -236,7 +240,7 @@ export default function RedFlagTeaser() {
                   <span className="text-3xl">{getRiskIcon(flag.risk)}</span>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                      RED FLAG #{index + 1}: {flag.title}
+                      Stolperstein #{index + 1}: {flag.title}
                     </h3>
                   </div>
                 </div>
@@ -275,18 +279,36 @@ export default function RedFlagTeaser() {
             </div>
           )}
 
+          {/* Teaser Box für weitere Stolpersteine */}
+          {result.totalRedFlags > 3 && (
+            <div className="bg-yellow-50 border-l-4 border-yellow-500 rounded-xl shadow-lg p-6 mb-6">
+              <p className="text-gray-800 text-lg mb-4">
+                ⚠️ Es gibt noch {result.totalRedFlags - 3} schwerwiegendere Stolpersteine bei dieser Stelle, die wir entdeckt haben.
+              </p>
+              <p className="text-gray-700 mb-4">
+                Um alle Details zu sehen und deine Bewerbung strategisch vorzubereiten, wähle eines unserer Analyse-Pakete.
+              </p>
+              <a
+                href="#pricing"
+                className="block w-full bg-[#ff6b35] text-white py-3 px-6 rounded-lg font-bold text-lg hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
+              >
+                Jetzt vollständige Analyse erhalten
+              </a>
+            </div>
+          )}
+
           {/* Upsell Box */}
           <div className="bg-[#0a4f5c] rounded-xl shadow-xl p-8 text-white">
             <div className="text-center mb-6">
               <div className="text-6xl mb-4">🔍</div>
               <h3 className="text-3xl font-bold mb-3">
-                Du hast gerade den ersten Nebel gelichtet
+                Strategisch statt verzweifelt
               </h3>
               <p className="text-xl text-gray-200 mb-2">
-                Das waren die ersten {result.shownRedFlags.length} von <strong className="text-white">{result.totalRedFlags} Stolpersteinen</strong> bei dieser Stelle.
+                Du hast gerade die ersten 3 von <strong className="text-white">{result.totalRedFlags} Stolpersteinen</strong> bei dieser Stelle gesehen.
               </p>
               <p className="text-lg text-[#ff6b35] font-semibold">
-                Wir haben noch {result.hiddenRedFlagsCount} weitere Red Flags für dich entdeckt – und das ist erst der Anfang.
+                Für eine vollständige Analyse und strategische Vorbereitung deiner Bewerbung haben wir noch mehr für dich.
               </p>
             </div>
 
@@ -340,7 +362,7 @@ export default function RedFlagTeaser() {
               href="#pricing"
               className="block w-full bg-[#ff6b35] text-white py-4 px-8 rounded-lg font-bold text-xl hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
             >
-              Jetzt starten – ab 49€
+              Jetzt vollständige Analyse erhalten
             </a>
 
             <p className="text-gray-300 text-sm text-center mt-4">

@@ -132,26 +132,16 @@ export default function Smarter2JobLanding() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Stellenanzeigen sind wie <span className="text-[#ff6b35] font-extrabold">dichter Nebel</span> – du siehst nicht, was dich wirklich erwartet.
-            </h1>
-            
-            <p 
-              className="text-xl mb-6 leading-relaxed italic"
-              style={{ color: '#e2e8f0' }}
-            >
-              Das ist zumindest das Gefühl, das viele von uns haben. 
-              Aber oft sind wir als Bewerber selbst das Problem – 
-              weil wir gar nicht wissen, was wirklich zwischen den Zeilen steht.
+            <p className="text-sm md:text-base font-medium text-[#ff6b35] mb-4 uppercase tracking-wide">
+              Das Problem fast aller Bewerbungen:
             </p>
             
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 leading-tight">
-              Lass uns dir Durchblick verschaffen.
-            </h2>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+              Dein Lebenslauf scheitert am Roboter. Die Stellenanzeige verschleiert die Wahrheit. Du bewirbst dich blind – und verlierst.
+            </h1>
             
-            <p className="text-xl mb-8 leading-relaxed" style={{ color: '#cbd5e1' }}>
-              KI dekodiert Stellenbeschreibungen, optimiert deinen Lebenslauf (CV) für ATS - den Bewerbungsroboter - 
-              und zeigt dir Warnzeichen (Red Flags), bevor du dich bewirbst.
+            <p className="text-lg md:text-xl mb-10 leading-relaxed" style={{ color: '#cbd5e1' }}>
+              Smarter2Job durchleuchtet Stellenanzeigen, optimiert deinen Lebenslauf (CV) für Bewerbungs-Filter-Roboter (Application Tracking System – kurz ATS) und zeigt dir mögliche Stolpersteine auf, bevor du dich bewirbst. Strategisch statt verzweifelt.
             </p>
             
             <button 
@@ -176,9 +166,24 @@ export default function Smarter2JobLanding() {
               onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#e55a2b')}
               onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#ff6b35')}
             >
-              🔍 Jetzt Durchblick verschaffen
+              🔍 Jetzt strategisch auf deine Bewerbung vorbereiten
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* Story Section - Date Metapher */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Du würdest nie in Jogginghose zum wichtigsten Date deines Lebens gehen.
+          </h2>
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
+            Aber bei Bewerbungen machst du genau das: Derselbe Lebenslauf für 100 Stellen. Keine Vorbereitung. Keine Strategie. Nur Copy-Paste – und Absagen.
+          </p>
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+            Smarter2Job macht Schluss damit. Wir bereiten dich vor wie für dein perfektes Date: Du weißt, was dein Gegenüber erwartet, wie du dich präsentierst und welche Stolpersteine du meiden musst.
+          </p>
         </div>
       </section>
 
@@ -618,7 +623,7 @@ export default function Smarter2JobLanding() {
               href="#pricing"
               className="inline-block bg-[#ff6b35] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#e55a2b] transition"
             >
-              Welches Package passt zu dir? → Zu den Preisen
+              Zu den Paketen
             </a>
           </div>
         </div>
@@ -959,7 +964,7 @@ export default function Smarter2JobLanding() {
               href="#pricing"
               className="inline-block bg-[#ff6b35] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Jetzt Durchblick verschaffen → Zu den Preisen
+              🔍 Jetzt strategisch auf deine Bewerbung vorbereiten → Zu den Paketen
             </a>
           </div>
         </div>
@@ -1094,7 +1099,7 @@ export default function Smarter2JobLanding() {
       {/* Pricing Section */}
       <section id="pricing" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4">Jetzt Durchblick verschaffen</h2>
+          <h2 className="text-4xl font-bold text-center mb-4">Jetzt strategisch auf deine Bewerbung vorbereiten</h2>
           <p className="text-xl text-gray-600 text-center mb-16">
             7 Tage Geld-zurück-Garantie
           </p>
