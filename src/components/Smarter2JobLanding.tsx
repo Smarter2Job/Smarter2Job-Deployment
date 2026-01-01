@@ -137,7 +137,7 @@ export default function Smarter2JobLanding() {
             </p>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
-              Dein Lebenslauf scheitert am Roboter. Die Stellenanzeige verschleiert die Wahrheit. Du bewirbst dich blind – und verlierst.
+              Dein Lebenslauf <span className="text-[#ff6b35]">scheitert</span> am Roboter. Die Stellenanzeige <span className="text-[#ff6b35]">verschleiert</span> die Wahrheit. Du bewirbst dich <span className="text-[#ff6b35]">blind</span> – und <span className="text-[#ff6b35]">verlierst</span>.
             </h1>
             
             <p className="text-lg md:text-xl mb-10 leading-relaxed" style={{ color: '#cbd5e1' }}>
