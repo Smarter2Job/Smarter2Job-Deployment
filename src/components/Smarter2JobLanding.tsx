@@ -124,23 +124,33 @@ export default function Smarter2JobLanding() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section 
-        className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-white"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+      {/* Hero Section - TYP A */}
+      <section className="section-hero">
+        <div className="container-narrow">
+          <div className="text-center">
+            <h1 style={{ color: 'var(--text)', marginBottom: '24px' }}>
               Strategisch bewerben.<br/>
               Gezielter in die richtigen Jobs.
             </h1>
             
-            <p className="text-xl md:text-2xl mb-4 leading-relaxed text-gray-700 font-medium">
+            <p style={{ 
+              fontSize: '22px', 
+              color: 'var(--text-muted)', 
+              marginBottom: '16px',
+              fontWeight: 'var(--font-weight-medium)'
+            }}>
               Nicht nur Geschwindigkeit entscheidet –<br/>
               sondern Strategie und Passung.
             </p>
             
-            <p className="text-lg md:text-xl mb-10 leading-relaxed text-gray-600">
+            <p style={{ 
+              fontSize: '18px', 
+              color: 'var(--text-muted)', 
+              marginBottom: '40px',
+              maxWidth: '65ch',
+              marginLeft: 'auto',
+              marginRight: 'auto'
+            }}>
               Smarter2Job hilft dir, deine Bewerbungen gezielt vorzubereiten<br/>
               und passend zu deinen Wunschjobs zu positionieren.
             </p>
@@ -152,27 +162,7 @@ export default function Smarter2JobLanding() {
                   block: 'start'
                 });
               }}
-              style={{ 
-                backgroundColor: '#ff6b35',
-                color: 'white',
-                padding: '16px 32px',
-                borderRadius: '8px',
-                fontSize: '18px',
-                fontWeight: '600',
-                border: 'none',
-                cursor: 'pointer',
-                boxShadow: '0 4px 12px rgba(255, 107, 53, 0.2)',
-                marginTop: '16px',
-                transition: 'all 0.2s ease'
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.backgroundColor = '#e55a2b';
-                e.currentTarget.style.boxShadow = '0 6px 16px rgba(255, 107, 53, 0.3)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.backgroundColor = '#ff6b35';
-                e.currentTarget.style.boxShadow = '0 4px 12px rgba(255, 107, 53, 0.2)';
-              }}
+              className="btn btn-primary btn-lg"
             >
               Starte deine Bewerbungsstrategie
             </button>
@@ -180,89 +170,183 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Problem Section - Frust */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0a4f5c' }}>
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+      {/* Problem Section - Frust - TYP B */}
+      <section className="section-problem">
+        <div className="container-narrow">
+          <h2 style={{ marginBottom: '32px', textAlign: 'left' }}>
             Warum dein Frust so groß ist
           </h2>
-          <div className="text-lg md:text-xl text-gray-100 leading-relaxed space-y-4">
-            <p>Du bewirbst dich.</p>
-            <p>Du investierst Zeit.</p>
-            <p>Du bleibst dran.</p>
-            <p className="text-xl font-semibold text-white mt-6 mb-4">Und trotzdem:</p>
-            <p>Absagen.</p>
-            <p>Funkstille.</p>
-            <p>Das Gefühl, im Wettbewerb unterzugehen.</p>
-            <p className="text-xl font-semibold text-white mt-8 mb-4">Der Frust entsteht nicht, weil du zu wenig tust.</p>
-            <p className="text-xl font-semibold text-white mb-4">Sondern weil das, was du tust, nicht strategisch geplant ist.</p>
-            <p className="mt-6">Bewerbungen werden schnell abgeschickt –<br/>
-            ohne klare Passung, ohne Positionierung, ohne System.</p>
-            <p className="text-xl font-semibold text-white mt-6 mb-4">Das Ergebnis ist vorhersehbar:</p>
-            <p>Du bekommst mehr Wettbewerb<br/>
-            und logischerweise viel mehr Absagen.</p>
+          <div style={{ 
+            fontSize: '18px', 
+            lineHeight: '1.7',
+            color: 'var(--text-on-dark)',
+            textAlign: 'left'
+          }}>
+            <p style={{ marginBottom: '12px' }}>Du bewirbst dich.</p>
+            <p style={{ marginBottom: '12px' }}>Du investierst Zeit.</p>
+            <p style={{ marginBottom: '12px' }}>Du bleibst dran.</p>
+            <p style={{ 
+              fontSize: '20px', 
+              fontWeight: 'var(--font-weight-semibold)', 
+              marginTop: '24px',
+              marginBottom: '16px',
+              color: 'var(--text-on-dark)'
+            }}>
+              Und trotzdem:
+            </p>
+            <p style={{ marginBottom: '12px' }}>Absagen.</p>
+            <p style={{ marginBottom: '12px' }}>Funkstille.</p>
+            <p style={{ marginBottom: '24px' }}>Das Gefühl, im Wettbewerb unterzugehen.</p>
+            <p style={{ 
+              fontSize: '20px', 
+              fontWeight: 'var(--font-weight-semibold)', 
+              marginTop: '32px',
+              marginBottom: '16px',
+              color: 'var(--text-on-dark)'
+            }}>
+              Der Frust entsteht nicht, weil du zu wenig tust.
+            </p>
+            <p style={{ 
+              fontSize: '20px', 
+              fontWeight: 'var(--font-weight-semibold)', 
+              marginBottom: '24px',
+              color: 'var(--text-on-dark)'
+            }}>
+              Sondern weil das, was du tust, nicht strategisch geplant ist.
+            </p>
+            <p style={{ marginTop: '24px', marginBottom: '12px' }}>
+              Bewerbungen werden schnell abgeschickt –<br/>
+              ohne klare Passung, ohne Positionierung, ohne System.
+            </p>
+            <p style={{ 
+              fontSize: '20px', 
+              fontWeight: 'var(--font-weight-semibold)', 
+              marginTop: '24px',
+              marginBottom: '16px',
+              color: 'var(--text-on-dark)'
+            }}>
+              Das Ergebnis ist vorhersehbar:
+            </p>
+            <p style={{ marginBottom: '0' }}>
+              Du bekommst mehr Wettbewerb<br/>
+              und logischerweise viel mehr Absagen.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Strukturelles Problem - Portal-Logik */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Ein Klick ist schnell gemacht.<br/>
-              Eine gute Positionierung nicht.
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
-              Bewerbungsportale machen es extrem leicht, viele Bewerbungen zu verschicken.<br/>
-              Was sie fördern, ist Masse – nicht Klasse.
-            </p>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-              Bewerbungsportale fördern Masse.<br/>
-              Aber Masse ersetzt keine Strategie.
-            </p>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              Sie erhöht vor allem zwei Dinge:<br/>
-              <strong className="text-gray-900">den Wettbewerb</strong><br/>
-              und <strong className="text-gray-900">die Anzahl der Absagen</strong>.
-            </p>
-          </div>
+      {/* Strukturelles Problem - Portal-Logik - TYP C */}
+      <section className="section-structure">
+        <div className="container-narrow">
+          <h2 style={{ 
+            color: 'var(--text)', 
+            marginBottom: '24px',
+            textAlign: 'left'
+          }}>
+            Ein Klick ist schnell gemacht.<br/>
+            Eine gute Positionierung nicht.
+          </h2>
+          <p style={{ 
+            fontSize: '18px', 
+            color: 'var(--text)', 
+            lineHeight: '1.7',
+            marginBottom: '16px',
+            textAlign: 'left'
+          }}>
+            Bewerbungsportale machen es extrem leicht, viele Bewerbungen zu verschicken.<br/>
+            Was sie fördern, ist Masse – nicht Klasse.
+          </p>
+          <p style={{ 
+            fontSize: '18px', 
+            color: 'var(--text)', 
+            lineHeight: '1.7',
+            marginBottom: '32px',
+            textAlign: 'left'
+          }}>
+            Bewerbungsportale fördern Masse.<br/>
+            Aber Masse ersetzt keine Strategie.
+          </p>
+          <p style={{ 
+            fontSize: '18px', 
+            color: 'var(--text)', 
+            lineHeight: '1.7',
+            marginBottom: '48px',
+            textAlign: 'left'
+          }}>
+            Sie erhöht vor allem zwei Dinge:<br/>
+            <strong style={{ color: 'var(--text)' }}>den Wettbewerb</strong><br/>
+            und <strong style={{ color: 'var(--text)' }}>die Anzahl der Absagen</strong>.
+          </p>
 
           {/* Aktivitäts-Illusion */}
-          <div className="bg-gray-50 rounded-xl p-8 mb-12">
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+          <div className="card" style={{ marginBottom: '48px' }}>
+            <p style={{ 
+              fontSize: '18px', 
+              color: 'var(--text)', 
+              lineHeight: '1.7',
+              marginBottom: '16px'
+            }}>
               Viele Bewerbungen vermitteln Aktivität.<br/>
               In Wahrheit ist es oft wie mit einer Schrotflinte im Nebel:<br/>
               viel Bewegung, wenig Wirkung – und kaum Kontrolle.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p style={{ 
+              fontSize: '18px', 
+              color: 'var(--text)', 
+              lineHeight: '1.7',
+              marginBottom: '0'
+            }}>
               Dein Aufwand ist dennoch hoch –<br/>
               die Trefferquote bleibt niedrig.
             </p>
           </div>
 
           {/* Erkenntnis-Block */}
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+          <div style={{ marginBottom: '48px', textAlign: 'left' }}>
+            <h3 style={{ 
+              fontSize: '28px', 
+              fontWeight: 'var(--font-weight-bold)', 
+              color: 'var(--text)',
+              marginBottom: '16px'
+            }}>
               Nicht viele Bewerbungen sind das Problem.<br/>
               Schlechte Trefferquoten sind es.
             </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p style={{ 
+              fontSize: '18px', 
+              color: 'var(--text)', 
+              lineHeight: '1.7'
+            }}>
               Wenn der Match von Anfang an gering ist, führt jede zusätzliche Bewerbung vor allem zu einer weiteren Absage.<br/>
               Was fehlt, ist nicht Motivation – sondern Strategie vor dem Absenden.
             </p>
           </div>
 
           {/* Dating-Analogie */}
-          <div className="bg-[#f0f9fa] rounded-xl p-8 border-l-4 border-[#0a4f5c]">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+          <div className="callout">
+            <h3 style={{ 
+              fontSize: '22px', 
+              fontWeight: 'var(--font-weight-bold)', 
+              color: 'var(--text)',
+              marginBottom: '16px'
+            }}>
               Beim Dating würdest du auch nicht unvorbereitet starten.
             </h3>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+            <p style={{ 
+              fontSize: '18px', 
+              color: 'var(--text)', 
+              lineHeight: '1.7',
+              marginBottom: '16px'
+            }}>
               Du würdest kein beliebiges Foto wählen, kein austauschbares Profil nutzen und nicht unvorbereitet zu einem wichtigen Date gehen –
               nicht um etwas vorzutäuschen, sondern um passend wahrgenommen zu werden.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p style={{ 
+              fontSize: '18px', 
+              color: 'var(--text)', 
+              lineHeight: '1.7',
+              marginBottom: '0'
+            }}>
               Genau so funktionieren Bewerbungen.<br/>
               Smarter2Job erstellt keine Fake-Profile.<br/>
               Wir sorgen dafür, dass dein Profil klar, glaubwürdig und passend zu deinen Wunschstellen ausgerichtet ist.
@@ -474,79 +558,126 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Solution Section - Differenzierung */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">Was Smarter2Job anders macht</h2>
-          <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto leading-relaxed">
-            Smarter2Job ist bewusst kein One-Click-System.<br/>
-            Wir helfen dir nicht, schneller zu klicken – sondern besser zu entscheiden:
-          </p>
-          <div className="max-w-2xl mx-auto space-y-4 mb-16">
-            <p className="text-lg text-gray-700 flex items-start">
-              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
-              <span>Worauf du dich bewirbst</span>
-            </p>
-            <p className="text-lg text-gray-700 flex items-start">
-              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
-              <span>Warum es Sinn ergibt</span>
-            </p>
-            <p className="text-lg text-gray-700 flex items-start">
-              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
-              <span>Wie du dich positionierst</span>
+      {/* Solution Section - Differenzierung - TYP C */}
+      <section className="section-structure">
+        <div className="container-main">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Links: Headline + Copy */}
+            <div>
+              <h2 style={{ 
+                color: 'var(--text)', 
+                marginBottom: '16px',
+                textAlign: 'left'
+              }}>
+                Was Smarter2Job anders macht
+              </h2>
+              <p style={{ 
+                fontSize: '18px', 
+                color: 'var(--text-muted)', 
+                marginBottom: '32px',
+                lineHeight: '1.7',
+                textAlign: 'left'
+              }}>
+                Smarter2Job ist bewusst kein One-Click-System.<br/>
+                Wir helfen dir nicht, schneller zu klicken – sondern besser zu entscheiden.
+              </p>
+            </div>
+
+            {/* Rechts: Card mit Icon-Liste */}
+            <div className="card">
+              <ul className="icon-list">
+                <li>
+                  <span style={{ color: 'var(--text)' }}>Worauf du dich bewirbst</span>
+                </li>
+                <li>
+                  <span style={{ color: 'var(--text)' }}>Warum es Sinn ergibt</span>
+                </li>
+                <li>
+                  <span style={{ color: 'var(--text)' }}>Wie du dich positionierst</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Callout Card darunter */}
+          <div className="callout" style={{ marginTop: '48px' }}>
+            <p style={{ 
+              fontSize: '18px', 
+              color: 'var(--text)', 
+              fontWeight: 'var(--font-weight-medium)',
+              marginBottom: '0'
+            }}>
+              Damit du nicht vom System aussortiert wirst,<br/>
+              sondern selbst steuerst, wo dein Aufwand eingesetzt wird.
             </p>
           </div>
-          <p className="text-xl text-gray-700 text-center max-w-3xl mx-auto font-medium">
-            Damit du nicht vom System aussortiert wirst,<br/>
-            sondern selbst steuerst, wo dein Aufwand eingesetzt wird.
-          </p>
         </div>
       </section>
 
-      {/* Warum Vorbereitung im Mittelpunkt steht */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900">
+      {/* Warum Vorbereitung im Mittelpunkt steht - TYP C */}
+      <section className="section-structure">
+        <div className="container-narrow">
+          <h2 style={{ 
+            color: 'var(--text)', 
+            marginBottom: '32px',
+            textAlign: 'left'
+          }}>
             Warum Vorbereitung bei Smarter2Job im Mittelpunkt steht
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
+          <p style={{ 
+            fontSize: '18px', 
+            color: 'var(--text)', 
+            lineHeight: '1.7',
+            marginBottom: '24px',
+            textAlign: 'left'
+          }}>
             Bevor du dich bewirbst, investieren wir bewusst Zeit in die gemeinsame Vorbereitung.<br/>
             Denn gezielte Bewerbungen entstehen nicht durch Zufall, sondern durch Klarheit.
           </p>
-          <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold">
+          <p style={{ 
+            fontSize: '18px', 
+            color: 'var(--text)', 
+            fontWeight: 'var(--font-weight-semibold)',
+            marginBottom: '24px',
+            textAlign: 'left'
+          }}>
             Gemeinsam schauen wir uns an:
           </p>
-          <div className="space-y-4 mb-8">
-            <p className="text-lg text-gray-700 flex items-start">
-              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
-              <span>wer du bist und was dich ausmacht</span>
-            </p>
-            <p className="text-lg text-gray-700 flex items-start">
-              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
-              <span>was du wirklich möchtest – und was nicht</span>
-            </p>
-            <p className="text-lg text-gray-700 flex items-start">
-              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
-              <span>welche Rollen und Branchen realistisch zu dir passen</span>
-            </p>
-            <p className="text-lg text-gray-700 flex items-start">
-              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
-              <span>welches Gehaltsniveau für dich sinnvoll und erreichbar ist</span>
-            </p>
-            <p className="text-lg text-gray-700 flex items-start">
-              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
-              <span>wo deine persönlichen Dealbreaker liegen</span>
+          <ul className="icon-list" style={{ marginBottom: '32px' }}>
+            <li><span style={{ color: 'var(--text)' }}>wer du bist und was dich ausmacht</span></li>
+            <li><span style={{ color: 'var(--text)' }}>was du wirklich möchtest – und was nicht</span></li>
+            <li><span style={{ color: 'var(--text)' }}>welche Rollen und Branchen realistisch zu dir passen</span></li>
+            <li><span style={{ color: 'var(--text)' }}>welches Gehaltsniveau für dich sinnvoll und erreichbar ist</span></li>
+            <li><span style={{ color: 'var(--text)' }}>wo deine persönlichen Dealbreaker liegen</span></li>
+          </ul>
+          <div className="callout">
+            <p style={{ 
+              fontSize: '18px', 
+              color: 'var(--text)', 
+              fontStyle: 'italic',
+              marginBottom: '16px'
+            }}>
+              Genau die Punkte, bei denen du im Nachhinein oft denkst:<br/>
+              „Hätte ich das vorher gewusst, hätte ich mich gar nicht beworben."
             </p>
           </div>
-          <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
-            Genau die Punkte, bei denen du im Nachhinein oft denkst:<br/>
-            „Hätte ich das vorher gewusst, hätte ich mich gar nicht beworben."
-          </p>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p style={{ 
+            fontSize: '18px', 
+            color: 'var(--text)', 
+            lineHeight: '1.7',
+            marginBottom: '16px',
+            textAlign: 'left'
+          }}>
             Deshalb helfen wir dir, bei deinen Wunschjobs zwischen den Zeilen zu lesen<br/>
             und mögliche Ausschlussfaktoren frühzeitig zu erkennen.
           </p>
-          <p className="text-lg text-gray-900 font-semibold mt-6">
+          <p style={{ 
+            fontSize: '18px', 
+            color: 'var(--text)', 
+            fontWeight: 'var(--font-weight-semibold)',
+            marginTop: '24px',
+            textAlign: 'left'
+          }}>
             So filterst du nicht erst nach der Absage –<br/>
             sondern vor dem Absenden.
           </p>
@@ -1125,84 +1256,88 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Was sich für dich verändert */}
-      <section id="features" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">Was sich für dich konkret verändert</h2>
+      {/* Was sich für dich verändert - TYP C */}
+      <section id="features" className="section-structure">
+        <div className="container-main">
+          <h2 style={{ 
+            color: 'var(--text)', 
+            marginBottom: '48px',
+            textAlign: 'left'
+          }}>
+            Was sich für dich konkret verändert
+          </h2>
           
-          <div className="max-w-4xl mx-auto space-y-12 mt-16">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Outcome 1 */}
-            <div className="bg-white border-l-4 border-[#0a4f5c] pl-6 pr-4 py-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+            <div className="card">
+              <h3 style={{ 
+                fontSize: '22px', 
+                fontWeight: 'var(--font-weight-semibold)', 
+                color: 'var(--text)',
+                marginBottom: '16px'
+              }}>
                 1. Du erkennst vor dem Absenden, ob sich eine Bewerbung lohnt
               </h3>
-              <ul className="space-y-2 text-gray-700 mb-4">
-                <li className="flex items-start">
-                  <span className="text-[#0a4f5c] mr-2">•</span>
-                  <span>wo dein Profil realistisch anschlussfähig ist</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#0a4f5c] mr-2">•</span>
-                  <span>wo der Match zu gering ist</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#0a4f5c] mr-2">•</span>
-                  <span>wo dein Einsatz echte Chancen hat</span>
-                </li>
+              <ul className="icon-list" style={{ marginBottom: '16px' }}>
+                <li><span style={{ color: 'var(--text)' }}>wo dein Profil realistisch anschlussfähig ist</span></li>
+                <li><span style={{ color: 'var(--text)' }}>wo der Match zu gering ist</span></li>
+                <li><span style={{ color: 'var(--text)' }}>wo dein Einsatz echte Chancen hat</span></li>
               </ul>
-              <p className="text-lg text-gray-900 font-medium">
+              <p style={{ 
+                fontSize: '16px', 
+                color: 'var(--text)', 
+                fontWeight: 'var(--font-weight-medium)',
+                marginBottom: '0'
+              }}>
                 Du bewirbst dich nicht weniger – sondern gezielter.
               </p>
             </div>
 
             {/* Outcome 2 */}
-            <div className="bg-white border-l-4 border-[#0a4f5c] pl-6 pr-4 py-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+            <div className="card">
+              <h3 style={{ 
+                fontSize: '22px', 
+                fontWeight: 'var(--font-weight-semibold)', 
+                color: 'var(--text)',
+                marginBottom: '16px'
+              }}>
                 2. Du berücksichtigst Branchen- und Marktlogiken
               </h3>
-              <ul className="space-y-2 text-gray-700 mb-4">
-                <li className="flex items-start">
-                  <span className="text-[#0a4f5c] mr-2">•</span>
-                  <span>nicht jede Branche funktioniert gleich (offen vs konservativ)</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#0a4f5c] mr-2">•</span>
-                  <span>du bewirbst dich dort, wo dein Profil ernsthaft in Betracht gezogen wird</span>
-                </li>
+              <ul className="icon-list">
+                <li><span style={{ color: 'var(--text)' }}>nicht jede Branche funktioniert gleich (offen vs konservativ)</span></li>
+                <li><span style={{ color: 'var(--text)' }}>du bewirbst dich dort, wo dein Profil ernsthaft in Betracht gezogen wird</span></li>
               </ul>
             </div>
 
             {/* Outcome 3 */}
-            <div className="bg-white border-l-4 border-[#0a4f5c] pl-6 pr-4 py-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+            <div className="card">
+              <h3 style={{ 
+                fontSize: '22px', 
+                fontWeight: 'var(--font-weight-semibold)', 
+                color: 'var(--text)',
+                marginBottom: '16px'
+              }}>
                 3. Du positionierst dich klar statt generisch
               </h3>
-              <ul className="space-y-2 text-gray-700 mb-4">
-                <li className="flex items-start">
-                  <span className="text-[#0a4f5c] mr-2">•</span>
-                  <span>bewusst auf Rolle, Kontext und Anforderungen ausgerichtet</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#0a4f5c] mr-2">•</span>
-                  <span>Ergebnis: Relevanz statt Standardbewerbung</span>
-                </li>
+              <ul className="icon-list">
+                <li><span style={{ color: 'var(--text)' }}>bewusst auf Rolle, Kontext und Anforderungen ausgerichtet</span></li>
+                <li><span style={{ color: 'var(--text)' }}>Ergebnis: Relevanz statt Standardbewerbung</span></li>
               </ul>
             </div>
 
             {/* Outcome 4 */}
-            <div className="bg-white border-l-4 border-[#0a4f5c] pl-6 pr-4 py-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+            <div className="card">
+              <h3 style={{ 
+                fontSize: '22px', 
+                fontWeight: 'var(--font-weight-semibold)', 
+                color: 'var(--text)',
+                marginBottom: '16px'
+              }}>
                 4. Deine Trefferquote steigt
               </h3>
-              <ul className="space-y-2 text-gray-700 mb-4">
-                <li className="flex items-start">
-                  <span className="text-[#0a4f5c] mr-2">•</span>
-                  <span>mehr Rückmeldungen, gezieltere Gespräche, Zugang zu echten Prozessen</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#0a4f5c] mr-2">•</span>
-                  <span>ohne Garantien; durch Passung, Vorbereitung, Klarheit</span>
-                </li>
+              <ul className="icon-list">
+                <li><span style={{ color: 'var(--text)' }}>mehr Rückmeldungen, gezieltere Gespräche, Zugang zu echten Prozessen</span></li>
+                <li><span style={{ color: 'var(--text)' }}>ohne Garantien; durch Passung, Vorbereitung, Klarheit</span></li>
               </ul>
             </div>
           </div>
@@ -1368,141 +1503,208 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Pricing Section - Als Entwicklungsphasen gerahmt */}
-      <section id="pricing" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4">Dein strategischer Fortschritt</h2>
-          <p className="text-xl text-gray-600 text-center mb-4">
+      {/* Pricing Section - TYP C */}
+      <section id="pricing" className="section-structure">
+        <div className="container-main">
+          <h2 style={{ 
+            color: 'var(--text)', 
+            marginBottom: '16px',
+            textAlign: 'left'
+          }}>
+            Dein strategischer Fortschritt
+          </h2>
+          <p style={{ 
+            fontSize: '18px', 
+            color: 'var(--text-muted)', 
+            marginBottom: '8px',
+            textAlign: 'left'
+          }}>
             Wähle das Paket passend zu deiner Bewerbungsphase.<br/>
             Du kannst jederzeit auf die nächste Stufe erweitern, wenn du skalieren willst.
           </p>
-          <p className="text-lg text-gray-700 text-center mb-2 font-medium">
+          <p style={{ 
+            fontSize: '16px', 
+            color: 'var(--text)', 
+            fontWeight: 'var(--font-weight-medium)',
+            marginBottom: '8px',
+            textAlign: 'left'
+          }}>
             Kein Abo. Kein Lock-in.
           </p>
-          <p className="text-sm text-gray-500 text-center mb-16">
+          <p style={{ 
+            fontSize: '14px', 
+            color: 'var(--text-muted)', 
+            marginBottom: '48px',
+            textAlign: 'left'
+          }}>
             7 Tage Geld-zurück-Garantie
           </p>
 
-          <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto items-stretch justify-center">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Starter */}
-            <div className="flex-1 bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200 hover:border-[#0a4f5c] transition flex flex-col">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2 text-gray-900">Einstieg & Orientierung</h3>
-                <p className="text-gray-600">Für Bewerber, die aus ungezielten Bewerbungen eine klare Strategie machen wollen.</p>
+            <div className="card flex flex-col">
+              <div style={{ marginBottom: '24px' }}>
+                <h3 style={{ 
+                  fontSize: '22px', 
+                  fontWeight: 'var(--font-weight-bold)', 
+                  color: 'var(--text)',
+                  marginBottom: '8px'
+                }}>
+                  Einstieg & Orientierung
+                </h3>
+                <p style={{ 
+                  fontSize: '16px', 
+                  color: 'var(--text-muted)',
+                  lineHeight: '1.6'
+                }}>
+                  Für Bewerber, die aus ungezielten Bewerbungen eine klare Strategie machen wollen.
+                </p>
               </div>
-              <div className="mb-6">
-                <span className="text-5xl font-bold text-gray-900">49€</span>
-                <span className="text-gray-600"> einmalig</span>
+              <div style={{ marginBottom: '24px' }}>
+                <span style={{ 
+                  fontSize: '48px', 
+                  fontWeight: 'var(--font-weight-bold)', 
+                  color: 'var(--text)'
+                }}>
+                  49€
+                </span>
+                <span style={{ 
+                  fontSize: '16px', 
+                  color: 'var(--text-muted)',
+                  marginLeft: '4px'
+                }}>
+                  einmalig
+                </span>
               </div>
-              <ul className="space-y-4 mb-8 flex-grow">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">3 Job-Analysen</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Warnzeichen-Analyse (Red-Flag-Analyse)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Fit-Score (Passgenauigkeit) &amp; Handlungsempfehlung</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">ATS Keyword Research (für den Bewerbungsroboter)</span>
-                </li>
+              <ul className="icon-list" style={{ marginBottom: '32px', flexGrow: '1' }}>
+                <li><span style={{ color: 'var(--text)' }}>3 Job-Analysen</span></li>
+                <li><span style={{ color: 'var(--text)' }}>Warnzeichen-Analyse (Red-Flag-Analyse)</span></li>
+                <li><span style={{ color: 'var(--text)' }}>Fit-Score (Passgenauigkeit) & Handlungsempfehlung</span></li>
+                <li><span style={{ color: 'var(--text)' }}>ATS Keyword Research (für den Bewerbungsroboter)</span></li>
               </ul>
               <a
                 href="mailto:post@martinbeyer.de?subject=Ich%20m%C3%B6chte%20gerne%20das%20Starter%20Paket%20f%C3%BCr%2049%20Euro%20buchen.&body=Hallo,%0A%0Aich%20m%C3%B6chte%20gerne%20das%20Starter%20Paket%20buchen.%0A%0AVorname:%0ANachname:%0AAdresse:%0A%0AViele%20Gr%C3%BC%C3%9Fe"
-                className="w-full border-2 border-[#0a4f5c] text-[#0a4f5c] py-3 rounded-lg font-semibold hover:bg-[#0a4f5c] hover:text-white transition mt-auto text-center"
+                className="btn btn-secondary w-full mt-auto"
               >
                 Jetzt starten
               </a>
             </div>
 
             {/* Professional - Featured */}
-            <div className="flex-1 rounded-xl shadow-2xl p-8 border-4 relative flex flex-col" style={{ backgroundColor: '#0a4f5c', borderColor: '#ff6b35' }}>
-              <div style={{ position: 'absolute', top: '-16px', left: '50%', transform: 'translateX(-50%)', backgroundColor: '#ff6b35', color: 'white', padding: '8px 24px', borderRadius: '9999px', fontSize: '14px', fontWeight: 'bold' }}>
+            <div className="card flex flex-col relative" style={{ 
+              backgroundColor: 'var(--petrol)', 
+              borderColor: 'var(--coral)',
+              borderWidth: '2px'
+            }}>
+              <div style={{ 
+                position: 'absolute', 
+                top: '-12px', 
+                left: '50%', 
+                transform: 'translateX(-50%)', 
+                backgroundColor: 'var(--surface)', 
+                color: 'var(--petrol)', 
+                padding: '6px 16px', 
+                borderRadius: '9999px', 
+                fontSize: '12px', 
+                fontWeight: 'var(--font-weight-semibold)',
+                border: '1px solid var(--border-strong)'
+              }}>
                 Beliebteste
               </div>
-              <div className="mb-6 mt-4">
-                <h3 className="text-2xl font-bold mb-2" style={{ color: 'white' }}>Aktive Bewerbungsphase</h3>
-                <p style={{ color: '#d1d5db' }}>Für Bewerber, die mehrere passende Zielstellen strategisch begleiten und konsistent gute Entscheidungen treffen möchten.</p>
+              <div style={{ marginBottom: '24px', marginTop: '8px' }}>
+                <h3 style={{ 
+                  fontSize: '22px', 
+                  fontWeight: 'var(--font-weight-bold)', 
+                  color: 'var(--text-on-dark)',
+                  marginBottom: '8px'
+                }}>
+                  Aktive Bewerbungsphase
+                </h3>
+                <p style={{ 
+                  fontSize: '16px', 
+                  color: 'var(--text-on-dark-muted)',
+                  lineHeight: '1.6'
+                }}>
+                  Für Bewerber, die mehrere passende Zielstellen strategisch begleiten und konsistent gute Entscheidungen treffen möchten.
+                </p>
               </div>
-              <div className="mb-6">
-                <span className="text-5xl font-bold" style={{ color: 'white' }}>129€</span>
-                <span style={{ color: '#d1d5db' }}> einmalig</span>
+              <div style={{ marginBottom: '24px' }}>
+                <span style={{ 
+                  fontSize: '48px', 
+                  fontWeight: 'var(--font-weight-bold)', 
+                  color: 'var(--text-on-dark)'
+                }}>
+                  129€
+                </span>
+                <span style={{ 
+                  fontSize: '16px', 
+                  color: 'var(--text-on-dark-muted)',
+                  marginLeft: '4px'
+                }}>
+                  einmalig
+                </span>
               </div>
-              <ul className="space-y-4 mb-8 flex-grow">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
-                  <span style={{ color: 'white' }}>7 Job-Analysen</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
-                  <span style={{ color: 'white' }}>Lebenslauf-Optimierung (CV) - pro Stelle ATS-optimiert (für den Bewerbungsroboter)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
-                  <span style={{ color: 'white' }}>Erweiterte Warnzeichen-Analyse (Red-Flag-Analyse)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
-                  <span style={{ color: 'white' }}>Gehaltsband-Indikationen</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#ff6b35' }} />
-                  <span style={{ color: 'white' }}>ATS Keyword Research (für den Bewerbungsroboter)</span>
-                </li>
+              <ul className="icon-list" style={{ marginBottom: '32px', flexGrow: '1' }}>
+                <li><span style={{ color: 'var(--text-on-dark)' }}>7 Job-Analysen</span></li>
+                <li><span style={{ color: 'var(--text-on-dark)' }}>Lebenslauf-Optimierung (CV) - pro Stelle ATS-optimiert</span></li>
+                <li><span style={{ color: 'var(--text-on-dark)' }}>Erweiterte Warnzeichen-Analyse (Red-Flag-Analyse)</span></li>
+                <li><span style={{ color: 'var(--text-on-dark)' }}>Gehaltsband-Indikationen</span></li>
+                <li><span style={{ color: 'var(--text-on-dark)' }}>ATS Keyword Research (für den Bewerbungsroboter)</span></li>
               </ul>
               <a
                 href="mailto:post@martinbeyer.de?subject=Ich%20m%C3%B6chte%20gerne%20das%20Professional%20Paket%20f%C3%BCr%20129%20Euro%20buchen.&body=Hallo,%0A%0Aich%20m%C3%B6chte%20gerne%20das%20Professional%20Paket%20buchen.%0A%0AVorname:%0ANachname:%0AAdresse:%0A%0AViele%20Gr%C3%BC%C3%9Fe"
-                className="w-full py-3 rounded-lg font-semibold transition shadow-lg hover:shadow-xl transform hover:scale-105 mt-auto text-center"
-                style={{ backgroundColor: '#ff6b35', color: 'white', border: 'none', cursor: 'pointer' }}
+                className="btn btn-primary w-full mt-auto"
               >
                 Jetzt starten
               </a>
             </div>
 
             {/* Executive */}
-            <div className="flex-1 bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200 hover:border-[#0a4f5c] transition flex flex-col">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2 text-gray-900">Beschleunigung & Fokus</h3>
-                <p className="text-gray-600">Für Bewerber, die mehrere Optionen parallel prüfen und Momentum aufbauen wollen – ohne Zufall.</p>
+            <div className="card flex flex-col">
+              <div style={{ marginBottom: '24px' }}>
+                <h3 style={{ 
+                  fontSize: '22px', 
+                  fontWeight: 'var(--font-weight-bold)', 
+                  color: 'var(--text)',
+                  marginBottom: '8px'
+                }}>
+                  Beschleunigung & Fokus
+                </h3>
+                <p style={{ 
+                  fontSize: '16px', 
+                  color: 'var(--text-muted)',
+                  lineHeight: '1.6'
+                }}>
+                  Für Bewerber, die mehrere Optionen parallel prüfen und Momentum aufbauen wollen – ohne Zufall.
+                </p>
               </div>
-              <div className="mb-6">
-                <span className="text-5xl font-bold text-gray-900">249€</span>
-                <span className="text-gray-600"> einmalig</span>
+              <div style={{ marginBottom: '24px' }}>
+                <span style={{ 
+                  fontSize: '48px', 
+                  fontWeight: 'var(--font-weight-bold)', 
+                  color: 'var(--text)'
+                }}>
+                  249€
+                </span>
+                <span style={{ 
+                  fontSize: '16px', 
+                  color: 'var(--text-muted)',
+                  marginLeft: '4px'
+                }}>
+                  einmalig
+                </span>
               </div>
-              <ul className="space-y-4 mb-8 flex-grow">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">10 Job-Analysen</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Lebenslauf-Optimierung (CV) - pro Stelle</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">LinkedIn-Optimierung (1-2x)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Erweiterte Warnzeichen-Analyse (Red-Flag-Analyse)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Gehaltsband-Indikationen</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Priorisierte Verarbeitung (24h)</span>
-                </li>
+              <ul className="icon-list" style={{ marginBottom: '32px', flexGrow: '1' }}>
+                <li><span style={{ color: 'var(--text)' }}>10 Job-Analysen</span></li>
+                <li><span style={{ color: 'var(--text)' }}>Lebenslauf-Optimierung (CV) - pro Stelle</span></li>
+                <li><span style={{ color: 'var(--text)' }}>LinkedIn-Optimierung (1-2x)</span></li>
+                <li><span style={{ color: 'var(--text)' }}>Erweiterte Warnzeichen-Analyse (Red-Flag-Analyse)</span></li>
+                <li><span style={{ color: 'var(--text)' }}>Gehaltsband-Indikationen</span></li>
+                <li><span style={{ color: 'var(--text)' }}>Priorisierte Verarbeitung (24h)</span></li>
               </ul>
               <a
                 href="mailto:post@martinbeyer.de?subject=Ich%20m%C3%B6chte%20gerne%20das%20Executive%20Paket%20f%C3%BCr%20249%20Euro%20buchen.&body=Hallo,%0A%0Aich%20m%C3%B6chte%20gerne%20das%20Executive%20Paket%20buchen.%0A%0AVorname:%0ANachname:%0AAdresse:%0A%0AViele%20Gr%C3%BC%C3%9Fe"
-                className="w-full border-2 border-[#0a4f5c] text-[#0a4f5c] py-3 rounded-lg font-semibold hover:bg-[#0a4f5c] hover:text-white transition mt-auto text-center"
+                className="btn btn-secondary w-full mt-auto"
               >
                 Jetzt starten
               </a>
@@ -1541,72 +1743,49 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Final CTA - Klarheit statt Alarm */}
-      <section style={{ 
-        paddingTop: '80px', 
-        paddingBottom: '80px',
-        backgroundColor: '#ffffff'
-      }}>
-        <div style={{ 
-          maxWidth: '1024px', 
-          margin: '0 auto', 
-          textAlign: 'center',
-          padding: '0 24px'
-        }}>
-          <h2 style={{ 
-            fontSize: '48px',
-            fontWeight: 'bold',
-            marginBottom: '24px',
-            color: '#1a1a1a',
-            lineHeight: '1.2'
-          }}>
-            Strategisch bewerben.<br/>
-            Gezielter in die richtigen Jobs.
-          </h2>
-          <p style={{ 
-            fontSize: '20px',
-            marginBottom: '32px',
-            color: '#4b5563'
-          }}>
-            Nimm dir die Zeit, die deine Karriere verdient. Strategie kommt vor Optimierung.
-          </p>
-          <button 
-            onClick={() => {
-              document.getElementById('red-flag-teaser')?.scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-              });
-            }}
-            style={{ 
-              backgroundColor: '#ff6b35',
-              color: '#ffffff',
-              padding: '16px 40px',
-              borderRadius: '8px',
-              fontSize: '18px',
-              fontWeight: '600',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 4px 12px rgba(255, 107, 53, 0.2)',
-              transition: 'all 0.2s ease'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = '#e55a2b';
-              e.currentTarget.style.boxShadow = '0 6px 16px rgba(255, 107, 53, 0.3)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = '#ff6b35';
-              e.currentTarget.style.boxShadow = '0 4px 12px rgba(255, 107, 53, 0.2)';
-            }}
-          >
-            Strategisch vorbereiten
-          </button>
-          <p style={{ 
-            fontSize: '14px',
-            marginTop: '16px',
-            color: '#6b7280'
-          }}>
-            7 Tage Geld-zurück-Garantie • Monatlich kündbar
-          </p>
+      {/* Final CTA - TYP D */}
+      <section className="section-action">
+        <div className="container-narrow">
+          <div className="text-center">
+            <h2 style={{ 
+              fontSize: 'clamp(40px, 5vw, 52px)',
+              fontWeight: 'var(--font-weight-extrabold)',
+              marginBottom: '24px',
+              color: 'var(--text)',
+              lineHeight: '1.05'
+            }}>
+              Strategisch bewerben.<br/>
+              Gezielter in die richtigen Jobs.
+            </h2>
+            <p style={{ 
+              fontSize: '20px',
+              marginBottom: '40px',
+              color: 'var(--text-muted)',
+              maxWidth: '65ch',
+              marginLeft: 'auto',
+              marginRight: 'auto'
+            }}>
+              Nimm dir die Zeit, die deine Karriere verdient. Strategie kommt vor Optimierung.
+            </p>
+            <button 
+              onClick={() => {
+                document.getElementById('red-flag-teaser')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+              className="btn btn-primary btn-lg"
+            >
+              Strategisch vorbereiten
+            </button>
+            <p style={{ 
+              fontSize: '14px',
+              marginTop: '24px',
+              color: 'var(--text-muted)'
+            }}>
+              7 Tage Geld-zurück-Garantie
+            </p>
+          </div>
         </div>
       </section>
 
