@@ -65,6 +65,14 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
+
+  /* ============================================
+     BACKGROUNDS & BLURS
+     ============================================ */
+  --blob-1: radial-gradient(circle at 20% 30%, rgba(255, 107, 74, 0.08), transparent 50%);
+  --blob-2: radial-gradient(circle at 80% 70%, rgba(15, 61, 70, 0.06), transparent 50%);
+  --blob-3: radial-gradient(circle at 50% 50%, rgba(255, 107, 74, 0.04), transparent 60%);
+  --gradient-subtle: radial-gradient(ellipse at top, rgba(255, 107, 74, 0.03), transparent 70%);
 }
 
 /* ============================================
@@ -108,14 +116,33 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(34px, 4vw, 40px);
-  line-height: 1.15;
+  font-size: clamp(34px, 4vw, 42px);
+  line-height: 1.1;
   font-weight: var(--font-weight-bold);
+  letter-spacing: -0.02em;
 }
 
 h3 {
-  font-size: clamp(22px, 3vw, 26px);
+  font-size: clamp(22px, 3vw, 28px);
   font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================
+   EYEBROW LABELS
+   ============================================ */
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  padding: 4px 12px;
+  background-color: var(--bg-soft);
+  border-radius: 4px;
 }
 
 p {
@@ -164,6 +191,77 @@ p {
   background-color: var(--bg-soft);
   padding-top: var(--section-pad-y);
   padding-bottom: var(--section-pad-y);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Blobs für Section Shells */
+.section-structure::before,
+.section-structure::after {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.section-structure::before {
+  background: var(--blob-1);
+  top: -200px;
+  right: -200px;
+}
+
+.section-structure::after {
+  background: var(--blob-2);
+  bottom: -200px;
+  left: -200px;
+}
+
+.section-structure > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Shell A: bg-soft mit subtilen Blobs */
+.section-shell-a {
+  background-color: var(--bg-soft);
+  padding-top: var(--section-pad-y);
+  padding-bottom: var(--section-pad-y);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-shell-a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--blob-1), var(--blob-2);
+  background-size: 800px 800px, 600px 600px;
+  background-position: top right, bottom left;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-shell-a > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Shell B: bg mit subtilem Gradient */
+.section-shell-b {
+  background-color: var(--bg);
+  background-image: var(--gradient-subtle);
+  padding-top: var(--section-pad-y);
+  padding-bottom: var(--section-pad-y);
+  position: relative;
 }
 
 /* TYP D – AKTION / CONVERSION POINT */
@@ -189,7 +287,7 @@ p {
 }
 
 /* ============================================
-   CARDS
+   CARDS (3 Variationen)
    ============================================ */
 .card {
   background-color: var(--surface);
@@ -198,6 +296,7 @@ p {
   padding: 24px;
   box-shadow: var(--shadow-sm);
   transition: all 0.2s ease;
+  position: relative;
 }
 
 .card:hover {
@@ -205,9 +304,53 @@ p {
   transform: translateY(-2px);
 }
 
+.card:focus-within {
+  outline: 2px solid var(--petrol);
+  outline-offset: 2px;
+}
+
 .card-lg {
   padding: 32px;
   border-radius: var(--radius-lg);
+}
+
+/* Card Feature: Icon-Badge + stärkere shadow */
+.card-feature {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.22s ease;
+  position: relative;
+}
+
+.card-feature:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+}
+
+.card-feature:focus-within {
+  outline: 2px solid var(--petrol);
+  outline-offset: 2px;
+}
+
+/* Card Callout: tinted background + left accent */
+.card-callout {
+  background-color: rgba(255, 107, 74, 0.06);
+  border-left: 4px solid var(--coral);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 24px 0;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.card-callout:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  background-color: rgba(255, 107, 74, 0.08);
 }
 
 /* ============================================
@@ -264,6 +407,10 @@ p {
   transform: translateY(-1px);
 }
 
+.btn-primary:active {
+  transform: translateY(0);
+}
+
 .btn-secondary {
   background-color: transparent;
   color: var(--text);
@@ -273,6 +420,19 @@ p {
 .btn-secondary:hover {
   background-color: var(--bg-soft);
   border-color: var(--petrol);
+  transform: translateY(-1px);
+}
+
+.btn-outline-petrol {
+  background-color: transparent;
+  color: var(--petrol);
+  border: 1px solid var(--petrol);
+}
+
+.btn-outline-petrol:hover {
+  background-color: var(--petrol);
+  color: white;
+  transform: translateY(-1px);
 }
 
 .btn-lg {
@@ -315,6 +475,41 @@ p {
 
 .icon-list-arrow li::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M7.5 15L12.5 10L7.5 5' stroke='%230F3D46' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* ============================================
+   PRICING BADGE
+   ============================================ */
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--surface);
+  color: var(--petrol);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-sm);
+  z-index: 10;
+}
+
+.pricing-card-recommended {
+  position: relative;
+  border: 2px solid var(--coral);
+  box-shadow: var(--shadow-md), 0 0 0 1px rgba(255, 107, 74, 0.1);
+}
+
+.pricing-card-recommended::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(255, 107, 74, 0.05), rgba(15, 61, 70, 0.05));
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* ============================================

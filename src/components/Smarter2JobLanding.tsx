@@ -356,11 +356,7 @@ export default function Smarter2JobLanding() {
       </section>
 
       {/* Problem Section - Story Cards (behalten, aber kürzen) */}
-      <section style={{ 
-        paddingTop: '60px', 
-        paddingBottom: '60px', 
-        backgroundColor: '#ffffff'
-      }}>
+      <section className="section-shell-b">
         <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px' }}>
 
           {/* Story Cards - Neu gerahmt */}
@@ -564,6 +560,7 @@ export default function Smarter2JobLanding() {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Links: Headline + Copy */}
             <div>
+              <div className="eyebrow">Dein Vorteil</div>
               <h2 style={{ 
                 color: 'var(--text)', 
                 marginBottom: '16px',
@@ -584,7 +581,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Rechts: Card mit Icon-Liste */}
-            <div className="card">
+            <div className="card-feature">
               <ul className="icon-list">
                 <li>
                   <span style={{ color: 'var(--text)' }}>Worauf du dich bewirbst</span>
@@ -600,7 +597,7 @@ export default function Smarter2JobLanding() {
           </div>
 
           {/* Callout Card darunter */}
-          <div className="callout" style={{ marginTop: '48px' }}>
+          <div className="card-callout" style={{ marginTop: '48px' }}>
             <p style={{ 
               fontSize: '18px', 
               color: 'var(--text)', 
@@ -685,7 +682,7 @@ export default function Smarter2JobLanding() {
       </section>
 
       {/* Testimonial Section - Hell und ruhig */}
-      <section className="py-20 bg-gray-50">
+      <section className="section-shell-a">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
             Was Teilnehmer sagen
@@ -926,7 +923,7 @@ export default function Smarter2JobLanding() {
       {/* Module Details Section - Hell und strukturiert */}
       <section 
         id="karten-details" 
-        className="py-20 bg-gray-50"
+        className="section-shell-a"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
@@ -938,7 +935,7 @@ export default function Smarter2JobLanding() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Modul 1: Warnzeichen-Schnellcheck */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
+            <div className="card-feature">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🆓</span>
                 <div>
@@ -968,7 +965,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 2: Objektive Stellenanalyse */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
+            <div className="card-feature">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🔍</span>
                 <div>
@@ -1002,7 +999,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 3: Persönliche Red Flags */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
+            <div className="card-feature">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🎯</span>
                 <div>
@@ -1040,7 +1037,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 4: Fit-Score */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
+            <div className="card-feature">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">✅</span>
                 <div>
@@ -1074,7 +1071,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 5: ATS Keyword Research */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
+            <div className="card-feature">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🔑</span>
                 <div>
@@ -1108,7 +1105,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 6: Gehaltsband-Indikationen */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
+            <div className="card-feature">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">💰</span>
                 <div>
@@ -1142,7 +1139,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 7: CV-Umformulierung */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
+            <div className="card-feature">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">✍️</span>
                 <div>
@@ -1176,7 +1173,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 8: LinkedIn-Optimierung */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
+            <div className="card-feature">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">📈</span>
                 <div>
@@ -1210,7 +1207,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 9: Anschreiben-Service */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
+            <div className="card-feature">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🃏</span>
                 <div>
@@ -1257,8 +1254,9 @@ export default function Smarter2JobLanding() {
       </section>
 
       {/* Was sich für dich verändert - TYP C */}
-      <section id="features" className="section-structure">
+      <section id="features" className="section-shell-a">
         <div className="container-main">
+          <div className="eyebrow">Dein Fortschritt</div>
           <h2 style={{ 
             color: 'var(--text)', 
             marginBottom: '48px',
@@ -1269,7 +1267,7 @@ export default function Smarter2JobLanding() {
           
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Outcome 1 */}
-            <div className="card">
+            <div className="card-feature">
               <h3 style={{ 
                 fontSize: '22px', 
                 fontWeight: 'var(--font-weight-semibold)', 
@@ -1294,7 +1292,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Outcome 2 */}
-            <div className="card">
+            <div className="card-feature">
               <h3 style={{ 
                 fontSize: '22px', 
                 fontWeight: 'var(--font-weight-semibold)', 
@@ -1310,7 +1308,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Outcome 3 */}
-            <div className="card">
+            <div className="card-feature">
               <h3 style={{ 
                 fontSize: '22px', 
                 fontWeight: 'var(--font-weight-semibold)', 
@@ -1326,7 +1324,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Outcome 4 */}
-            <div className="card">
+            <div className="card-feature">
               <h3 style={{ 
                 fontSize: '22px', 
                 fontWeight: 'var(--font-weight-semibold)', 
@@ -1504,8 +1502,9 @@ export default function Smarter2JobLanding() {
       </section>
 
       {/* Pricing Section - TYP C */}
-      <section id="pricing" className="section-structure">
+      <section id="pricing" className="section-shell-a">
         <div className="container-main">
+          <div className="eyebrow">Deine Optionen</div>
           <h2 style={{ 
             color: 'var(--text)', 
             marginBottom: '16px',
@@ -1542,13 +1541,14 @@ export default function Smarter2JobLanding() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Starter */}
-            <div className="card flex flex-col">
+            <div className="card flex flex-col" style={{ height: '100%' }}>
               <div style={{ marginBottom: '24px' }}>
                 <h3 style={{ 
-                  fontSize: '22px', 
+                  fontSize: '24px', 
                   fontWeight: 'var(--font-weight-bold)', 
                   color: 'var(--text)',
-                  marginBottom: '8px'
+                  marginBottom: '8px',
+                  lineHeight: '1.2'
                 }}>
                   Einstieg & Orientierung
                 </h3>
@@ -1562,9 +1562,10 @@ export default function Smarter2JobLanding() {
               </div>
               <div style={{ marginBottom: '24px' }}>
                 <span style={{ 
-                  fontSize: '48px', 
-                  fontWeight: 'var(--font-weight-bold)', 
-                  color: 'var(--text)'
+                  fontSize: '52px', 
+                  fontWeight: 'var(--font-weight-extrabold)', 
+                  color: 'var(--text)',
+                  lineHeight: '1'
                 }}>
                   49€
                 </span>
@@ -1591,32 +1592,20 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Professional - Featured */}
-            <div className="card flex flex-col relative" style={{ 
+            <div className="card flex flex-col relative pricing-card-recommended" style={{ 
               backgroundColor: 'var(--petrol)', 
-              borderColor: 'var(--coral)',
-              borderWidth: '2px'
+              height: '100%'
             }}>
-              <div style={{ 
-                position: 'absolute', 
-                top: '-12px', 
-                left: '50%', 
-                transform: 'translateX(-50%)', 
-                backgroundColor: 'var(--surface)', 
-                color: 'var(--petrol)', 
-                padding: '6px 16px', 
-                borderRadius: '9999px', 
-                fontSize: '12px', 
-                fontWeight: 'var(--font-weight-semibold)',
-                border: '1px solid var(--border-strong)'
-              }}>
+              <div className="pricing-badge">
                 Beliebteste
               </div>
               <div style={{ marginBottom: '24px', marginTop: '8px' }}>
                 <h3 style={{ 
-                  fontSize: '22px', 
+                  fontSize: '24px', 
                   fontWeight: 'var(--font-weight-bold)', 
                   color: 'var(--text-on-dark)',
-                  marginBottom: '8px'
+                  marginBottom: '8px',
+                  lineHeight: '1.2'
                 }}>
                   Aktive Bewerbungsphase
                 </h3>
@@ -1630,9 +1619,10 @@ export default function Smarter2JobLanding() {
               </div>
               <div style={{ marginBottom: '24px' }}>
                 <span style={{ 
-                  fontSize: '48px', 
-                  fontWeight: 'var(--font-weight-bold)', 
-                  color: 'var(--text-on-dark)'
+                  fontSize: '52px', 
+                  fontWeight: 'var(--font-weight-extrabold)', 
+                  color: 'var(--text-on-dark)',
+                  lineHeight: '1'
                 }}>
                   129€
                 </span>
@@ -1660,13 +1650,14 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Executive */}
-            <div className="card flex flex-col">
+            <div className="card flex flex-col" style={{ height: '100%' }}>
               <div style={{ marginBottom: '24px' }}>
                 <h3 style={{ 
-                  fontSize: '22px', 
+                  fontSize: '24px', 
                   fontWeight: 'var(--font-weight-bold)', 
                   color: 'var(--text)',
-                  marginBottom: '8px'
+                  marginBottom: '8px',
+                  lineHeight: '1.2'
                 }}>
                   Beschleunigung & Fokus
                 </h3>
@@ -1680,9 +1671,10 @@ export default function Smarter2JobLanding() {
               </div>
               <div style={{ marginBottom: '24px' }}>
                 <span style={{ 
-                  fontSize: '48px', 
-                  fontWeight: 'var(--font-weight-bold)', 
-                  color: 'var(--text)'
+                  fontSize: '52px', 
+                  fontWeight: 'var(--font-weight-extrabold)', 
+                  color: 'var(--text)',
+                  lineHeight: '1'
                 }}>
                   249€
                 </span>

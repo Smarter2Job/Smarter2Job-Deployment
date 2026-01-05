@@ -92,3 +92,4 @@ Die `RedFlagTeaser.tsx` Komponente verwendet aktuell Mock-Daten, wenn die API ni
 
 
 
+
