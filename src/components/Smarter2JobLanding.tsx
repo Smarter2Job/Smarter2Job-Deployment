@@ -41,7 +41,7 @@ export default function Smarter2JobLanding() {
   const faqs = [
     {
       question: "Was ist ein ATS und warum ist das wichtig für meine Bewerbung?",
-      answer: "ATS steht für Applicant Tracking System – auf Deutsch: Bewerbungsroboter. Das ist eine Software, die Lebensläufe automatisch nach bestimmten Schlüsselwörtern durchsucht und bewertet, BEVOR ein Mensch sie sieht. 70% aller Lebensläufe (CVs) scheitern am ATS - dem Bewerbungsroboter - und landen im digitalen Papierkorb, bevor ein Recruiter sie überhaupt in die Hand bekommt. Das liegt daran, dass wichtige Keywords fehlen oder das Format nicht passt. Smarter2Job zeigt dir genau, welche Schlüsselwörter du brauchst und optimiert deinen Lebenslauf (CV) für diese Systeme."
+      answer: "ATS steht für Applicant Tracking System – auf Deutsch: Bewerbungsroboter. Das ist eine Software, die Lebensläufe automatisch nach bestimmten Schlüsselwörtern durchsucht und bewertet, BEVOR ein Mensch sie sieht. Wenn du dich unvorbereitet bewirbst – ohne zu wissen, welche Keywords wichtig sind oder wie du dich richtig positionierst – sortiert der ATS dich aus. Das ist die Folge fehlender Strategie, nicht der Hauptgegner. Smarter2Job hilft dir, strategisch vorzugehen: Du verstehst die Stelle, triffst eine bewusste Entscheidung und übersetzt dann deine Qualifikationen für Mensch und Maschine."
     },
     {
       question: "Wie funktioniert die KI-Analyse?",
@@ -61,7 +61,7 @@ export default function Smarter2JobLanding() {
     },
     {
       question: "Was unterscheidet euch von anderen Services?",
-      answer: "Wir sind die Einzigen, die Warnzeichen-Dekodierung (Red-Flag-Analyse), ATS-Optimierung (für den Bewerbungsroboter) UND LinkedIn-Profil-Optimierung in einem Tool vereinen. Keine Beratung, kein Coaching – pure Analyse-Power."
+      answer: "Wir sind kein Tool für mehr Bewerbungen, sondern ein strategisches System. Wir führen dich Schritt für Schritt durch eine bewusste, messbare und skalierbare Bewerbungsstrategie. Strategie kommt vor Optimierung. Du verstehst zuerst, welche Jobs wirklich zu dir passen, triffst dann bewusste Entscheidungen und optimierst erst danach für Mensch und Maschine."
     }
   ];
 
@@ -105,19 +105,20 @@ export default function Smarter2JobLanding() {
                 });
               }}
               style={{ 
-                backgroundColor: '#ff6b35', 
+                backgroundColor: '#0a4f5c', 
                 color: 'white', 
                 padding: '8px 24px', 
                 borderRadius: '8px', 
                 fontWeight: '500', 
                 border: 'none', 
                 cursor: 'pointer',
-                transition: 'background-color 0.2s'
+                transition: 'background-color 0.2s',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
               }}
-              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#e55a2b')}
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#ff6b35')}
+              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#083d47')}
+              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#0a4f5c')}
             >
-              Jetzt starten
+              Strategisch starten
             </button>
           </div>
         </div>
@@ -125,23 +126,23 @@ export default function Smarter2JobLanding() {
 
       {/* Hero Section */}
       <section 
-        className="pt-32 pb-20 px-4 sm:px-6 lg:px-8"
-        style={{ 
-          background: 'linear-gradient(135deg, #0a4f5c 0%, #083d47 100%)'
-        }}
+        className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-white"
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
-            <p className="text-sm md:text-base font-medium text-[#ff6b35] mb-4 uppercase tracking-wide">
-              Das Problem fast aller Bewerbungen:
-            </p>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
-              Dein Lebenslauf <span className="text-[#ff6b35]">scheitert</span> am Roboter. Die Stellenanzeige <span className="text-[#ff6b35]">verschleiert</span> die Wahrheit. Du bewirbst dich <span className="text-[#ff6b35]">blind</span> – und <span className="text-[#ff6b35]">verlierst</span>.
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Strategisch bewerben.<br/>
+              Gezielter in die richtigen Jobs.
             </h1>
             
-            <p className="text-lg md:text-xl mb-10 leading-relaxed" style={{ color: '#cbd5e1' }}>
-              Smarter2Job durchleuchtet Stellenanzeigen, optimiert deinen Lebenslauf (CV) für Bewerbungs-Filter-Roboter (Application Tracking System – kurz ATS) und zeigt dir mögliche Stolpersteine auf, bevor du dich bewirbst. Strategisch statt verzweifelt.
+            <p className="text-xl md:text-2xl mb-4 leading-relaxed text-gray-700 font-medium">
+              Nicht nur Geschwindigkeit entscheidet –<br/>
+              sondern Strategie und Passung.
+            </p>
+            
+            <p className="text-lg md:text-xl mb-10 leading-relaxed text-gray-600">
+              Smarter2Job hilft dir, deine Bewerbungen gezielt vorzubereiten<br/>
+              und passend zu deinen Wunschjobs zu positionieren.
             </p>
             
             <button 
@@ -160,75 +161,125 @@ export default function Smarter2JobLanding() {
                 fontWeight: '600',
                 border: 'none',
                 cursor: 'pointer',
-                boxShadow: '0 10px 25px rgba(0,0,0,0.15)',
-                marginTop: '16px'
+                boxShadow: '0 4px 12px rgba(255, 107, 53, 0.2)',
+                marginTop: '16px',
+                transition: 'all 0.2s ease'
               }}
-              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#e55a2b')}
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#ff6b35')}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = '#e55a2b';
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(255, 107, 53, 0.3)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = '#ff6b35';
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(255, 107, 53, 0.2)';
+              }}
             >
-              🔍 Jetzt strategisch auf deine Bewerbung vorbereiten
+              Starte deine Bewerbungsstrategie
             </button>
           </div>
         </div>
       </section>
 
-      {/* Story Section - Date Metapher */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      {/* Problem Section - Frust */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#0a4f5c' }}>
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Du würdest nie in Jogginghose zum wichtigsten Date deines Lebens gehen.
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+            Warum dein Frust so groß ist
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
-            Aber bei Bewerbungen machst du genau das: Derselbe Lebenslauf für 100 Stellen. Keine Vorbereitung. Keine Strategie. Nur Copy-Paste – und Absagen.
-          </p>
-          <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-            Smarter2Job macht Schluss damit. Wir bereiten dich vor wie für dein perfektes Date: Du weißt, was dein Gegenüber erwartet, wie du dich präsentierst und welche Stolpersteine du meiden musst.
-          </p>
+          <div className="text-lg md:text-xl text-gray-100 leading-relaxed space-y-4">
+            <p>Du bewirbst dich.</p>
+            <p>Du investierst Zeit.</p>
+            <p>Du bleibst dran.</p>
+            <p className="text-xl font-semibold text-white mt-6 mb-4">Und trotzdem:</p>
+            <p>Absagen.</p>
+            <p>Funkstille.</p>
+            <p>Das Gefühl, im Wettbewerb unterzugehen.</p>
+            <p className="text-xl font-semibold text-white mt-8 mb-4">Der Frust entsteht nicht, weil du zu wenig tust.</p>
+            <p className="text-xl font-semibold text-white mb-4">Sondern weil das, was du tust, nicht strategisch geplant ist.</p>
+            <p className="mt-6">Bewerbungen werden schnell abgeschickt –<br/>
+            ohne klare Passung, ohne Positionierung, ohne System.</p>
+            <p className="text-xl font-semibold text-white mt-6 mb-4">Das Ergebnis ist vorhersehbar:</p>
+            <p>Du bekommst mehr Wettbewerb<br/>
+            und logischerweise viel mehr Absagen.</p>
+          </div>
         </div>
       </section>
 
-      {/* Problem Section - STORYTELLING */}
-      <section style={{ 
-        paddingTop: '80px', 
-        paddingBottom: '80px', 
-        backgroundColor: '#0f172a'
-      }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px' }}>
-          
-          {/* Intro mit direkter Ansprache */}
-          <div style={{ 
-            textAlign: 'center', 
-            marginBottom: '64px',
-            maxWidth: '800px',
-            margin: '0 auto 64px'
-          }}>
-            <h2 style={{ 
-              fontSize: '42px', 
-              fontWeight: 'bold', 
-              color: '#ffffff',
-              marginBottom: '24px',
-              lineHeight: '1.2'
-            }}>
-              Kennst du das Gefühl?
+      {/* Strukturelles Problem - Portal-Logik */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Ein Klick ist schnell gemacht.<br/>
+              Eine gute Positionierung nicht.
             </h2>
-            <p style={{ 
-              fontSize: '22px', 
-              color: '#cbd5e1',
-              lineHeight: '1.6',
-              marginBottom: '16px'
-            }}>
-              Du bewirbst dich, aber Stellenbeschreibungen sind nicht immer klar. Und während du hunderte Lebensläufe (CVs) verschickst, passiert... nichts.
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
+              Bewerbungsportale machen es extrem leicht, viele Bewerbungen zu verschicken.<br/>
+              Was sie fördern, ist Masse – nicht Klasse.
             </p>
-            <p style={{ 
-              fontSize: '18px', 
-              color: '#ef4444',
-              fontWeight: '600'
-            }}>
-              Du bist nicht allein. Hier sind echte Geschichten – und wie wir gemeinsam besser werden können:
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
+              Bewerbungsportale fördern Masse.<br/>
+              Aber Masse ersetzt keine Strategie.
+            </p>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+              Sie erhöht vor allem zwei Dinge:<br/>
+              <strong className="text-gray-900">den Wettbewerb</strong><br/>
+              und <strong className="text-gray-900">die Anzahl der Absagen</strong>.
             </p>
           </div>
 
-          {/* Story Cards */}
+          {/* Aktivitäts-Illusion */}
+          <div className="bg-gray-50 rounded-xl p-8 mb-12">
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              Viele Bewerbungen vermitteln Aktivität.<br/>
+              In Wahrheit ist es oft wie mit einer Schrotflinte im Nebel:<br/>
+              viel Bewegung, wenig Wirkung – und kaum Kontrolle.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Dein Aufwand ist dennoch hoch –<br/>
+              die Trefferquote bleibt niedrig.
+            </p>
+          </div>
+
+          {/* Erkenntnis-Block */}
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+              Nicht viele Bewerbungen sind das Problem.<br/>
+              Schlechte Trefferquoten sind es.
+            </h3>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Wenn der Match von Anfang an gering ist, führt jede zusätzliche Bewerbung vor allem zu einer weiteren Absage.<br/>
+              Was fehlt, ist nicht Motivation – sondern Strategie vor dem Absenden.
+            </p>
+          </div>
+
+          {/* Dating-Analogie */}
+          <div className="bg-[#f0f9fa] rounded-xl p-8 border-l-4 border-[#0a4f5c]">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              Beim Dating würdest du auch nicht unvorbereitet starten.
+            </h3>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              Du würdest kein beliebiges Foto wählen, kein austauschbares Profil nutzen und nicht unvorbereitet zu einem wichtigen Date gehen –
+              nicht um etwas vorzutäuschen, sondern um passend wahrgenommen zu werden.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Genau so funktionieren Bewerbungen.<br/>
+              Smarter2Job erstellt keine Fake-Profile.<br/>
+              Wir sorgen dafür, dass dein Profil klar, glaubwürdig und passend zu deinen Wunschstellen ausgerichtet ist.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Section - Story Cards (behalten, aber kürzen) */}
+      <section style={{ 
+        paddingTop: '60px', 
+        paddingBottom: '60px', 
+        backgroundColor: '#ffffff'
+      }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 24px' }}>
+
+          {/* Story Cards - Neu gerahmt */}
           <div style={{ 
             display: 'flex',
             flexDirection: 'column',
@@ -238,17 +289,18 @@ export default function Smarter2JobLanding() {
             
             {/* Sabrina's Story */}
             <div style={{ 
-              backgroundColor: '#1e293b', 
+              backgroundColor: '#ffffff', 
               padding: '32px', 
               borderRadius: '12px', 
-              borderLeft: '4px solid #ef4444',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+              borderLeft: '4px solid #0a4f5c',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+              border: '1px solid #e5e7eb'
             }}>
               <div style={{ marginBottom: '16px' }}>
                 <div style={{ 
                   display: 'inline-block',
-                  backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                  color: '#ef4444',
+                  backgroundColor: 'rgba(10, 79, 92, 0.1)',
+                  color: '#0a4f5c',
                   padding: '6px 12px',
                   borderRadius: '6px',
                   fontSize: '13px',
@@ -260,45 +312,46 @@ export default function Smarter2JobLanding() {
                 <h3 style={{ 
                   fontSize: '24px', 
                   fontWeight: 'bold', 
-                  color: '#ffffff',
+                  color: '#1a1a1a',
                   marginBottom: '16px'
                 }}>
                   Sabrina: 400 Bewerbungen. 3 Gespräche. 0 Jobangebote.
                 </h3>
               </div>
               <blockquote style={{ 
-                borderLeft: '3px solid #ef4444',
+                borderLeft: '3px solid #0a4f5c',
                 paddingLeft: '20px',
                 marginBottom: '16px',
                 fontStyle: 'italic',
-                color: '#e2e8f0',
+                color: '#4b5563',
                 fontSize: '17px',
                 lineHeight: '1.7'
               }}>
                 "Master mit 1,4. Werkstudentenjobs bei namhaften Unternehmen. Drei Sprachen. Digital-Schwerpunkt. Aber keine 10 Jahre Berufserfahrung mit Tools, die es erst seit 2 gibt? Game Over."
               </blockquote>
               <p style={{ 
-                color: '#cbd5e1', 
+                color: '#6b7280', 
                 fontSize: '16px',
                 lineHeight: '1.6'
               }}>
-                Von 400+ Bewerbungen wurde sie von der Hälfte geghostet. Der Rest? Copy-Paste-Absagen. <strong style={{ color: '#ffffff' }}>Die Erkenntnis: Sie wusste nicht, welche Jobs wirklich zu ihr passen – und wie sie sich richtig präsentiert.</strong>
+                Von 400+ Bewerbungen wurde sie von der Hälfte geghostet. Der Rest? Copy-Paste-Absagen. <strong style={{ color: '#1a1a1a' }}>Die Erkenntnis: Sie wusste nicht, welche Jobs wirklich zu ihr passen – und wie sie sich richtig präsentiert.</strong>
               </p>
             </div>
 
             {/* Marta's Story */}
             <div style={{ 
-              backgroundColor: '#1e293b', 
+              backgroundColor: '#ffffff', 
               padding: '32px', 
               borderRadius: '12px', 
-              borderLeft: '4px solid #ef4444',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+              borderLeft: '4px solid #0a4f5c',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+              border: '1px solid #e5e7eb'
             }}>
               <div style={{ marginBottom: '16px' }}>
                 <div style={{ 
                   display: 'inline-block',
-                  backgroundColor: 'rgba(239, 68, 68, 0.15)',
-                  color: '#ef4444',
+                  backgroundColor: 'rgba(10, 79, 92, 0.1)',
+                  color: '#0a4f5c',
                   padding: '6px 12px',
                   borderRadius: '6px',
                   fontSize: '13px',
@@ -310,90 +363,92 @@ export default function Smarter2JobLanding() {
                 <h3 style={{ 
                   fontSize: '24px', 
                   fontWeight: 'bold', 
-                  color: '#ffffff',
+                  color: '#1a1a1a',
                   marginBottom: '16px'
                 }}>
                   Marta: Musste viral gehen, um überhaupt gesehen zu werden.
                 </h3>
               </div>
               <p style={{ 
-                color: '#e2e8f0', 
+                color: '#4b5563', 
                 fontSize: '17px',
                 lineHeight: '1.7',
                 marginBottom: '16px'
               }}>
-                Eine 29-jährige Marketing Managerin aus Madrid. Nach ihrer Entlassung: Dutzende Bewerbungen. Nur automatisierte Ablehnungen. Sie war qualifiziert, motiviert – aber <strong style={{ color: '#ffffff' }}>unsichtbar für das System</strong>.
+                Eine 29-jährige Marketing Managerin aus Madrid. Nach ihrer Entlassung: Dutzende Bewerbungen. Nur automatisierte Ablehnungen. Sie war qualifiziert, motiviert – aber <strong style={{ color: '#1a1a1a' }}>unsichtbar für das System</strong>.
               </p>
               <p style={{ 
-                color: '#cbd5e1', 
+                color: '#6b7280', 
                 fontSize: '16px',
                 lineHeight: '1.6'
               }}>
-                Erst als sie ein virales LinkedIn-Video erstellte und 300 Jobangebote bekam, meldeten sich plötzlich die Recruiter, die sie zuvor abgelehnt hatten. <strong style={{ color: '#ffffff' }}>Warum? Weil ihr Lebenslauf (CV) am ATS - dem Bewerbungsroboter - gescheitert war, nicht an ihrer Qualifikation.</strong>
+                Erst als sie ein virales LinkedIn-Video erstellte und 300 Jobangebote bekam, meldeten sich plötzlich die Recruiter, die sie zuvor abgelehnt hatten. <strong style={{ color: '#1a1a1a' }}>Warum? Weil ihr Lebenslauf (CV) am ATS - dem Bewerbungsroboter - gescheitert war, nicht an ihrer Qualifikation.</strong>
               </p>
             </div>
 
-            {/* Die Wahrheit Cards - kompakt */}
+            {/* Die Wahrheit Cards - kompakt - Neu gerahmt */}
             <div style={{ 
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
               gap: '20px'
             }}>
               <div style={{ 
-                backgroundColor: '#1e293b', 
+                backgroundColor: '#f8f9fa', 
                 padding: '24px', 
                 borderRadius: '12px', 
-                borderLeft: '4px solid #ef4444'
+                borderLeft: '4px solid #0a4f5c',
+                border: '1px solid #e5e7eb'
               }}>
                 <h4 style={{ 
                   fontSize: '18px', 
                   fontWeight: '600', 
-                  color: '#f1f5f9',
+                  color: '#0a4f5c',
                   marginBottom: '10px'
                 }}>
                   10 Jahre Erfahrung in 2-Jahre-alten Tools
                 </h4>
-                <p style={{ color: '#cbd5e1', fontSize: '15px', lineHeight: '1.5' }}>
-                  Unrealistische Anforderungen, die nicht immer klar kommuniziert werden – wir helfen dir, sie zu erkennen
+                <p style={{ color: '#6b7280', fontSize: '15px', lineHeight: '1.5' }}>
+                  Unrealistische Anforderungen, die nicht immer klar kommuniziert werden – wir helfen dir, sie zu erkennen, bevor du dich bewirbst.
                 </p>
               </div>
 
               <div style={{ 
-                backgroundColor: '#1e293b', 
+                backgroundColor: '#f8f9fa', 
                 padding: '24px', 
                 borderRadius: '12px', 
-                borderLeft: '4px solid #ef4444'
+                borderLeft: '4px solid #0a4f5c',
+                border: '1px solid #e5e7eb'
               }}>
                 <h4 style={{ 
                   fontSize: '18px', 
                   fontWeight: '600', 
-                  color: '#f1f5f9',
+                  color: '#0a4f5c',
                   marginBottom: '10px'
                 }}>
                   50% Ghosting-Rate
                 </h4>
-                <p style={{ color: '#cbd5e1', fontSize: '15px', lineHeight: '1.5' }}>
-                  Viele Bewerbungen bleiben unbeantwortet. Oft liegt es am ATS - dem Bewerbungsroboter - wir helfen dir, durchzukommen
+                <p style={{ color: '#6b7280', fontSize: '15px', lineHeight: '1.5' }}>
+                  Viele Bewerbungen bleiben unbeantwortet. Oft liegt es an fehlender Strategie – wir helfen dir, gezielter zu bewerben.
                 </p>
               </div>
             </div>
 
           </div>
 
-          {/* Der Pivot - Nebel/Durchblick */}
+          {/* Der Pivot - Klarheit statt Alarm */}
           <div style={{
             textAlign: 'center',
             padding: '40px 32px',
-            backgroundColor: '#1e293b',
+            backgroundColor: '#f8f9fa',
             borderRadius: '12px',
-            border: '2px solid #ef4444',
+            border: '1px solid #e5e7eb',
             maxWidth: '700px',
             margin: '0 auto'
           }}>
             <p style={{
               fontSize: '28px',
               fontWeight: 'bold',
-              color: '#ffffff',
+              color: '#1a1a1a',
               marginBottom: '16px',
               lineHeight: '1.3'
             }}>
@@ -402,72 +457,109 @@ export default function Smarter2JobLanding() {
             </p>
             <p style={{
               fontSize: '18px',
-              color: '#cbd5e1',
+              color: '#4b5563',
               marginBottom: '24px'
             }}>
               Du musst nicht viral gehen oder 400 Bewerbungen schreiben, um gesehen zu werden.
             </p>
             <p style={{
               fontSize: '20px',
-              color: '#ef4444',
+              color: '#0a4f5c',
               fontWeight: '600'
             }}>
-              Du musst nur wissen, wie du den Nebel lichtest – und was wirklich dahinter steckt.
+              Du musst nur wissen, wie du strategisch vorgehst – und was wirklich dahinter steckt.
             </p>
           </div>
 
         </div>
       </section>
 
-      {/* Solution Section */}
+      {/* Solution Section - Differenzierung */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4">So funktioniert Smarter2Job</h2>
-          <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
-            Drei simple Schritte zu strategischer Bewerbung
+          <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">Was Smarter2Job anders macht</h2>
+          <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto leading-relaxed">
+            Smarter2Job ist bewusst kein One-Click-System.<br/>
+            Wir helfen dir nicht, schneller zu klicken – sondern besser zu entscheiden:
           </p>
-
-          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            <div className="text-center">
-              <div style={{ backgroundColor: '#0a4f5c', color: 'white', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 'bold', margin: '0 auto 24px' }}>
-                1
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">Stellen-URL & Lebenslauf (CV) hochladen</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Stellenbeschreibung und deinen Lebenslauf (CV) eingeben. Unsere KI startet die Analyse.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div style={{ backgroundColor: '#0a4f5c', color: 'white', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 'bold', margin: '0 auto 24px' }}>
-                2
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">Zwischen-den-Zeilen-Report</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Erhalte Warnzeichen (Red Flags), versteckte Anforderungen, Fit-Score (Passgenauigkeit) und klare Handlungsempfehlung.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div style={{ backgroundColor: '#0a4f5c', color: 'white', width: '64px', height: '64px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: 'bold', margin: '0 auto 24px' }}>
-                3
-              </div>
-              <h3 className="text-2xl font-semibold mb-4">Lebenslauf (CV) & LinkedIn optimieren</h3>
-              <p className="text-gray-600 leading-relaxed">
-                ATS-proof (roboter-sicher) Lebenslauf (CV) und LinkedIn-Profil perfekt auf die Stelle zugeschnitten.
-              </p>
-            </div>
+          <div className="max-w-2xl mx-auto space-y-4 mb-16">
+            <p className="text-lg text-gray-700 flex items-start">
+              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
+              <span>Worauf du dich bewirbst</span>
+            </p>
+            <p className="text-lg text-gray-700 flex items-start">
+              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
+              <span>Warum es Sinn ergibt</span>
+            </p>
+            <p className="text-lg text-gray-700 flex items-start">
+              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
+              <span>Wie du dich positionierst</span>
+            </p>
           </div>
+          <p className="text-xl text-gray-700 text-center max-w-3xl mx-auto font-medium">
+            Damit du nicht vom System aussortiert wirst,<br/>
+            sondern selbst steuerst, wo dein Aufwand eingesetzt wird.
+          </p>
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-20" style={{ backgroundColor: '#1e293b' }}>
+      {/* Warum Vorbereitung im Mittelpunkt steht */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-900">
+            Warum Vorbereitung bei Smarter2Job im Mittelpunkt steht
+          </h2>
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            Bevor du dich bewirbst, investieren wir bewusst Zeit in die gemeinsame Vorbereitung.<br/>
+            Denn gezielte Bewerbungen entstehen nicht durch Zufall, sondern durch Klarheit.
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold">
+            Gemeinsam schauen wir uns an:
+          </p>
+          <div className="space-y-4 mb-8">
+            <p className="text-lg text-gray-700 flex items-start">
+              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
+              <span>wer du bist und was dich ausmacht</span>
+            </p>
+            <p className="text-lg text-gray-700 flex items-start">
+              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
+              <span>was du wirklich möchtest – und was nicht</span>
+            </p>
+            <p className="text-lg text-gray-700 flex items-start">
+              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
+              <span>welche Rollen und Branchen realistisch zu dir passen</span>
+            </p>
+            <p className="text-lg text-gray-700 flex items-start">
+              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
+              <span>welches Gehaltsniveau für dich sinnvoll und erreichbar ist</span>
+            </p>
+            <p className="text-lg text-gray-700 flex items-start">
+              <span className="text-[#0a4f5c] mr-3 font-bold">•</span>
+              <span>wo deine persönlichen Dealbreaker liegen</span>
+            </p>
+          </div>
+          <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
+            Genau die Punkte, bei denen du im Nachhinein oft denkst:<br/>
+            „Hätte ich das vorher gewusst, hätte ich mich gar nicht beworben."
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed">
+            Deshalb helfen wir dir, bei deinen Wunschjobs zwischen den Zeilen zu lesen<br/>
+            und mögliche Ausschlussfaktoren frühzeitig zu erkennen.
+          </p>
+          <p className="text-lg text-gray-900 font-semibold mt-6">
+            So filterst du nicht erst nach der Absage –<br/>
+            sondern vor dem Absenden.
+          </p>
+        </div>
+      </section>
+
+      {/* Testimonial Section - Hell und ruhig */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4 text-white">
+          <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
             Was Teilnehmer sagen
           </h2>
-          <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
             Echtes Feedback aus dem ersten Webinar
           </p>
 
@@ -535,14 +627,18 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Module Section */}
+      {/* Module Section - Als Entwicklungsreise gerahmt */}
       <section id="karten" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4">
-            Dein Durchblick kommt in bis zu 9 Modulen
+            Dein strategischer Bewerbungsprozess
           </h2>
-          <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
-            Von der Analyse bis zur Optimierung – jedes Modul bringt dich näher ans Ziel. Je mehr Module du nutzt, desto strategischer wird deine Bewerbung.
+          <p className="text-xl text-gray-600 text-center mb-8 max-w-3xl mx-auto">
+            Smarter2Job begleitet dich Schritt für Schritt durch deine Bewerbungsphase.<br/>
+            Jede Etappe baut auf der vorherigen auf – damit deine Bewerbungen gezielt wirken.
+          </p>
+          <p className="text-lg text-gray-700 text-center mb-16 max-w-3xl mx-auto font-medium">
+            Die Module sind keine Einzelschritte – sie bilden eine zusammenhängende Entwicklungsreise.
           </p>
 
           <div className="overflow-x-auto">
@@ -556,6 +652,16 @@ export default function Smarter2JobLanding() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-3 text-sm font-semibold text-[#0a4f5c]">
+                    Module 1–2: Verstehen, bevor du dich bewirbst
+                  </td>
+                </tr>
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-2 text-xs text-gray-600 italic">
+                    Klarheit über Ziele, Ausschlusskriterien und erste Einordnung von Stellen.
+                  </td>
+                </tr>
                 <tr>
                   <td className="px-6 py-4 text-2xl">🆓 1</td>
                   <td className="px-6 py-4 font-medium">Warnzeichen-Schnellcheck</td>
@@ -567,6 +673,16 @@ export default function Smarter2JobLanding() {
                   <td className="px-6 py-4 font-medium">Objektive Stellenanalyse</td>
                   <td className="px-6 py-4 text-gray-600">10-15 Warnzeichen (Red Flags), Kultur-Score</td>
                   <td className="px-6 py-4">Alle Packages</td>
+                </tr>
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-3 text-sm font-semibold text-[#0a4f5c]">
+                    Module 3–4: Bewerten, ob sich eine Bewerbung lohnt
+                  </td>
+                </tr>
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-2 text-xs text-gray-600 italic">
+                    Passung, Chancen und Risiken erkennen – vor dem Absenden.
+                  </td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-2xl">🎯 3</td>
@@ -580,6 +696,16 @@ export default function Smarter2JobLanding() {
                   <td className="px-6 py-4 text-gray-600">BEWIRB DICH oder LASS ES</td>
                   <td className="px-6 py-4">Alle Packages</td>
                 </tr>
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-3 text-sm font-semibold text-[#0a4f5c]">
+                    Module 5–6: Übersetzen, was du kannst – für Mensch und ATS
+                  </td>
+                </tr>
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-2 text-xs text-gray-600 italic">
+                    Profil verständlich, relevant und anschlussfähig aufbereiten.
+                  </td>
+                </tr>
                 <tr>
                   <td className="px-6 py-4 text-2xl">🔑 5</td>
                   <td className="px-6 py-4 font-medium">ATS Keyword Research (für den Bewerbungsroboter)</td>
@@ -591,6 +717,16 @@ export default function Smarter2JobLanding() {
                   <td className="px-6 py-4 font-medium">Gehaltsband-Indikationen</td>
                   <td className="px-6 py-4 text-gray-600">Was kannst du erwarten?</td>
                   <td className="px-6 py-4 text-[#0a4f5c] font-medium">Professional+</td>
+                </tr>
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-3 text-sm font-semibold text-[#0a4f5c]">
+                    Modul 7: Positionieren statt ständig anpassen
+                  </td>
+                </tr>
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-2 text-xs text-gray-600 italic">
+                    Stärken bewusst gewichten, klar differenzieren – ohne dich zu verbiegen.
+                  </td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-2xl">✍️ 7</td>
@@ -604,11 +740,31 @@ export default function Smarter2JobLanding() {
                   <td className="px-6 py-4 text-gray-600">Recruiter-Search-Match (Personaler-Sichtbarkeit)</td>
                   <td className="px-6 py-4 text-[#0a4f5c] font-medium">Executive</td>
                 </tr>
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-3 text-sm font-semibold text-[#0a4f5c]">
+                    Modul 8: Deine Motivation überzeugend erklären
+                  </td>
+                </tr>
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-2 text-xs text-gray-600 italic">
+                    Argumentation statt Textproduktion – dort, wo es Sinn ergibt.
+                  </td>
+                </tr>
                 <tr>
                   <td className="px-6 py-4 text-2xl">🃏 9</td>
                   <td className="px-6 py-4 font-medium">Anschreiben-Service</td>
-                  <td className="px-6 py-4 text-gray-600">Individuell pro Stelle</td>
+                  <td className="px-6 py-4 text-gray-600">Individuell pro Stelle – Skalierung einer funktionierenden Strategie</td>
                   <td className="px-6 py-4 text-[#ff6b35] font-medium">Add-on</td>
+                </tr>
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-3 text-sm font-semibold text-[#0a4f5c]">
+                    Modul 9: Mehrere Bewerbungen strategisch steuern
+                  </td>
+                </tr>
+                <tr className="bg-[#f0f9fa]">
+                  <td colSpan={4} className="px-6 py-2 text-xs text-gray-600 italic">
+                    Prozesse priorisieren, Optionen vergleichen, Kontrolle behalten.
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -621,7 +777,7 @@ export default function Smarter2JobLanding() {
           <div className="text-center mt-12">
             <a 
               href="#pricing"
-              className="inline-block bg-[#ff6b35] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#e55a2b] transition"
+              className="inline-block border-2 border-[#0a4f5c] text-[#0a4f5c] px-8 py-3 rounded-lg font-semibold hover:bg-[#0a4f5c] hover:text-white transition"
             >
               Zu den Paketen
             </a>
@@ -636,23 +792,22 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Module Details Section */}
+      {/* Module Details Section - Hell und strukturiert */}
       <section 
         id="karten-details" 
-        className="py-20"
-        style={{ backgroundColor: '#1e293b' }}
+        className="py-20 bg-gray-50"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4 text-white">
-            Dein Durchblick kommt in bis zu 9 Modulen
+          <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
+            Deine Entwicklungsreise im Detail
           </h2>
-          <p className="text-xl text-center mb-16 max-w-3xl mx-auto" style={{ color: '#cbd5e1' }}>
-            Von der Analyse bis zur Optimierung – jedes Modul bringt dich näher ans Ziel. Je mehr Module du nutzt, desto strategischer wird deine Bewerbung.
+          <p className="text-xl text-center mb-16 max-w-3xl mx-auto text-gray-600">
+            Jede Etappe baut auf der vorherigen auf. Du entwickelst Klarheit, triffst bessere Entscheidungen und skalierst deine Strategie.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Modul 1: Warnzeichen-Schnellcheck */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-green-500 hover-lift">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🆓</span>
                 <div>
@@ -682,7 +837,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 2: Objektive Stellenanalyse */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🔍</span>
                 <div>
@@ -716,7 +871,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 3: Persönliche Red Flags */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🎯</span>
                 <div>
@@ -754,7 +909,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 4: Fit-Score */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">✅</span>
                 <div>
@@ -788,7 +943,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 5: ATS Keyword Research */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#0a4f5c] hover-lift">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🔑</span>
                 <div>
@@ -822,7 +977,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 6: Gehaltsband-Indikationen */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#083d47] hover-lift">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">💰</span>
                 <div>
@@ -856,7 +1011,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 7: CV-Umformulierung */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-[#083d47] hover-lift">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">✍️</span>
                 <div>
@@ -890,7 +1045,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 8: LinkedIn-Optimierung */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-orange-500 hover-lift">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">📈</span>
                 <div>
@@ -924,7 +1079,7 @@ export default function Smarter2JobLanding() {
             </div>
 
             {/* Modul 9: Anschreiben-Service */}
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition border-2 border-transparent hover:border-orange-500 hover-lift">
+            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 hover:border-[#0a4f5c]">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-5xl">🃏</span>
                 <div>
@@ -958,27 +1113,144 @@ export default function Smarter2JobLanding() {
             </div>
           </div>
 
-          {/* CTA nach den Modulen */}
+          {/* CTA nach den Modulen - Bewusst reduziert */}
           <div className="text-center mt-16">
             <a 
               href="#pricing"
-              className="inline-block bg-[#ff6b35] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="inline-block bg-[#ff6b35] text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-[#e55a2b] transition shadow-sm hover:shadow-md"
             >
-              🔍 Jetzt strategisch auf deine Bewerbung vorbereiten → Zu den Paketen
+              Zu den Paketen
             </a>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-20 bg-gray-50">
+      {/* Was sich für dich verändert */}
+      <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-16">Dein unfairer Vorteil</h2>
+          <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">Was sich für dich konkret verändert</h2>
+          
+          <div className="max-w-4xl mx-auto space-y-12 mt-16">
+            {/* Outcome 1 */}
+            <div className="bg-white border-l-4 border-[#0a4f5c] pl-6 pr-4 py-6">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                1. Du erkennst vor dem Absenden, ob sich eine Bewerbung lohnt
+              </h3>
+              <ul className="space-y-2 text-gray-700 mb-4">
+                <li className="flex items-start">
+                  <span className="text-[#0a4f5c] mr-2">•</span>
+                  <span>wo dein Profil realistisch anschlussfähig ist</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[#0a4f5c] mr-2">•</span>
+                  <span>wo der Match zu gering ist</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[#0a4f5c] mr-2">•</span>
+                  <span>wo dein Einsatz echte Chancen hat</span>
+                </li>
+              </ul>
+              <p className="text-lg text-gray-900 font-medium">
+                Du bewirbst dich nicht weniger – sondern gezielter.
+              </p>
+            </div>
+
+            {/* Outcome 2 */}
+            <div className="bg-white border-l-4 border-[#0a4f5c] pl-6 pr-4 py-6">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                2. Du berücksichtigst Branchen- und Marktlogiken
+              </h3>
+              <ul className="space-y-2 text-gray-700 mb-4">
+                <li className="flex items-start">
+                  <span className="text-[#0a4f5c] mr-2">•</span>
+                  <span>nicht jede Branche funktioniert gleich (offen vs konservativ)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[#0a4f5c] mr-2">•</span>
+                  <span>du bewirbst dich dort, wo dein Profil ernsthaft in Betracht gezogen wird</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Outcome 3 */}
+            <div className="bg-white border-l-4 border-[#0a4f5c] pl-6 pr-4 py-6">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                3. Du positionierst dich klar statt generisch
+              </h3>
+              <ul className="space-y-2 text-gray-700 mb-4">
+                <li className="flex items-start">
+                  <span className="text-[#0a4f5c] mr-2">•</span>
+                  <span>bewusst auf Rolle, Kontext und Anforderungen ausgerichtet</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[#0a4f5c] mr-2">•</span>
+                  <span>Ergebnis: Relevanz statt Standardbewerbung</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Outcome 4 */}
+            <div className="bg-white border-l-4 border-[#0a4f5c] pl-6 pr-4 py-6">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                4. Deine Trefferquote steigt
+              </h3>
+              <ul className="space-y-2 text-gray-700 mb-4">
+                <li className="flex items-start">
+                  <span className="text-[#0a4f5c] mr-2">•</span>
+                  <span>mehr Rückmeldungen, gezieltere Gespräche, Zugang zu echten Prozessen</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[#0a4f5c] mr-2">•</span>
+                  <span>ohne Garantien; durch Passung, Vorbereitung, Klarheit</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Upgrade-Microcopy */}
+          <div className="max-w-2xl mx-auto mt-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
+            <p className="text-center text-gray-700">
+              <strong className="text-gray-900">Fair upgraden:</strong> Wenn du dein Paket erweiterst, wird deine bisherige Investition anteilig berücksichtigt (mit Upgrade-Gutschrift).
+            </p>
+          </div>
+
+          {/* Add-ons Sektion */}
+          <div className="max-w-4xl mx-auto mt-16">
+            <h3 className="text-3xl font-bold text-center mb-6 text-gray-900">
+              Add-ons als Skalierung – nicht als Nachbesserung
+            </h3>
+            <p className="text-lg text-gray-700 text-center mb-8 leading-relaxed">
+              Zusätzliche Analysen helfen dir, deine Strategie auf weitere Zielstellen anzuwenden.<br/>
+              Der Anschreiben-Service hilft dir, deine Positionierung klar zu argumentieren – dort, wo ein Anschreiben wirklich relevant ist.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white p-6 rounded-lg border border-gray-200">
+                <h4 className="text-xl font-semibold text-gray-900 mb-3">Zusatzanalysen</h4>
+                <p className="text-gray-700 mb-2">+3 / +5 / +10 Analysen:</p>
+                <p className="text-gray-600">Wenn du mehr Wunschstellen parallel prüfen möchtest, kannst du deine Strategie gezielt skalieren.</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg border border-gray-200">
+                <h4 className="text-xl font-semibold text-gray-900 mb-3">Anschreiben-Service</h4>
+                <p className="text-gray-700 mb-2 font-medium">Argumentieren statt hoffen:</p>
+                <p className="text-gray-600">Wir übersetzen deine Positionierung in klare, überzeugende Anschreiben.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section - Technische Details */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">Dein strategischer Fortschritt</h2>
+          <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+            Mit jedem Schritt entwickelst du mehr Klarheit, triffst bessere Entscheidungen und reduzierst Blindbewerbungen.
+          </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
-              <Target className="w-12 h-12 text-[#ff6b35] mb-6" />
-              <h3 className="text-2xl font-semibold mb-4">Warnzeichen-Detektor (Red-Flag-Analyse)</h3>
+            <div className="bg-white p-10 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100">
+              <Target className="w-12 h-12 text-[#0a4f5c] mb-6" />
+              <h3 className="text-2xl font-semibold mb-4 text-gray-900">Warnzeichen-Detektor (Red-Flag-Analyse)</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Erkenne versteckte Warnzeichen (Red Flags), bevor du Zeit verschwendest. Unsere KI analysiert Formulierungen, die auf Probleme hindeuten.
               </p>
@@ -998,9 +1270,9 @@ export default function Smarter2JobLanding() {
               </ul>
             </div>
 
-            <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
-              <Zap className="w-12 h-12 text-[#ff6b35] mb-6" />
-              <h3 className="text-2xl font-semibold mb-4">Fit-Score (Passgenauigkeit) & Handlungsempfehlung</h3>
+            <div className="bg-white p-10 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100">
+              <Zap className="w-12 h-12 text-[#0a4f5c] mb-6" />
+              <h3 className="text-2xl font-semibold mb-4 text-gray-900">Fit-Score (Passgenauigkeit) & Handlungsempfehlung</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Objektive Bewertung: Solltest du dich bewerben oder nicht? Keine Bauchgefühle mehr – klare Daten.
               </p>
@@ -1020,9 +1292,9 @@ export default function Smarter2JobLanding() {
               </ul>
             </div>
 
-            <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
-              <FileText className="w-12 h-12 text-[#ff6b35] mb-6" />
-              <h3 className="text-2xl font-semibold mb-4">ATS-Optimierung (für den Bewerbungsroboter)</h3>
+            <div className="bg-white p-10 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100">
+              <FileText className="w-12 h-12 text-[#0a4f5c] mb-6" />
+              <h3 className="text-2xl font-semibold mb-4 text-gray-900">ATS-Optimierung (für den Bewerbungsroboter)</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Dein Lebenslauf (CV) kommt durch den Bewerbungsroboter (ATS) zum Menschen. Wir optimieren Keywords (Schlüsselwörter), Format und Struktur für maximale ATS-Kompatibilität (Roboter-Freundlichkeit).
               </p>
@@ -1042,9 +1314,9 @@ export default function Smarter2JobLanding() {
               </ul>
             </div>
 
-            <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
-              <Linkedin className="w-12 h-12 text-[#ff6b35] mb-6" />
-              <h3 className="text-2xl font-semibold mb-4">LinkedIn-Profil-Optimierung</h3>
+            <div className="bg-white p-10 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100">
+              <Linkedin className="w-12 h-12 text-[#0a4f5c] mb-6" />
+              <h3 className="text-2xl font-semibold mb-4 text-gray-900">LinkedIn-Profil-Optimierung</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Matche mit Recruiter-Suchen und werde gefunden. Optimierung von Header, About-Section (Über mich) und Experience (Berufserfahrung) für maximale Sichtbarkeit.
               </p>
@@ -1064,9 +1336,9 @@ export default function Smarter2JobLanding() {
               </ul>
             </div>
 
-            <div className="bg-white p-10 rounded-xl shadow-md hover:shadow-lg transition">
+            <div className="bg-white p-10 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100">
               <span className="text-5xl mb-6 block">💰</span>
-              <h3 className="text-2xl font-semibold mb-4">Gehaltsband-Indikationen</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-gray-900">Gehaltsband-Indikationen</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Erfahre, was du finanziell erwarten kannst. Marktgerechte Einschätzung basierend auf Branche, Rolle und Standort.
               </p>
@@ -1089,18 +1361,25 @@ export default function Smarter2JobLanding() {
 
           <div className="text-center mt-16">
             <p className="text-2xl font-semibold text-[#0a4f5c] mb-4">
-              10 strategische Bewerbungen statt 100 Blindflüge
+              Steigender Fit-Score. Bessere Entscheidungen. Mehr Kontrolle.
             </p>
-            <p className="text-lg text-gray-600">Mehr Erfolgsquote, weniger Frust</p>
+            <p className="text-lg text-gray-600">10 strategische Bewerbungen statt 100 Blindflüge – weniger Frust, mehr Klarheit.</p>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing Section - Als Entwicklungsphasen gerahmt */}
       <section id="pricing" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-4">Jetzt strategisch auf deine Bewerbung vorbereiten</h2>
-          <p className="text-xl text-gray-600 text-center mb-16">
+          <h2 className="text-4xl font-bold text-center mb-4">Dein strategischer Fortschritt</h2>
+          <p className="text-xl text-gray-600 text-center mb-4">
+            Wähle das Paket passend zu deiner Bewerbungsphase.<br/>
+            Du kannst jederzeit auf die nächste Stufe erweitern, wenn du skalieren willst.
+          </p>
+          <p className="text-lg text-gray-700 text-center mb-2 font-medium">
+            Kein Abo. Kein Lock-in.
+          </p>
+          <p className="text-sm text-gray-500 text-center mb-16">
             7 Tage Geld-zurück-Garantie
           </p>
 
@@ -1108,12 +1387,12 @@ export default function Smarter2JobLanding() {
             {/* Starter */}
             <div className="flex-1 bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200 hover:border-[#0a4f5c] transition flex flex-col">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2 text-gray-900">Starter</h3>
-                <p className="text-gray-600">Für erste Schritte</p>
+                <h3 className="text-2xl font-bold mb-2 text-gray-900">Einstieg & Orientierung</h3>
+                <p className="text-gray-600">Für Bewerber, die aus ungezielten Bewerbungen eine klare Strategie machen wollen.</p>
               </div>
               <div className="mb-6">
                 <span className="text-5xl font-bold text-gray-900">49€</span>
-                <span className="text-gray-600">/Monat</span>
+                <span className="text-gray-600"> einmalig</span>
               </div>
               <ul className="space-y-4 mb-8 flex-grow">
                 <li className="flex items-start gap-3">
@@ -1135,7 +1414,7 @@ export default function Smarter2JobLanding() {
               </ul>
               <a
                 href="mailto:post@martinbeyer.de?subject=Ich%20m%C3%B6chte%20gerne%20das%20Starter%20Paket%20f%C3%BCr%2049%20Euro%20buchen.&body=Hallo,%0A%0Aich%20m%C3%B6chte%20gerne%20das%20Starter%20Paket%20buchen.%0A%0AVorname:%0ANachname:%0AAdresse:%0A%0AViele%20Gr%C3%BC%C3%9Fe"
-                className="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition shadow-md hover:shadow-lg mt-auto text-center"
+                className="w-full border-2 border-[#0a4f5c] text-[#0a4f5c] py-3 rounded-lg font-semibold hover:bg-[#0a4f5c] hover:text-white transition mt-auto text-center"
               >
                 Jetzt starten
               </a>
@@ -1147,12 +1426,12 @@ export default function Smarter2JobLanding() {
                 Beliebteste
               </div>
               <div className="mb-6 mt-4">
-                <h3 className="text-2xl font-bold mb-2" style={{ color: 'white' }}>Professional</h3>
-                <p style={{ color: '#d1d5db' }}>Für aktive Jobsuche</p>
+                <h3 className="text-2xl font-bold mb-2" style={{ color: 'white' }}>Aktive Bewerbungsphase</h3>
+                <p style={{ color: '#d1d5db' }}>Für Bewerber, die mehrere passende Zielstellen strategisch begleiten und konsistent gute Entscheidungen treffen möchten.</p>
               </div>
               <div className="mb-6">
                 <span className="text-5xl font-bold" style={{ color: 'white' }}>129€</span>
-                <span style={{ color: '#d1d5db' }}>/Monat</span>
+                <span style={{ color: '#d1d5db' }}> einmalig</span>
               </div>
               <ul className="space-y-4 mb-8 flex-grow">
                 <li className="flex items-start gap-3">
@@ -1188,12 +1467,12 @@ export default function Smarter2JobLanding() {
             {/* Executive */}
             <div className="flex-1 bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200 hover:border-[#0a4f5c] transition flex flex-col">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2 text-gray-900">Executive</h3>
-                <p className="text-gray-600">Für Volloptimierung</p>
+                <h3 className="text-2xl font-bold mb-2 text-gray-900">Beschleunigung & Fokus</h3>
+                <p className="text-gray-600">Für Bewerber, die mehrere Optionen parallel prüfen und Momentum aufbauen wollen – ohne Zufall.</p>
               </div>
               <div className="mb-6">
                 <span className="text-5xl font-bold text-gray-900">249€</span>
-                <span className="text-gray-600">/Monat</span>
+                <span className="text-gray-600"> einmalig</span>
               </div>
               <ul className="space-y-4 mb-8 flex-grow">
                 <li className="flex items-start gap-3">
@@ -1223,7 +1502,7 @@ export default function Smarter2JobLanding() {
               </ul>
               <a
                 href="mailto:post@martinbeyer.de?subject=Ich%20m%C3%B6chte%20gerne%20das%20Executive%20Paket%20f%C3%BCr%20249%20Euro%20buchen.&body=Hallo,%0A%0Aich%20m%C3%B6chte%20gerne%20das%20Executive%20Paket%20buchen.%0A%0AVorname:%0ANachname:%0AAdresse:%0A%0AViele%20Gr%C3%BC%C3%9Fe"
-                className="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition shadow-md hover:shadow-lg mt-auto text-center"
+                className="w-full border-2 border-[#0a4f5c] text-[#0a4f5c] py-3 rounded-lg font-semibold hover:bg-[#0a4f5c] hover:text-white transition mt-auto text-center"
               >
                 Jetzt starten
               </a>
@@ -1262,11 +1541,11 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* Final CTA - Klarheit statt Alarm */}
       <section style={{ 
         paddingTop: '80px', 
         paddingBottom: '80px',
-        backgroundColor: '#0a4f5c'
+        backgroundColor: '#ffffff'
       }}>
         <div style={{ 
           maxWidth: '1024px', 
@@ -1278,19 +1557,26 @@ export default function Smarter2JobLanding() {
             fontSize: '48px',
             fontWeight: 'bold',
             marginBottom: '24px',
-            color: '#ffffff',
+            color: '#1a1a1a',
             lineHeight: '1.2'
           }}>
-            Bewirb dich smarter, nicht härter
+            Strategisch bewerben.<br/>
+            Gezielter in die richtigen Jobs.
           </h2>
           <p style={{ 
             fontSize: '20px',
             marginBottom: '32px',
-            color: '#e5e7eb'
+            color: '#4b5563'
           }}>
-            Nimm dir die Zeit am Desktop, die deine Karriere verdient.
+            Nimm dir die Zeit, die deine Karriere verdient. Strategie kommt vor Optimierung.
           </p>
           <button 
+            onClick={() => {
+              document.getElementById('red-flag-teaser')?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }}
             style={{ 
               backgroundColor: '#ff6b35',
               color: '#ffffff',
@@ -1300,24 +1586,24 @@ export default function Smarter2JobLanding() {
               fontWeight: '600',
               border: 'none',
               cursor: 'pointer',
-              boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
-              transition: 'all 0.3s ease'
+              boxShadow: '0 4px 12px rgba(255, 107, 53, 0.2)',
+              transition: 'all 0.2s ease'
             }}
             onMouseOver={(e) => {
               e.currentTarget.style.backgroundColor = '#e55a2b';
-              e.currentTarget.style.transform = 'scale(1.05)';
+              e.currentTarget.style.boxShadow = '0 6px 16px rgba(255, 107, 53, 0.3)';
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.backgroundColor = '#ff6b35';
-              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(255, 107, 53, 0.2)';
             }}
           >
-            Jetzt starten
+            Strategisch vorbereiten
           </button>
           <p style={{ 
             fontSize: '14px',
             marginTop: '16px',
-            color: '#d1d5db'
+            color: '#6b7280'
           }}>
             7 Tage Geld-zurück-Garantie • Monatlich kündbar
           </p>
