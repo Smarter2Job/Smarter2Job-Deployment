@@ -122,22 +122,33 @@ export default function RedFlagTeaser() {
   return (
     <div className="w-full max-w-4xl mx-auto mt-12">
       {/* Input Section */}
-      <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Durchblick verschaffen – Stolpersteine erkennen
+      <div className="bg-white rounded-xl shadow-xl p-10 mb-8 border-2" style={{ borderColor: '#ff6b35', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
+        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+          Erkenne <span className="wavy-underline">sofort potenzielle Warnzeichen</span> in der Stellenausschreibung
         </h2>
-        <p className="text-gray-600 mb-6 leading-relaxed">
-          Oft verbergen sich hinter schön klingenden Stellenbeschreibungen oder Stellentiteln eine ganz andere Wirklichkeit, als es sich auf den ersten Blick darstellt. Deswegen lohnt es sich, zwischen den Zeilen zu lesen. 
-          <br /><br />
-          Lass uns die Stelle, die dich interessiert, durchleuchten: Welche Stolpersteine verstecken sich in der Anzeige? Welche Warnsignale solltest du kennen? Welche unausgesprochenen Anforderungen werden vorausgesetzt?
-          <br /><br />
-          Um bei deiner Bewerbung zu bestehen, solltest du wissen, wie Stellenanzeigen wirklich funktionieren. Verschaff dir jetzt Durchblick – kostenlos, ohne Anmeldung, in 30-60 Sekunden.
-        </p>
+        <ul className="space-y-3 mb-8 max-w-2xl mx-auto" style={{ listStyle: 'none', padding: 0 }}>
+          <li className="flex items-start gap-3 text-gray-700">
+            <span style={{ color: '#ff6b35', fontSize: '20px', marginTop: '2px' }}>•</span>
+            <span>Oft verbergen sich hinter schön klingenden Stellenbeschreibungen eine ganz andere Wirklichkeit</span>
+          </li>
+          <li className="flex items-start gap-3 text-gray-700">
+            <span style={{ color: '#ff6b35', fontSize: '20px', marginTop: '2px' }}>•</span>
+            <span>Zwischen den Zeilen lesen lohnt sich – Stolpersteine und Warnsignale erkennen</span>
+          </li>
+          <li className="flex items-start gap-3 text-gray-700">
+            <span style={{ color: '#ff6b35', fontSize: '20px', marginTop: '2px' }}>•</span>
+            <span>Unausgesprochene Anforderungen identifizieren, bevor du dich bewirbst</span>
+          </li>
+          <li className="flex items-start gap-3 text-gray-700">
+            <span style={{ color: '#ff6b35', fontSize: '20px', marginTop: '2px' }}>•</span>
+            <span>Kostenlos, ohne Anmeldung, Ergebnis in 30-60 Sekunden</span>
+          </li>
+        </ul>
 
         <textarea
           value={jobInput}
           onChange={(e) => setJobInput(e.target.value)}
-          placeholder="Stellen-URL oder Stellenbeschreibung einfügen – wir analysieren in 30-60 Sekunden kostenlos"
+          placeholder="Probiere es direkt aus: Füge hier deine Stellenbeschreibung oder den Stellenlink ein – wir analysieren in 30–60 Sekunden. Gratis für dich zum Selbst-Test."
           className="w-full min-h-[120px] p-4 border-2 border-gray-200 rounded-lg focus:border-[#0a4f5c] focus:outline-none resize-y text-gray-900"
           disabled={loading}
         />
@@ -168,7 +179,7 @@ export default function RedFlagTeaser() {
           )}
         </button>
 
-        <p className="text-sm text-gray-500 text-center mt-4">
+        <p className="text-sm text-gray-500 text-center mt-4" style={{ textAlign: 'center' }}>
           Kostenlos • Keine Anmeldung nötig • Ergebnis in 30-60 Sekunden
         </p>
       </div>
