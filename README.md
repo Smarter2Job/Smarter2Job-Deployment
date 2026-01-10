@@ -1,6 +1,6 @@
-# Smarter2Job Landing Page
+# Smarter2Job Landing Page 1
 
-Landingpage für Smarter2Job - Eine KI-gestützte Plattform zur Optimierung von Bewerbungen.
+Landingpage 1 für Smarter2Job - Eine KI-gestützte Plattform zur Optimierung von Bewerbungen.
 
 ## 🚀 Entwicklung
 

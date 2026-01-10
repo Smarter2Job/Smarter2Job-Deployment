@@ -57,7 +57,7 @@ export default function RedFlagTeaser() {
       // Prüfe ob Daten vorhanden sind
       if (!data || !data.shownRedFlags || data.shownRedFlags.length === 0) {
         console.warn('⚠️ No red flags in response:', data);
-        setError('Die Analyse wurde durchgeführt, aber es wurden keine Red Flags gefunden. Bitte versuche es mit einer anderen Stellenbeschreibung.');
+        setError('Die Analyse wurde durchgeführt, aber es wurden keine Warnzeichen gefunden. Bitte versuche es mit einer anderen Stellenbeschreibung.');
         setLoading(false);
         return;
       }
@@ -123,32 +123,10 @@ export default function RedFlagTeaser() {
     <div className="w-full max-w-4xl mx-auto mt-12">
       {/* Input Section */}
       <div className="bg-white rounded-xl shadow-xl p-10 mb-8 border-2" style={{ borderColor: '#ff6b35', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
-        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-          Erkenne <span className="wavy-underline">sofort potenzielle Warnzeichen</span> in der Stellenausschreibung
-        </h2>
-        <ul className="space-y-3 mb-8 max-w-2xl mx-auto" style={{ listStyle: 'none', padding: 0 }}>
-          <li className="flex items-start gap-3 text-gray-700">
-            <span style={{ color: '#ff6b35', fontSize: '20px', marginTop: '2px' }}>•</span>
-            <span>Oft verbergen sich hinter schön klingenden Stellenbeschreibungen eine ganz andere Wirklichkeit</span>
-          </li>
-          <li className="flex items-start gap-3 text-gray-700">
-            <span style={{ color: '#ff6b35', fontSize: '20px', marginTop: '2px' }}>•</span>
-            <span>Zwischen den Zeilen lesen lohnt sich – Stolpersteine und Warnsignale erkennen</span>
-          </li>
-          <li className="flex items-start gap-3 text-gray-700">
-            <span style={{ color: '#ff6b35', fontSize: '20px', marginTop: '2px' }}>•</span>
-            <span>Unausgesprochene Anforderungen identifizieren, bevor du dich bewirbst</span>
-          </li>
-          <li className="flex items-start gap-3 text-gray-700">
-            <span style={{ color: '#ff6b35', fontSize: '20px', marginTop: '2px' }}>•</span>
-            <span>Kostenlos, ohne Anmeldung, Ergebnis in 30-60 Sekunden</span>
-          </li>
-        </ul>
-
         <textarea
           value={jobInput}
           onChange={(e) => setJobInput(e.target.value)}
-          placeholder="Probiere es direkt aus: Füge hier deine Stellenbeschreibung oder den Stellenlink ein – wir analysieren in 30–60 Sekunden. Gratis für dich zum Selbst-Test."
+          placeholder="Link oder Text der Stellenanzeige hier einfügen …"
           className="w-full min-h-[120px] p-4 border-2 border-gray-200 rounded-lg focus:border-[#0a4f5c] focus:outline-none resize-y text-gray-900"
           disabled={loading}
         />
@@ -170,17 +148,34 @@ export default function RedFlagTeaser() {
           {loading ? (
             <>
               <Loader2 className="w-5 h-5 animate-spin" />
-              Analysiere Red Flags...
+              Analysiere...
             </>
           ) : (
             <>
-              🔍 Jetzt strategisch auf deine Bewerbung vorbereiten
+              Stellenanzeige prüfen
             </>
           )}
         </button>
 
         <p className="text-sm text-gray-500 text-center mt-4" style={{ textAlign: 'center' }}>
-          Kostenlos • Keine Anmeldung nötig • Ergebnis in 30-60 Sekunden
+          Kostenlos · Keine Anmeldung · Ergebnis in 30–60 Sekunden
+        </p>
+
+        <p className="text-xs text-gray-400 text-center mt-2" style={{ textAlign: 'center' }}>
+          Vorschau: bis zu 3 Warnzeichen gratis.
+        </p>
+      </div>
+
+      {/* UX-Microelement: Quote Box */}
+      <div className="bg-gray-50 border-l-4 border-[#ff6b35] rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
+          Aktueller Satz aus Gesprächen mit Bewerbern
+        </p>
+        <blockquote className="text-lg font-semibold text-gray-900 mb-3 italic">
+          „Leider momentan sehr viele Absagen."
+        </blockquote>
+        <p className="text-gray-700">
+          Genau deshalb starten wir vor dem Absenden – nicht nach der nächsten Absage.
         </p>
       </div>
 
@@ -190,7 +185,7 @@ export default function RedFlagTeaser() {
           <div className="text-center">
             <Loader2 className="w-12 h-12 text-[#0a4f5c] animate-spin mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
-              🔍 Analysiere Red Flags...
+              🔍 Analysiere Warnzeichen...
             </h3>
             
             <div className="max-w-md mx-auto">
@@ -201,7 +196,7 @@ export default function RedFlagTeaser() {
               <div className="space-y-2 text-left text-sm text-gray-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-green-500" />
-                  <span>Job-Beschreibung geparst</span>
+                  <span>Stellenanzeige geparst</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-green-500" />
@@ -209,7 +204,7 @@ export default function RedFlagTeaser() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Loader2 className="w-4 h-4 text-[#0a4f5c] animate-spin" />
-                  <span>Red Flags identifizieren...</span>
+                  <span>Warnzeichen identifizieren...</span>
                 </div>
               </div>
 
@@ -225,33 +220,39 @@ export default function RedFlagTeaser() {
           {/* Header */}
           <div className="bg-white rounded-xl shadow-lg p-8 text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              🚩 Wir haben {result.totalRedFlags || 0} Stolpersteine bei dieser Stelle gefunden
+              Dein Stellencheck ist fertig.
             </h2>
             <p className="text-gray-600">
-              Hier sind die ersten 3 für dich:
+              Basierend auf der Stellenanzeige – ohne Lebenslauf.
             </p>
             {(!result.shownRedFlags || result.shownRedFlags.length === 0) && (
               <div className="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded">
                 <p className="text-yellow-700">
-                  ⚠️ Die Analyse wurde durchgeführt, aber es wurden keine detaillierten Red Flags extrahiert. 
+                  ⚠️ Die Analyse wurde durchgeführt, aber es wurden keine detaillierten Warnzeichen extrahiert. 
                   Bitte versuche es mit einer längeren Stellenbeschreibung (mindestens 200 Zeichen).
                 </p>
               </div>
             )}
+            <p className="text-gray-700 mt-4">
+              Wir haben <strong>{result.totalRedFlags || 0} mögliche Warnzeichen</strong> gefunden.<br />
+              Hier siehst du die Vorschau (bis zu 3). Den kompletten Report mit allen Warnzeichen und Begründungen kannst du ansehen.
+            </p>
           </div>
 
           {/* Red Flag Cards - Nur erste 3 anzeigen */}
           {result.shownRedFlags && result.shownRedFlags.length > 0 ? (
-            result.shownRedFlags.slice(0, 3).map((flag, index) => (
+            <>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Warnzeichen (Vorschau)</h3>
+              {result.shownRedFlags.slice(0, 3).map((flag, index) => (
               <div
                 key={index}
-                className={`bg-white rounded-xl shadow-md p-6 border-l-4 ${getBorderColor(flag.riskColor)} hover:shadow-lg transition`}
+                className={`bg-white rounded-xl shadow-md p-6 border-l-4 ${getBorderColor(flag.riskColor)} hover:shadow-lg transition mb-4`}
               >
                 <div className="flex items-start gap-3 mb-3">
                   <span className="text-3xl">{getRiskIcon(flag.risk)}</span>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                      Stolperstein #{index + 1}: {flag.title}
+                      Warnzeichen #{index + 1}: {flag.title}
                     </h3>
                   </div>
                 </div>
@@ -281,103 +282,32 @@ export default function RedFlagTeaser() {
                   </div>
                 </div>
               </div>
-            ))
+              ))}
+            </>
           ) : (
             <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded">
               <p className="text-yellow-700">
-                ⚠️ Keine Red Flags konnten extrahiert werden. Bitte versuche es mit einer längeren Stellenbeschreibung (mindestens 200 Zeichen).
+                ⚠️ Keine Warnzeichen konnten extrahiert werden. Bitte versuche es mit einer längeren Stellenbeschreibung (mindestens 200 Zeichen).
               </p>
             </div>
           )}
 
-          {/* Teaser Box für weitere Stolpersteine */}
-          {result.totalRedFlags > 3 && (
-            <div className="bg-yellow-50 border-l-4 border-yellow-500 rounded-xl shadow-lg p-6 mb-6">
-              <p className="text-gray-800 text-lg mb-4">
-                ⚠️ Es gibt noch {result.totalRedFlags - 3} schwerwiegendere Stolpersteine bei dieser Stelle, die wir entdeckt haben.
-              </p>
-              <p className="text-gray-700 mb-4">
-                Um alle Details zu sehen und deine Bewerbung strategisch vorzubereiten, wähle eines unserer Analyse-Pakete.
-              </p>
-              <a
-                href="#pricing"
-                className="block w-full bg-[#ff6b35] text-white py-3 px-6 rounded-lg font-bold text-lg hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
-              >
-                Jetzt vollständige Analyse erhalten
-              </a>
-            </div>
-          )}
-
-          {/* Upsell Box */}
-          <div className="bg-[#0a4f5c] rounded-xl shadow-xl p-8 text-white">
-            <div className="text-center mb-6">
-              <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-3xl font-bold mb-3">
-                Strategisch statt verzweifelt
-              </h3>
-              <p className="text-xl text-gray-200 mb-2">
-                Du hast gerade die ersten 3 von <strong className="text-white">{result.totalRedFlags} Stolpersteinen</strong> bei dieser Stelle gesehen.
-              </p>
-              <p className="text-lg text-[#ff6b35] font-semibold">
-                Für eine vollständige Analyse und strategische Vorbereitung deiner Bewerbung haben wir noch mehr für dich.
-              </p>
-            </div>
-
-            <div className="bg-white/10 rounded-lg p-6 mb-6">
-              <p className="text-white font-bold text-lg mb-4 text-center">
-                Damit du optimal vorbereitet bist und weißt, was wirklich dahintersteckt, haben wir noch <span className="text-[#ff6b35]">8 weitere Module</span> für dich:
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-gray-200 text-sm">
-                <div className="flex items-start gap-2">
-                  <span className="text-[#ff6b35] font-bold">🔍</span>
-                  <span><strong>Modul 2:</strong> Deine persönlichen Red Flags</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#ff6b35] font-bold">🎯</span>
-                  <span><strong>Modul 3:</strong> Fit-Score (BEWIRB DICH oder LASS ES)</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#ff6b35] font-bold">🔑</span>
-                  <span><strong>Modul 4:</strong> ATS Keywords (fehlt was in deinem CV?)</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#ff6b35] font-bold">💰</span>
-                  <span><strong>Modul 5:</strong> Gehaltsband (was kannst du fordern?)</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#ff6b35] font-bold">✏️</span>
-                  <span><strong>Modul 6:</strong> CV-Umformulierung (ATS-optimiert)</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#ff6b35] font-bold">📈</span>
-                  <span><strong>Modul 7:</strong> LinkedIn-Optimierung</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#ff6b35] font-bold">🃏</span>
-                  <span><strong>Modul 8:</strong> Anschreiben-Service</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[#ff6b35] font-bold">📊</span>
-                  <span><strong>Bonus:</strong> Kultur-Score & Strategie-Tipps</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-[#ff6b35] bg-opacity-20 border-2 border-[#ff6b35] rounded-lg p-4 mb-6">
-              <p className="text-white text-center font-bold text-lg">
-                🎯 Verschaff dir vollständigen Durchblick
-              </p>
-            </div>
-
+          {/* Locked/Upgrade Block */}
+          <div className="bg-white border-2 border-[#0a4f5c] rounded-xl shadow-lg p-8 mb-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center">
+              Kompletten Report ansehen
+            </h3>
+            <p className="text-gray-700 mb-6 text-center">
+              Alle gefundenen Warnzeichen inkl. Begründung und Hinweise, worauf du in der Bewerbung achten solltest.
+            </p>
             <a
               href="#pricing"
-              className="block w-full bg-[#ff6b35] text-white py-4 px-8 rounded-lg font-bold text-xl hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
+              className="block w-full bg-[#ff6b35] text-white py-4 px-6 rounded-lg font-bold text-lg hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
             >
-              Jetzt vollständige Analyse erhalten
+              Stellencheck aktivieren (59 €)
             </a>
-
-            <p className="text-gray-300 text-sm text-center mt-4">
-              3 Packages zur Auswahl • 7 Tage Geld-zurück-Garantie
+            <p className="text-gray-500 text-sm text-center mt-4">
+              Einmalig · Kein Abo
             </p>
           </div>
         </div>
