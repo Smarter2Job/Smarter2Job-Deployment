@@ -53,13 +53,16 @@ export default function Story() {
             <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--text)' }}>
               Ich saß jahrelang auf der Arbeitgeberseite – und plötzlich auf der anderen.
             </h2>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Nach vielen Jahren auf der Arbeitgeberseite sitze ich jetzt plötzlich auf der anderen Seite des Tisches.
             </p>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Mein Mandat bei Lumenhaus lief aus. Und zum ersten Mal seit Jahren musste ich mich selbst bewerben.
               Ich machte das, was viele machen: Stellen scannen, Anforderungen lesen, Eignung prüfen.
             </p>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Und dann fiel mir auf, wie oft sich Bewerben heute anfühlt wie ein Schnellklick.
               Du schickst Bewerbungen raus – und bekommst Absagen zurück.
@@ -69,22 +72,27 @@ export default function Story() {
             <h3 className="text-xl font-semibold mt-6 mb-4" style={{ color: 'var(--text)' }}>
               Der Moment, der alles ausgelöst hat:
             </h3>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Ich las zwei Beiträge auf LinkedIn, die ich nicht vergessen habe.
             </p>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Sabrina schrieb: „Master mit 1,4. 400+ Bewerbungen. 3 Gespräche. 0 Angebote."
               Und eine andere Bewerberin schrieb, sie habe abends um 21:00 Uhr ihre Bewerbung abgeschickt – voller Hoffnung – und morgens um 6:30 Uhr schon die Absage bekommen.
             </p>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Mein erster Gedanke war reflexartig:
               „Klar, du bist vom ATS rausgekickt worden. Das weiß man doch."
             </p>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Kurze Pause.
               Und dann kam der zweite Gedanke:
               Moment mal. Das weiß nicht jeder. Wahrscheinlich wissen es die wenigsten.
             </p>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               ATS bedeutet: Viele Bewerbungen werden zuerst von Systemen vorsortiert, bevor überhaupt ein Mensch sie sieht.
               Und wenn die Begriffe fehlen, die das System „erkennt", bist du raus – egal wie gut du bist.
@@ -93,6 +101,7 @@ export default function Story() {
             <h3 className="text-xl font-semibold mt-6 mb-4" style={{ color: 'var(--text)' }}>
               Warum das so frustrierend ist:
             </h3>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Mehr Schnellbewerbungen lösen das Problem nicht.
               Sie erzeugen nur mehr Absagen – und damit mehr Zweifel.
@@ -114,6 +123,7 @@ export default function Story() {
             <h3 className="text-xl font-semibold mt-6 mb-4" style={{ color: 'var(--text)' }}>
               Wie Smarter2Job entstanden ist:
             </h3>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Auf einer Fahrt nach Düsseldorf (viel Zeit zum Denken) begann ich, mir mein eigenes System zu bauen.
               Erst nur für mich – damit ich schneller erkenne:
@@ -122,11 +132,13 @@ export default function Story() {
               Welche Begriffe sind entscheidend?
               Und wie muss ein Lebenslauf formuliert sein, damit er nicht aussortiert wird, bevor ihn ein Mensch sieht?
             </p>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Dann wurde mir klar:
               Dieses System hätte nicht nur mir geholfen.
               Es hätte auch diesen Bewerberinnen geholfen – bevor die nächste Absage kommt.
             </p>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Und genau daraus ist Smarter2Job entstanden.
             </p>
@@ -134,11 +146,13 @@ export default function Story() {
             <h3 className="text-xl font-semibold mt-6 mb-4" style={{ color: 'var(--text)' }}>
               Wofür Smarter2Job da ist:
             </h3>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Smarter2Job hilft Bewerbern, sich besser, gezielter und klarer vorzubereiten.
               Nicht mehr Bewerbungen. Sondern bessere.
               Bewerbungen, die zu dir passen – und die so formuliert sind, dass sie eine echte Chance bekommen.
             </p>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Bewerben ist kein Swipe. Es ist ein wichtiges Karrieredate – und Vorbereitung ist der Unterschied.
             </p>
