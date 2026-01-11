@@ -613,6 +613,7 @@ p {
     --section-pad-y: 64px;
     --section-pad-y-sm: 48px;
     --section-pad-y-xs: 32px;
+    --header-height: 160px; /* Mobile header with expanded nav */
   }
 
   h1 {
@@ -630,5 +631,23 @@ p {
   .container-main,
   .container-narrow {
     padding: 0 16px;
+  }
+}
+
+@media (min-width: 769px) {
+  :root {
+    --header-height: 80px; /* Desktop header height */
+  }
+}
+
+/* Page content padding to account for fixed header */
+.page-content {
+  padding-top: 140px;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding-top: 180px; /* More space on mobile for expanded nav */
   }
 }

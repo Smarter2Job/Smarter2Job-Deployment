@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import RedFlagTeaser from './RedFlagTeaser';
+import HeroMiniDemo from './landing/HeroMiniDemo';
+import ExampleReportTabs from './landing/ExampleReportTabs';
+import PreSendStepper from './landing/PreSendStepper';
 
 export default function Smarter2JobLanding() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -34,56 +37,9 @@ export default function Smarter2JobLanding() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation - vereinfacht: Nur Logo + CTA */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <a href="/" className="flex items-center">
-              <img 
-                src="/logo.png" 
-                alt="Smarter2Job Logo" 
-                className="h-10 w-auto"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  const parent = e.currentTarget.parentElement;
-                  if (parent && !parent.querySelector('.logo-fallback')) {
-                    const fallback = document.createElement('div');
-                    fallback.className = 'logo-fallback text-2xl font-bold text-[#0a4f5c]';
-                    fallback.textContent = 'Smarter2Job';
-                    parent.appendChild(fallback);
-                  }
-                }}
-              />
-            </a>
-            <button 
-              onClick={() => {
-                document.getElementById('check')?.scrollIntoView({ 
-                  behavior: 'smooth',
-                  block: 'start'
-                });
-              }}
-              style={{ 
-                backgroundColor: '#0a4f5c', 
-                color: 'white', 
-                padding: '8px 24px', 
-                borderRadius: '8px', 
-                fontWeight: '500', 
-                border: 'none', 
-                cursor: 'pointer',
-                transition: 'background-color 0.2s',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-              }}
-              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#083d47')}
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#0a4f5c')}
-            >
-              Stellenanzeige prüfen
-            </button>
-          </div>
-        </div>
-      </nav>
 
       {/* 1) HERO Section */}
-      <section className="section-hero" style={{ paddingTop: '120px', paddingBottom: '60px' }}>
+      <section className="section-hero" style={{ paddingTop: 'clamp(140px, 15vh, 180px)', paddingBottom: '60px' }}>
         <div className="container-narrow">
           <div className="text-center">
             <h1 style={{ 
@@ -104,53 +60,16 @@ export default function Smarter2JobLanding() {
               marginRight: 'auto',
               lineHeight: '1.6'
             }}>
-              Smarter2Job zeigt dir in Minuten, was in einer Stellenanzeige wirklich steckt: Warnzeichen, Realismus-Check und wichtige Schlüsselbegriffe.
+              Starte vor dem Absenden. Smarter2Job zeigt dir in Minuten, ob eine Stelle wirklich passt – inkl. Warnsignalen, Realismus-Check und Schlüsselbegriffen.
             </p>
 
-            <button 
-              onClick={() => {
-                document.getElementById('check')?.scrollIntoView({ 
-                  behavior: 'smooth',
-                  block: 'start'
-                });
-              }}
-              style={{ 
-                backgroundColor: '#ff6b35',
-                color: 'white',
-                padding: '16px 32px',
-                borderRadius: '8px',
-                fontSize: '18px',
-                fontWeight: '600',
-                border: 'none',
-                cursor: 'pointer',
-                boxShadow: '0 10px 25px rgba(0,0,0,0.15)',
-                transition: 'all 0.2s ease',
-                marginBottom: '16px'
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.backgroundColor = '#e55a2b';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,0,0,0.2)';
-                e.currentTarget.style.transform = 'translateY(-1px)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.backgroundColor = '#ff6b35';
-                e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              Stellenanzeige prüfen
-            </button>
-            
-            <p style={{ 
-              fontSize: '14px',
-              color: 'var(--text-muted)',
-              textAlign: 'center'
-            }}>
-              Ohne Anmeldung · Ergebnis in 30–60 Sekunden · 3 Warnzeichen als Vorschau
-            </p>
+            <HeroMiniDemo />
           </div>
         </div>
       </section>
+
+      {/* TABS-BEISPIELREPORT */}
+      <ExampleReportTabs />
 
       {/* 2) INPUT-FRAME Section */}
       <section id="check" className="py-20 bg-white">
@@ -222,8 +141,11 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
+      {/* 3-STEP SCROLL-STEPPER */}
+      <PreSendStepper />
+
       {/* 6) PAKETE Section */}
-      <section id="pricing" className="py-20" style={{ backgroundColor: '#0a4f5c', background: 'linear-gradient(135deg, #0a4f5c 0%, #083d47 100%)' }}>
+      <section id="pakete" className="py-20" style={{ backgroundColor: '#0a4f5c', background: 'linear-gradient(135deg, #0a4f5c 0%, #083d47 100%)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-center mb-4" style={{ color: '#ffffff' }}>
             Wähle dein Paket
@@ -529,30 +451,6 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
-      {/* Footer - nur Legal */}
-      <footer className="bg-gray-900 text-gray-300 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-white font-semibold mb-4">Legal</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a href="/impressum" className="hover:text-white transition">Impressum</a>
-                </li>
-                <li>
-                  <a href="/datenschutz" className="hover:text-white transition">Datenschutz</a>
-                </li>
-                <li>
-                  <a href="/agb" className="hover:text-white transition">AGB</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-            <p>&copy; {new Date().getFullYear()} Smarter2Job. Alle Rechte vorbehalten.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
