@@ -12,7 +12,7 @@ export default function Story() {
     {
       year: 'November 2025',
       title: 'Erste Analysen',
-      description: 'Erste Analysen mit Beta-Testern: Warnzeichen, Schlüsselbegriffe, Realismus-Check.',
+      description: 'Erste Analysen mit Beta-Testern: Warnsignale, Schlüsselbegriffe, Realismus-Check.',
       icon: Target,
     },
     {

@@ -41,7 +41,7 @@ export default function PreSendStepper() {
     {
       title: 'Stelle verstehen',
       items: [
-        'Warnzeichen erkennen',
+        'Warnsignale erkennen',
         'Realismus prüfen',
         'Schlüsselbegriffe sichtbar machen'
       ]

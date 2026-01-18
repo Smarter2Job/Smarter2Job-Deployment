@@ -1,7 +1,21 @@
 import { useState } from 'react';
 import { Loader2, AlertTriangle } from 'lucide-react';
 
-export default function HeroMiniDemo() {
+interface HeroMiniDemoProps {
+  headline?: string;
+  subline?: string;
+  buttonText?: string;
+  footerText?: string;
+  textareaHeight?: string;
+}
+
+export default function HeroMiniDemo({ 
+  headline = "Vorschau: bis zu 3 Warnsignale gratis",
+  subline,
+  buttonText = "Stellenanzeige prüfen",
+  footerText = "Keine Anmeldung · Ergebnis in 30–60 Sekunden · 3 Warnsignale als Vorschau",
+  textareaHeight = "min-h-[120px]"
+}: HeroMiniDemoProps = {}) {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
@@ -33,26 +47,35 @@ export default function HeroMiniDemo() {
   ];
 
   return (
-    <div id="hero-demo" className="max-w-3xl mx-auto mt-12">
+    <div id="hero-demo">
       {!showPreview ? (
         <div className="bg-white rounded-xl shadow-lg p-8 border-2" style={{ borderColor: '#ff6b35' }}>
-          <p className="text-sm text-gray-600 mb-4 text-center">
-            Füge den Link oder Text der Stellenanzeige ein. Du siehst 3 Warnzeichen gratis.
-          </p>
-          <textarea
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Link oder Text der Stellenanzeige hier einfügen …"
-            className="w-full min-h-[120px] p-4 border-2 border-gray-200 rounded-lg focus:border-[#0a4f5c] focus:outline-none resize-y text-gray-900"
-            disabled={loading}
-          />
+          <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text)' }}>
+            {headline}
+          </h3>
+          {subline && (
+            <p className="text-sm text-gray-600 mb-6" style={{ color: 'var(--text-muted)' }}>
+              {subline}
+            </p>
+          )}
+          <div className={subline ? '' : 'mb-6'}>
+            <textarea
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Link oder Text der Stellenanzeige hier einfügen …"
+              className={`w-full ${textareaHeight} p-4 border-2 border-gray-200 rounded-lg focus:border-[#0a4f5c] focus:outline-none resize-y text-gray-900`}
+              style={{ fontFamily: 'inherit', fontSize: '16px' }}
+              disabled={loading}
+            />
+          </div>
           <button
             onClick={handleAnalyze}
             disabled={loading || !input.trim()}
-            className="mt-6 w-full text-white py-4 px-8 rounded-lg font-semibold text-lg transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className={`${subline ? 'mt-0' : 'mt-6'} w-full text-white py-3 px-8 rounded-lg font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2`}
             style={{
               backgroundColor: '#ff6b35',
-              boxShadow: '0 10px 25px rgba(0,0,0,0.15)'
+              boxShadow: '0 10px 25px rgba(0,0,0,0.15)',
+              fontSize: '16px'
             }}
             onMouseOver={(e) => {
               if (!loading && input.trim()) {
@@ -73,17 +96,17 @@ export default function HeroMiniDemo() {
                 Analysiere...
               </>
             ) : (
-              'Stellenanzeige prüfen'
+              buttonText
             )}
           </button>
           <p className="text-sm text-gray-500 text-center mt-4">
-            Gratis • Keine Anmeldung nötig • Ergebnis in 30–60 Sekunden
+            {footerText}
           </p>
         </div>
       ) : (
         <div className="bg-white rounded-xl shadow-lg p-8 border-2" style={{ borderColor: '#0a4f5c' }}>
           <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--text)' }}>
-            Erste Warnzeichen gefunden
+            Erste Warnsignale gefunden
           </h3>
           <ul className="space-y-3 mb-6">
             {redFlags.map((flag, index) => (
@@ -95,7 +118,7 @@ export default function HeroMiniDemo() {
           </ul>
           <div className="bg-gray-50 rounded-lg p-4 mb-6">
             <p className="text-gray-700 font-medium">
-              Wir haben weitere Warnzeichen erkannt.
+              Wir haben weitere Warnsignale erkannt.
             </p>
           </div>
           <button
@@ -112,7 +135,7 @@ export default function HeroMiniDemo() {
               e.currentTarget.style.backgroundColor = '#0a4f5c';
             }}
           >
-            Weitere Warnzeichen anzeigen (Stellencheck)
+            Weitere Warnsignale anzeigen (Stellencheck)
           </button>
         </div>
       )}

@@ -49,13 +49,13 @@ export default function AGB() {
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-700 mb-4">
               <li>
-                <strong>Karte 1:</strong> Warnzeichen-Schnellcheck (kostenlos)
+                <strong>Karte 1:</strong> Warnsignale-Schnellcheck (kostenlos)
               </li>
               <li>
-                <strong>Karte 2:</strong> Objektive Stellenanalyse (10-15 Red Flags, Kultur-Score)
+                <strong>Karte 2:</strong> Objektive Stellenanalyse (10-15 Warnsignale, Kultur-Score)
               </li>
               <li>
-                <strong>Karte 3:</strong> Persönliche Red Flags (Abgleich mit Ihren Präferenzen)
+                <strong>Karte 3:</strong> Persönliche Warnsignale (Abgleich mit Ihren Präferenzen)
               </li>
               <li>
                 <strong>Karte 4:</strong> Fit-Score &amp; Handlungsempfehlung
@@ -216,7 +216,7 @@ export default function AGB() {
                 <strong>Richtigkeit:</strong> KI-basierte Analysen können Fehler enthalten
               </li>
               <li>
-                <strong>Vollständigkeit:</strong> Nicht alle Red Flags können erkannt werden
+                <strong>Vollständigkeit:</strong> Nicht alle Warnsignale können erkannt werden
               </li>
               <li>
                 <strong>Aktualität:</strong> Marktdaten (z.B. Gehaltsangaben) können veraltet sein
@@ -265,7 +265,7 @@ export default function AGB() {
             <ul className="list-disc list-inside space-y-2 text-gray-700">
               <li>Die Entscheidung, sich auf eine Stelle zu bewerben</li>
               <li>Die Formulierung von Anschreiben (auch wenn Karte 9 genutzt wurde)</li>
-              <li>Die Überprüfung von Gehaltsangaben und Red Flags</li>
+              <li>Die Überprüfung von Gehaltsangaben und Warnsignalen</li>
               <li>Die Einhaltung von Bewerbungsfristen und Anforderungen</li>
             </ul>
 

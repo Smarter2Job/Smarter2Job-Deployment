@@ -14,5 +14,6 @@ export default defineConfig({
         // Später: Backend-Server mit Express.js oder Next.js API Routes
       }
     }
-  }
+  },
+  assetsInclude: ['**/*.mdx'],
 })

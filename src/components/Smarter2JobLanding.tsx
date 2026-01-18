@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import RedFlagTeaser from './RedFlagTeaser';
 import HeroMiniDemo from './landing/HeroMiniDemo';
 import ExampleReportTabs from './landing/ExampleReportTabs';
 import PreSendStepper from './landing/PreSendStepper';
@@ -23,7 +22,7 @@ export default function Smarter2JobLanding() {
     },
     {
       question: "Warum gibt es die Passungsprüfung erst ab Paket 2?",
-      answer: "Weil wir dafür deinen Lebenslauf (und optional Dealbreaker) brauchen."
+      answer: "Weil wir dafür deinen Lebenslauf (und optional Dealbreaker) brauchen. Im Paket \"Verstehen\" analysieren wir nur die Stellenanzeige selbst – ohne dein Profil."
     },
     {
       question: "Versprecht ihr Einladungen?",
@@ -41,29 +40,64 @@ export default function Smarter2JobLanding() {
       {/* 1) HERO Section */}
       <section className="section-hero" style={{ paddingTop: 'clamp(140px, 15vh, 180px)', paddingBottom: '60px' }}>
         <div className="container-narrow">
-          <div className="text-center">
-            <h1 style={{ 
-              color: 'var(--text)', 
-              marginBottom: '24px',
-              fontSize: 'clamp(40px, 5vw, 60px)',
-              lineHeight: '1.1'
-            }}>
-              Viele Absagen – und du weißt nicht, warum?
-            </h1>
-            
-            <p style={{ 
-              fontSize: 'clamp(18px, 2vw, 20px)', 
-              color: 'var(--text-muted)', 
-              marginBottom: '32px',
-              maxWidth: '70ch',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              lineHeight: '1.6'
-            }}>
-              Starte vor dem Absenden. Smarter2Job zeigt dir in Minuten, ob eine Stelle wirklich passt – inkl. Warnsignalen, Realismus-Check und Schlüsselbegriffen.
-            </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Left Column: Text */}
+            <div className="text-center md:text-left">
+              <h1 style={{ 
+                color: 'var(--text)', 
+                marginBottom: '20px',
+                fontSize: 'clamp(42px, 5vw, 60px)',
+                lineHeight: '1.1'
+              }}>
+                Viele Absagen – und niemand verrät dir warum?
+              </h1>
+              
+              <h2 style={{ 
+                fontSize: 'clamp(18px, 2vw, 20px)', 
+                color: 'var(--text-muted)', 
+                marginBottom: '24px',
+                lineHeight: '1.6',
+                fontWeight: 'normal'
+              }}>
+                Smarter2Job zeigt dir, was in der Stellenanzeige wirklich zählt – und wie du deinen Lebenslauf so formulierst, dass er passt.
+              </h2>
 
-            <HeroMiniDemo />
+              <h3 style={{ 
+                fontSize: 'clamp(16px, 1.8vw, 18px)', 
+                color: 'var(--text)', 
+                marginBottom: '32px',
+                fontWeight: 'var(--font-weight-semibold)',
+                lineHeight: '1.5'
+              }}>
+                Mit Smarter2Job bekommst du Klarheit und einen Plan, was du besser machen kannst – noch bevor du deine Bewerbung absendest.
+              </h3>
+
+              <a
+                href="#so-funktionierts"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById('so-funktionierts') || document.querySelector('[id*="funktioniert"]');
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+                className="text-[#0a4f5c] hover:underline font-medium text-sm inline-block mb-6"
+                style={{ textDecoration: 'none', display: 'block' }}
+              >
+                So funktioniert's →
+              </a>
+            </div>
+
+            {/* Right Column: Input Card */}
+            <div>
+              <HeroMiniDemo 
+                headline="Checke deine Wunschstelle, bevor du dich bewirbst."
+                subline="Wir zeigen dir 3 Warnsignale gratis."
+                buttonText="Stellenanzeige checken →"
+                footerText="Ohne Anmeldung · Ergebnis in 30–60 Sekunden · 3 Warnsignale gratis"
+                textareaHeight="min-h-[200px]"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -71,23 +105,8 @@ export default function Smarter2JobLanding() {
       {/* TABS-BEISPIELREPORT */}
       <ExampleReportTabs />
 
-      {/* 2) INPUT-FRAME Section */}
-      <section id="check" className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-4" style={{ color: 'var(--text)' }}>
-            Stellenanzeige testen (gratis Vorschau)
-          </h2>
-          <p className="text-center text-gray-600 mb-8" style={{ fontSize: '16px' }}>
-            Link einfügen oder Text reinkopieren – du siehst sofort die ersten 3 Warnzeichen.
-          </p>
-          <RedFlagTeaser />
-        </div>
-      </section>
-
-      {/* 3) RESULTS/PREVIEW - wird in RedFlagTeaser angezeigt */}
-
       {/* 4) SO FUNKTIONIERT'S Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="so-funktionierts" className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12" style={{ color: 'var(--text)' }}>
             So funktioniert's
@@ -103,7 +122,7 @@ export default function Smarter2JobLanding() {
               <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#ff6b35', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
                 2
               </div>
-              <h3 className="text-lg font-semibold mb-2">Warnzeichen & Schlüsselbegriffe erkennen</h3>
+                  <h3 className="text-lg font-semibold mb-2">Warnsignale & Schlüsselbegriffe erkennen</h3>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0a4f5c', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
@@ -158,7 +177,7 @@ export default function Smarter2JobLanding() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Paket 1 - Stellencheck */}
+            {/* Paket 1 - Verstehen */}
             <div className="bg-white p-8 rounded-xl shadow-lg flex flex-col transition-all duration-300" style={{ 
               height: '100%',
               transform: 'scale(1)',
@@ -177,17 +196,25 @@ export default function Smarter2JobLanding() {
                   fontSize: '24px', 
                   fontWeight: 'var(--font-weight-bold)', 
                   color: 'var(--text)',
-                  marginBottom: '8px',
+                  marginBottom: '4px',
                   lineHeight: '1.2'
                 }}>
-                  Stellencheck
+                  Verstehen
                 </h3>
+                <p style={{ 
+                  fontSize: '14px', 
+                  color: 'var(--text-muted)',
+                  marginBottom: '8px',
+                  lineHeight: '1.4'
+                }}>
+                  Stellencheck (3 Stellen)
+                </p>
                 <p style={{ 
                   fontSize: '16px', 
                   color: 'var(--text-muted)',
                   lineHeight: '1.6'
                 }}>
-                  Klarheit über mehrere Stellen – bevor du Zeit investierst.
+                  Prüfe zuerst die Stellen – bevor du Zeit investierst.
                 </p>
               </div>
               <div style={{ marginBottom: '24px' }}>
@@ -209,12 +236,11 @@ export default function Smarter2JobLanding() {
               </div>
               <ul className="space-y-2 text-gray-700" style={{ marginBottom: '32px', flexGrow: '1' }}>
                 <li>• 3 Stellenanzeigen-Checks</li>
-                <li>• Warnzeichen + Schlüsselbegriffe</li>
-                <li>• Priorisierung (A/B/C)</li>
-                <li>• Kompletter Report pro Stelle</li>
+                <li>• Du siehst, was wirklich gefordert ist – und was eher Beiwerk ist</li>
+                <li>• Du erkennst Warnsignale, Widersprüche und Hinweise zwischen den Zeilen (z. B. Überforderung, Chaos, unrealistische Erwartungen)</li>
               </ul>
               <a
-                href="mailto:post@martinbeyer.de?subject=Anfrage%3A%20Stellencheck%20%2859%E2%82%AC%29&body=Hallo%20Smarter2Job-Team%2C%0A%0Aich%20m%C3%B6chte%20das%20Paket%20Stellencheck%20%2859%E2%82%AC%29%20anfragen.%0A%0AName%3A%0AE-Mail%3A%0ALink%20zur%20Stelle%20%28optional%29%3A%0AKurzinfo%20zu%20mir%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe"
+                href="mailto:post@martinbeyer.de?subject=Anfrage%3A%20Verstehen%20%28Stellencheck%29%20%2859%E2%82%AC%29&body=Hallo%20Smarter2Job-Team%2C%0A%0Aich%20m%C3%B6chte%20das%20Paket%20Verstehen%20%28Stellencheck%29%20%2859%E2%82%AC%29%20anfragen.%0A%0AName%3A%0AE-Mail%3A%0ALink%20zur%20Stelle%20%28optional%29%3A%0AKurzinfo%20zu%20mir%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe"
                 className="w-full mt-auto text-center py-3 px-6 rounded-lg font-semibold transition"
                 style={{
                   backgroundColor: 'transparent',
@@ -230,11 +256,11 @@ export default function Smarter2JobLanding() {
                   e.currentTarget.style.color = '#0a4f5c';
                 }}
               >
-                Paket per E-Mail anfragen
+                Stellenanzeige verstehen
               </a>
             </div>
 
-            {/* Paket 2 - Bewerbung auf den Punkt */}
+            {/* Paket 2 - Entscheiden */}
             <div className="bg-white p-8 rounded-xl shadow-xl flex flex-col relative border-2 transition-all duration-300" style={{ 
               borderColor: '#ff6b35',
               height: '100%',
@@ -257,17 +283,25 @@ export default function Smarter2JobLanding() {
                   fontSize: '24px', 
                   fontWeight: 'var(--font-weight-bold)', 
                   color: 'var(--text)',
-                  marginBottom: '8px',
+                  marginBottom: '4px',
                   lineHeight: '1.2'
                 }}>
-                  Bewerbung auf den Punkt
+                  Entscheiden
                 </h3>
+                <p style={{ 
+                  fontSize: '14px', 
+                  color: 'var(--text-muted)',
+                  marginBottom: '8px',
+                  lineHeight: '1.4'
+                }}>
+                  Passungscheck (1 Stelle + Lebenslauf)
+                </p>
                 <p style={{ 
                   fontSize: '16px', 
                   color: 'var(--text-muted)',
                   lineHeight: '1.6'
                 }}>
-                  1 Stelle – sauber vorbereitet und stimmig.
+                  Passt diese Stelle wirklich zu dir? (mit Lebenslauf)
                 </p>
               </div>
               <div style={{ marginBottom: '24px' }}>
@@ -287,16 +321,23 @@ export default function Smarter2JobLanding() {
                   einmalig
                 </span>
               </div>
-              <ul className="space-y-2 text-gray-700" style={{ marginBottom: '32px', flexGrow: '1' }}>
-                <li>• Passungsprüfung (Fit-Bewertung) mit Lebenslauf (optional Dealbreaker)</li>
-                <li>• Empfehlung: Bewerben / Lassen (mit Begründung)</li>
-                <li>• 1 zugeschnittener Lebenslauf für diese Stelle</li>
-                <li>• Schlüsselbegriffe: fehlend + Platzierungstipps</li>
-                <li>• Gehaltsband-Indikation für diese Stelle</li>
-                <li>• Bearbeitung innerhalb 48 Stunden nach Einreichung</li>
+              <ul className="space-y-2 text-gray-700" style={{ marginBottom: '12px', flexGrow: '1' }}>
+                <li>• Abgleich: Stellenanzeige und dein Lebenslauf</li>
+                <li>• 1 optimierter Lebenslauf für eine konkrete Zielstelle</li>
+                <li>• Klare Empfehlung: Go / eingeschränktes Go / No-Go</li>
               </ul>
+              <p style={{ 
+                fontSize: '13px', 
+                color: 'var(--text-muted)',
+                lineHeight: '1.5',
+                fontStyle: 'normal',
+                marginBottom: '16px',
+                paddingTop: '8px'
+              }}>
+                Du entscheidest, für welche Stelle wir deinen Lebenslauf optimieren – am besten für eine, die von uns ein Go bekommt.
+              </p>
               <a
-                href="mailto:post@martinbeyer.de?subject=Anfrage%3A%20Bewerbung%20auf%20den%20Punkt%20%28149%E2%82%AC%29&body=Hallo%20Smarter2Job-Team%2C%0A%0Aich%20m%C3%B6chte%20das%20Paket%20Bewerbung%20auf%20den%20Punkt%20%28149%E2%82%AC%29%20anfragen.%0A%0AName%3A%0AE-Mail%3A%0ALink%20zur%20Stelle%20%28optional%29%3A%0AKurzinfo%20zu%20mir%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe"
+                href="mailto:post@martinbeyer.de?subject=Anfrage%3A%20Entscheiden%20%28Passungscheck%29%20%28149%E2%82%AC%29&body=Hallo%20Smarter2Job-Team%2C%0A%0Aich%20m%C3%B6chte%20das%20Paket%20Entscheiden%20%28Passungscheck%29%20%28149%E2%82%AC%29%20anfragen.%0A%0AName%3A%0AE-Mail%3A%0ALink%20zur%20Stelle%20%28optional%29%3A%0AKurzinfo%20zu%20mir%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe"
                 className="w-full mt-auto text-center py-3 px-6 rounded-lg font-semibold text-white transition"
                 style={{
                   backgroundColor: '#ff6b35',
@@ -311,11 +352,11 @@ export default function Smarter2JobLanding() {
                   e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
                 }}
               >
-                Paket per E-Mail anfragen
+                Chancen einschätzen
               </a>
             </div>
 
-            {/* Paket 3 - Bewerbungs-Sprint */}
+            {/* Paket 3 - Umsetzen */}
             <div className="bg-white p-8 rounded-xl shadow-lg flex flex-col transition-all duration-300" style={{ 
               height: '100%',
               transform: 'scale(1)',
@@ -334,17 +375,25 @@ export default function Smarter2JobLanding() {
                   fontSize: '24px', 
                   fontWeight: 'var(--font-weight-bold)', 
                   color: 'var(--text)',
-                  marginBottom: '8px',
+                  marginBottom: '4px',
                   lineHeight: '1.2'
                 }}>
-                  Bewerbungs-Sprint (30 Tage)
+                  Umsetzen
                 </h3>
+                <p style={{ 
+                  fontSize: '14px', 
+                  color: 'var(--text-muted)',
+                  marginBottom: '8px',
+                  lineHeight: '1.4'
+                }}>
+                  Bewerbungspaket (5 Stellen + Top-2 optimieren)
+                </p>
                 <p style={{ 
                   fontSize: '16px', 
                   color: 'var(--text-muted)',
                   lineHeight: '1.6'
                 }}>
-                  Momentum über 30 Tage – mehrere Optionen, zwei Top-Bewerbungen.
+                  Baue Momentum: erst prüfen, dann zwei Bewerbungen sauber fertig machen.
                 </p>
               </div>
               <div style={{ marginBottom: '24px' }}>
@@ -365,13 +414,12 @@ export default function Smarter2JobLanding() {
                 </span>
               </div>
               <ul className="space-y-2 text-gray-700" style={{ marginBottom: '32px', flexGrow: '1' }}>
-                <li>• 5 Stellenanzeigen-Checks (30 Tage nutzbar)</li>
-                <li>• 2 zugeschnittene Lebenslaufversionen (Top-2 Stellen)</li>
-                <li>• LinkedIn-Profil Update (Überschrift + Über mich + Schlüsselbegriffe/Skills)</li>
-                <li>• Bearbeitung innerhalb 48 Stunden nach Einreichung</li>
+                <li>• 5 Stellenanzeigen-Checks in 30 Tagen</li>
+                <li>• 2 optimierte Lebensläufe für zwei Stellen, die du auswählst</li>
+                <li>• Konkrete Vorschläge für dein LinkedIn-Profil, passend zu deiner Zielrichtung</li>
               </ul>
               <a
-                href="mailto:post@martinbeyer.de?subject=Anfrage%3A%20Bewerbungs-Sprint%20%2830%20Tage%29%20%28299%E2%82%AC%29&body=Hallo%20Smarter2Job-Team%2C%0A%0Aich%20m%C3%B6chte%20das%20Paket%20Bewerbungs-Sprint%20%2830%20Tage%29%20%28299%E2%82%AC%29%20anfragen.%0A%0AName%3A%0AE-Mail%3A%0ALink%20zur%20Stelle%20%28optional%29%3A%0AKurzinfo%20zu%20mir%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe"
+                href="mailto:post@martinbeyer.de?subject=Anfrage%3A%20Umsetzen%20%28Bewerbungspaket%29%20%28299%E2%82%AC%29&body=Hallo%20Smarter2Job-Team%2C%0A%0Aich%20m%C3%B6chte%20das%20Paket%20Umsetzen%20%28Bewerbungspaket%29%20%28299%E2%82%AC%29%20anfragen.%0A%0AName%3A%0AE-Mail%3A%0ALink%20zur%20Stelle%20%28optional%29%3A%0AKurzinfo%20zu%20mir%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe"
                 className="w-full mt-auto text-center py-3 px-6 rounded-lg font-semibold transition"
                 style={{
                   backgroundColor: 'transparent',
@@ -387,8 +435,38 @@ export default function Smarter2JobLanding() {
                   e.currentTarget.style.color = '#0a4f5c';
                 }}
               >
-                Sprint per E-Mail anfragen
+                Lebenslauf optimieren
               </a>
+            </div>
+          </div>
+
+          {/* ADD-ON SEKTION: Skalieren */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+              <h3 className="text-2xl font-bold text-center mb-3" style={{ color: '#ffffff' }}>
+                Skalieren – wenn du mehr Stellen parallel prüfen willst
+              </h3>
+              <p className="text-center text-gray-200 mb-8" style={{ fontSize: '16px' }}>
+                Erweitere jederzeit um zusätzliche Stellenchecks oder weitere Lebenslaufversionen.
+              </p>
+              <ul className="space-y-3 text-gray-200 max-w-2xl mx-auto" style={{ fontSize: '15px' }}>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#ff6b35] mt-1">•</span>
+                  <span>Zusätzliche Stellenchecks (+1 / +3 / +5)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#ff6b35] mt-1">•</span>
+                  <span>Zusätzliche Lebenslaufversion pro Stelle</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#ff6b35] mt-1">•</span>
+                  <span>Anschreiben-Service (optional)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#ff6b35] mt-1">•</span>
+                  <span>LinkedIn-Optimierung (optional)</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -437,7 +515,8 @@ export default function Smarter2JobLanding() {
             }}>
               Bewerben ist kein Swipe – es ist vielleicht dein wichtigstes Karriere-Date.
             </p>
-            <p style={{ 
+            {/* Desktop-Version */}
+            <p className="hidden md:block" style={{ 
               fontSize: 'clamp(18px, 2vw, 20px)',
               color: 'var(--text-muted)',
               lineHeight: '1.6',
@@ -445,7 +524,18 @@ export default function Smarter2JobLanding() {
               marginLeft: 'auto',
               marginRight: 'auto'
             }}>
-              Smarter2Job hilft dir, Stellen richtig zu lesen, deine Passung im Vorfeld zu prüfen und deine Bewerbung stimmig sowie für die automatische Vorauswahl sichtbar vorzubereiten.
+              Smarter2Job hilft dir, Stellen richtig zu lesen, deine Chancen einzuschätzen und deinen Lebenslauf so zu optimieren, dass er zur Stelle passt – bevor du abschickst.
+            </p>
+            {/* Mini-Version für mobile/responsive */}
+            <p className="block md:hidden" style={{ 
+              fontSize: 'clamp(16px, 1.8vw, 18px)',
+              color: 'var(--text-muted)',
+              lineHeight: '1.6',
+              maxWidth: '70ch',
+              marginLeft: 'auto',
+              marginRight: 'auto'
+            }}>
+              Stelle verstehen. Chancen einschätzen. Lebenslauf optimieren – bevor du abschickst.
             </p>
           </div>
         </div>

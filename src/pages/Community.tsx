@@ -54,7 +54,7 @@ export default function Community() {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-[#ff6b35] mt-1">•</span>
-                    <span>Erfahrungen mit Stellenanzeigen und Warnzeichen</span>
+                    <span>Erfahrungen mit Stellenanzeigen und Warnsignalen</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-[#ff6b35] mt-1">•</span>

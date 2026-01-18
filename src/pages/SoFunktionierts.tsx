@@ -11,10 +11,10 @@ export default function SoFunktionierts() {
 
   const sections = [
     {
-      title: 'Warnzeichen-Logik',
+      title: 'Warnsignale-Logik',
       content: (
         <div>
-          <p className="mb-4">Wir analysieren Stellenanzeigen auf verschiedene Warnzeichen hin:</p>
+          <p className="mb-4">Wir analysieren Stellenanzeigen auf verschiedene Warnsignale hin:</p>
           <ul className="space-y-2 mb-4">
             <li className="flex items-start gap-2">
               <AlertTriangle className="w-5 h-5 text-red-500 mt-1 flex-shrink-0" />
@@ -26,11 +26,11 @@ export default function SoFunktionierts() {
             </li>
             <li className="flex items-start gap-2">
               <AlertTriangle className="w-5 h-5 text-orange-500 mt-1 flex-shrink-0" />
-              <span><strong>Rote Flaggen:</strong> "Familienatmosphäre" kann auf fehlende Work-Life-Balance hindeuten.</span>
+              <span><strong>Warnsignale:</strong> "Familienatmosphäre" kann auf fehlende Work-Life-Balance hindeuten.</span>
             </li>
           </ul>
-          <p className="text-sm text-gray-600 italic">
-            Beispiel: Eine Stelle für "Senior React Developer" verlangt 8 Jahre React-Erfahrung, obwohl React erst 2013 veröffentlicht wurde. → Warnzeichen: Unrealistische Anforderungen.
+            <p className="text-sm text-gray-600 italic">
+            Beispiel: Eine Stelle für "Senior React Developer" verlangt 8 Jahre React-Erfahrung, obwohl React erst 2013 veröffentlicht wurde. → Warnsignal: Unrealistische Anforderungen.
           </p>
         </div>
       ),
@@ -156,7 +156,7 @@ export default function SoFunktionierts() {
               </div>
               <h3 className="text-lg font-semibold mb-2">Analyse läuft</h3>
               <p className="text-gray-600 text-sm">
-                Automatische Erkennung von Warnzeichen, Schlüsselbegriffen und Passung.
+                Automatische Erkennung von Warnsignalen, Schlüsselbegriffen und Passung.
               </p>
             </div>
             <div className="text-center">

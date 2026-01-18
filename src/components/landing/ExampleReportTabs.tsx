@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Lock } from 'lucide-react';
 
 export default function ExampleReportTabs() {
-  const [activeTab, setActiveTab] = useState<'warnzeichen' | 'schluesselbegriffe' | 'realismus'>('warnzeichen');
+  const [activeTab, setActiveTab] = useState<'warnsignale' | 'schluesselbegriffe' | 'realismus'>('warnsignale');
 
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
@@ -14,12 +14,12 @@ export default function ExampleReportTabs() {
   };
 
   const tabs = {
-    warnzeichen: {
+    warnsignale: {
       items: [
         "Unterbesetzung / 'selbstständig arbeiten'",
         "Widersprüche in Seniorität vs. Aufgaben",
         "Unklare Ziele / keine Erfolgskennzahlen",
-        "Weitere Warnzeichen anzeigen …"
+        "Weitere Warnsignale anzeigen …"
       ]
     },
     schluesselbegriffe: {
@@ -59,14 +59,14 @@ export default function ExampleReportTabs() {
         <div className="bg-white rounded-xl shadow-lg p-8">
           <div className="flex justify-center gap-2 mb-8 flex-wrap">
             <button
-              onClick={() => setActiveTab('warnzeichen')}
+              onClick={() => setActiveTab('warnsignale')}
               className={`px-6 py-3 rounded-lg font-semibold transition ${
-                activeTab === 'warnzeichen'
+                activeTab === 'warnsignale'
                   ? 'bg-[#ff6b35] text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              Warnzeichen
+              Warnsignale
             </button>
             <button
               onClick={() => setActiveTab('schluesselbegriffe')}

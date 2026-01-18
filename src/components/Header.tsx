@@ -7,9 +7,8 @@ export default function Header() {
     { path: '/', label: 'Home' },
     { path: '/so-funktionierts', label: 'So funktioniert\'s' },
     { path: '/preise', label: 'Preise' },
-    { path: '/story', label: 'Story' },
+    { path: '/story', label: 'Gründerstory' },
     { path: '/blog', label: 'Blog' },
-    { path: '/community', label: 'Community' },
     { path: '/faq', label: 'FAQ' },
   ];
 

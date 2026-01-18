@@ -16,11 +16,11 @@ export default function Faq() {
     },
     {
       question: "Wie schnell erhalte ich Ergebnisse?",
-      answer: "Die Vorschau (bis zu 3 Warnzeichen) erhältst du in 30–60 Sekunden. Komplette Pakete werden innerhalb von 48 Stunden nach Einreichung bearbeitet."
+      answer: "Die Vorschau (bis zu 3 Warnsignale) erhältst du in 30–60 Sekunden. Komplette Pakete werden innerhalb von 48 Stunden nach Einreichung bearbeitet."
     },
     {
       question: "Warum gibt es die Passungsprüfung erst ab Paket 2?",
-      answer: "Weil wir dafür deinen Lebenslauf (und optional Dealbreaker) brauchen. Im Paket 1 analysieren wir nur die Stellenanzeige selbst – ohne dein Profil."
+      answer: "Weil wir dafür deinen Lebenslauf (und optional Dealbreaker) brauchen. Im Paket \"Verstehen\" analysieren wir nur die Stellenanzeige selbst – ohne dein Profil."
     },
     {
       question: "Versprecht ihr Einladungen?",
@@ -32,7 +32,7 @@ export default function Faq() {
     },
     {
       question: "Kann ich ein Paket später upgraden?",
-      answer: "Ja. Wenn du später upgraden willst, rechnen wir deine bisherige Zahlung zu 100% an. Beispiel: Du hast Paket 1 (59€) gekauft und willst auf Paket 2 (149€) upgraden. Du zahlst dann nur noch 90€ (149€ - 59€)."
+      answer: "Ja. Wenn du später upgraden willst, rechnen wir deine bisherige Zahlung zu 100% an. Beispiel: Du hast \"Verstehen\" (59€) gekauft und willst auf \"Entscheiden\" (149€) upgraden. Du zahlst dann nur noch 90€ (149€ - 59€)."
     },
     {
       question: "Wie funktioniert die Bestellung per E-Mail?",
@@ -44,7 +44,7 @@ export default function Faq() {
     },
     {
       question: "Kann ich mehrere Stellen gleichzeitig prüfen lassen?",
-      answer: "Im Paket 1 (Stellencheck) kannst du 3 Stellenanzeigen prüfen lassen. Im Paket 3 (Bewerbungs-Sprint) kannst du 5 Stellenanzeigen innerhalb von 30 Tagen prüfen lassen. Für mehr Kontingente kannst du uns gerne kontaktieren."
+      answer: "Im Paket \"Verstehen\" (Stellencheck) kannst du mehrere Stellenanzeigen prüfen lassen. Im Paket \"Umsetzen\" (Bewerbungspaket) optimieren wir deine Bewerbung für zwei Wunschjobs. Für mehr Kontingente oder zusätzliche Stellenchecks kannst du die Add-on-Option \"Skalieren\" nutzen oder uns gerne kontaktieren."
     },
     {
       question: "Was ist, wenn ich mit dem Ergebnis nicht zufrieden bin?",
@@ -52,7 +52,7 @@ export default function Faq() {
     },
     {
       question: "Werden Lebensläufe automatisch generiert?",
-      answer: "Nein. Ab Paket 2 erstellen wir einen zugeschnittenen Lebenslauf für die spezifische Stelle – basierend auf deinem bestehenden Lebenslauf. Das ist keine automatische Generierung, sondern eine gezielte Anpassung."
+      answer: "Nein. Ab Paket \"Entscheiden\" erstellen wir einen zugeschnittenen Lebenslauf für die spezifische Stelle – basierend auf deinem bestehenden Lebenslauf. Das ist keine automatische Generierung, sondern eine gezielte Anpassung."
     },
     {
       question: "Kann ich ein Paket auch für eine andere Person bestellen?",

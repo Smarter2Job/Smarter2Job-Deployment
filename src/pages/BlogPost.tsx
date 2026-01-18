@@ -13,16 +13,16 @@ interface BlogPost {
 const blogPosts: Record<string, BlogPost> = {
   'warnzeichen-in-stellenanzeigen': {
     slug: 'warnzeichen-in-stellenanzeigen',
-    title: 'Die 5 häufigsten Warnzeichen in Stellenanzeigen',
+    title: 'Die 5 häufigsten Warnsignale in Stellenanzeigen',
     date: '2024-12-15',
-    summary: 'Welche Formulierungen sollten dich aufhorchen lassen? Wir zeigen die häufigsten Red Flags und was sie wirklich bedeuten.',
-    tags: ['Warnzeichen', 'Tipps'],
+    summary: 'Welche Formulierungen sollten dich aufhorchen lassen? Wir zeigen die häufigsten Warnsignale und was sie wirklich bedeuten.',
+    tags: ['Warnsignale', 'Tipps'],
     content: `
-      Stellenanzeigen sind nicht immer so, wie sie scheinen. Viele enthalten versteckte Hinweise, die auf Probleme hindeuten können. Hier sind die 5 häufigsten Warnzeichen:
+      Stellenanzeigen sind nicht immer so, wie sie scheinen. Viele enthalten versteckte Hinweise, die auf Probleme hindeuten können. Hier sind die 5 häufigsten Warnsignale:
 
       ## 1. Unrealistische Anforderungen
 
-      Wenn eine Stelle 10+ Jahre Erfahrung in einer Technologie verlangt, die erst 5 Jahre existiert, ist das ein klares Warnzeichen. Oft bedeutet das: Die Anforderungen sind nicht realistisch – oder die Stelle existiert so gar nicht.
+      Wenn eine Stelle 10+ Jahre Erfahrung in einer Technologie verlangt, die erst 5 Jahre existiert, ist das ein klares Warnsignal. Oft bedeutet das: Die Anforderungen sind nicht realistisch – oder die Stelle existiert so gar nicht.
 
       ## 2. Vage Formulierungen
 
@@ -38,9 +38,9 @@ const blogPosts: Record<string, BlogPost> = {
 
       ## 5. Keine klaren Informationen
 
-      Wenn die Stellenanzeige vage bleibt, was genau die Tätigkeit ist, oder wichtige Informationen fehlen, ist das ebenfalls ein Warnzeichen.
+      Wenn die Stellenanzeige vage bleibt, was genau die Tätigkeit ist, oder wichtige Informationen fehlen, ist das ebenfalls ein Warnsignal.
 
-      Fazit: Nicht jedes Warnzeichen bedeutet automatisch "Finger weg". Aber sie sollten dich aufhorchen lassen und dazu führen, dass du nachfragst oder die Stelle genauer prüfst.
+      Fazit: Nicht jedes Warnsignal bedeutet automatisch "Finger weg". Aber sie sollten dich aufhorchen lassen und dazu führen, dass du nachfragst oder die Stelle genauer prüfst.
     `,
   },
   'schluesselbegriffe-im-lebenslauf': {
@@ -138,7 +138,7 @@ const blogPosts: Record<string, BlogPost> = {
       ## Wie findest du die richtigen Stellen?
 
       - Prüfe die Passung im Vorfeld
-      - Identifiziere Warnzeichen
+      - Identifiziere Warnsignale
       - Checke die Realität der Anforderungen
       - Nur bewerben, wenn es wirklich passt
 
@@ -150,7 +150,7 @@ const blogPosts: Record<string, BlogPost> = {
     title: 'Dealbreaker erkennen: Wann solltest du dich nicht bewerben?',
     date: '2024-11-15',
     summary: 'Nicht jede Stelle ist es wert. Wir zeigen, welche Anzeichen auf echte Dealbreaker hindeuten.',
-    tags: ['Warnzeichen', 'Bewerbungsentscheidung'],
+    tags: ['Warnsignale', 'Bewerbungsentscheidung'],
     content: `
       Nicht jede Stelle ist es wert, sich zu bewerben. Einige Anzeichen sind klare Dealbreaker – und du solltest sie erkennen.
 
@@ -164,7 +164,7 @@ const blogPosts: Record<string, BlogPost> = {
 
       ## Wie erkennst du Dealbreaker?
 
-      Warnzeichen in Stellenanzeigen können auf Dealbreaker hindeuten. Smarter2Job hilft dir, diese zu identifizieren.
+      Warnsignale in Stellenanzeigen können auf Dealbreaker hindeuten. Smarter2Job hilft dir, diese zu identifizieren.
 
       Fazit: Nicht jede Stelle ist es wert. Erkenne Dealbreaker frühzeitig und spare dir Zeit und Energie.
     `,

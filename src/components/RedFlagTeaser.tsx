@@ -52,12 +52,12 @@ export default function RedFlagTeaser() {
       const data: AnalysisResult = await response.json();
       
       console.log('📊 Received data:', data);
-      console.log('📊 Red Flags count:', data.shownRedFlags?.length || 0);
+      console.log('📊 Warnsignale count:', data.shownRedFlags?.length || 0);
       
       // Prüfe ob Daten vorhanden sind
       if (!data || !data.shownRedFlags || data.shownRedFlags.length === 0) {
-        console.warn('⚠️ No red flags in response:', data);
-        setError('Die Analyse wurde durchgeführt, aber es wurden keine Warnzeichen gefunden. Bitte versuche es mit einer anderen Stellenbeschreibung.');
+        console.warn('⚠️ No warnsignale in response:', data);
+        setError('Die Analyse wurde durchgeführt, aber es wurden keine Warnsignale gefunden. Bitte versuche es mit einer anderen Stellenbeschreibung.');
         setLoading(false);
         return;
       }
@@ -162,7 +162,7 @@ export default function RedFlagTeaser() {
         </p>
 
         <p className="text-xs text-gray-400 text-center mt-2" style={{ textAlign: 'center' }}>
-          Vorschau: bis zu 3 Warnzeichen gratis.
+          Vorschau: bis zu 3 Warnsignale gratis.
         </p>
       </div>
 
@@ -185,7 +185,7 @@ export default function RedFlagTeaser() {
           <div className="text-center">
             <Loader2 className="w-12 h-12 text-[#0a4f5c] animate-spin mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
-              🔍 Analysiere Warnzeichen...
+              🔍 Analysiere Warnsignale...
             </h3>
             
             <div className="max-w-md mx-auto">
@@ -204,7 +204,7 @@ export default function RedFlagTeaser() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Loader2 className="w-4 h-4 text-[#0a4f5c] animate-spin" />
-                  <span>Warnzeichen identifizieren...</span>
+          <span>Warnsignale identifizieren...</span>
                 </div>
               </div>
 
@@ -228,21 +228,21 @@ export default function RedFlagTeaser() {
             {(!result.shownRedFlags || result.shownRedFlags.length === 0) && (
               <div className="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded">
                 <p className="text-yellow-700">
-                  ⚠️ Die Analyse wurde durchgeführt, aber es wurden keine detaillierten Warnzeichen extrahiert. 
+                ⚠️ Die Analyse wurde durchgeführt, aber es wurden keine detaillierten Warnsignale extrahiert. 
                   Bitte versuche es mit einer längeren Stellenbeschreibung (mindestens 200 Zeichen).
                 </p>
               </div>
             )}
             <p className="text-gray-700 mt-4">
-              Wir haben <strong>{result.totalRedFlags || 0} mögliche Warnzeichen</strong> gefunden.<br />
-              Hier siehst du die Vorschau (bis zu 3). Den kompletten Report mit allen Warnzeichen und Begründungen kannst du ansehen.
+              Wir haben <strong>{result.totalRedFlags || 0} mögliche Warnsignale</strong> gefunden.<br />
+              Hier siehst du die Vorschau (bis zu 3). Den kompletten Report mit allen Warnsignalen und Begründungen kannst du ansehen.
             </p>
           </div>
 
-          {/* Red Flag Cards - Nur erste 3 anzeigen */}
+          {/* Warnsignale Cards - Nur erste 3 anzeigen */}
           {result.shownRedFlags && result.shownRedFlags.length > 0 ? (
             <>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Warnzeichen (Vorschau)</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Warnsignale (Vorschau)</h3>
               {result.shownRedFlags.slice(0, 3).map((flag, index) => (
               <div
                 key={index}
@@ -252,7 +252,7 @@ export default function RedFlagTeaser() {
                   <span className="text-3xl">{getRiskIcon(flag.risk)}</span>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                      Warnzeichen #{index + 1}: {flag.title}
+                      Warnsignal #{index + 1}: {flag.title}
                     </h3>
                   </div>
                 </div>
@@ -287,7 +287,7 @@ export default function RedFlagTeaser() {
           ) : (
             <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded">
               <p className="text-yellow-700">
-                ⚠️ Keine Warnzeichen konnten extrahiert werden. Bitte versuche es mit einer längeren Stellenbeschreibung (mindestens 200 Zeichen).
+                ⚠️ Keine Warnsignale konnten extrahiert werden. Bitte versuche es mit einer längeren Stellenbeschreibung (mindestens 200 Zeichen).
               </p>
             </div>
           )}
@@ -298,7 +298,7 @@ export default function RedFlagTeaser() {
               Kompletten Report ansehen
             </h3>
             <p className="text-gray-700 mb-6 text-center">
-              Alle gefundenen Warnzeichen inkl. Begründung und Hinweise, worauf du in der Bewerbung achten solltest.
+              Alle gefundenen Warnsignale inkl. Begründung und Hinweise, worauf du in der Bewerbung achten solltest.
             </p>
             <a
               href="#pricing"

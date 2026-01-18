@@ -40,7 +40,7 @@ export default function Danke() {
         <div className="bg-gray-50 p-6 rounded-xl">
           <h2 className="text-2xl font-semibold mb-4">📅 Nächster Schritt:</h2>
           <p className="text-gray-700 mb-4">
-            Melde dich zum <strong>kostenlosen Workshop</strong> an und lerne, wie du Red Flags in Stellenbeschreibungen erkennst.
+            Melde dich zum <strong>kostenlosen Workshop</strong> an und lerne, wie du Warnsignale in Stellenbeschreibungen erkennst.
           </p>
           <p className="text-sm text-gray-500 mb-4">
             Jeden Dienstag, 18:00 Uhr • Kostenlos • Keine Vorkenntnisse nötig

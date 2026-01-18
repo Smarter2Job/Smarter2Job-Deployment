@@ -31,9 +31,6 @@ export default function Footer() {
                 <Link to="/blog" className="hover:text-white transition">Blog</Link>
               </li>
               <li>
-                <Link to="/community" className="hover:text-white transition">Community</Link>
-              </li>
-              <li>
                 <Link to="/faq" className="hover:text-white transition">FAQ</Link>
               </li>
             </ul>
@@ -47,9 +44,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/preise" className="hover:text-white transition">Pakete ansehen</Link>
-              </li>
-              <li>
-                <Link to="/community" className="hover:text-white transition">Community beitreten</Link>
               </li>
             </ul>
           </div>

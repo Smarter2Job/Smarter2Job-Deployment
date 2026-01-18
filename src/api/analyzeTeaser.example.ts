@@ -1,5 +1,5 @@
 /**
- * BEISPIEL-API-ROUTE für Red Flag Teaser
+ * BEISPIEL-API-ROUTE für Warnsignale Teaser
  * 
  * Diese Datei zeigt, wie die Backend-API aussehen sollte.
  * 
@@ -27,44 +27,44 @@ interface AnalysisResult {
   upsellText: string;
 }
 
-// Modul 0 Prompt (Red Flag Teaser)
+// Modul 0 Prompt (Warnsignale Teaser)
 const MODUL_0_PROMPT = `# MODUL 0: Freemium-Teaser "Erste Karte aufdecken"
 
 ## ROLLE
 Du bist ein erfahrener Recruiting-Analyst, der schnell die größten Warnsignale in Stellenbeschreibungen erkennt.
 
 ## AUFGABE
-Analysiere die folgende Stellenbeschreibung und identifiziere die **3-5 auffälligsten Red Flags**. Dies ist ein kostenloser Teaser – gib genug Mehrwert, um Interesse zu wecken, aber zeige auch, dass es noch viel mehr zu entdecken gibt.
+Analysiere die folgende Stellenbeschreibung und identifiziere die **3-5 auffälligsten Warnsignale**. Dies ist ein kostenloser Teaser – gib genug Mehrwert, um Interesse zu wecken, aber zeige auch, dass es noch viel mehr zu entdecken gibt.
 
 ## ANALYSE-FRAMEWORK
 
-### 1. TOP 3-5 RED FLAGS
+### 1. TOP 3-5 WARNSIGNALE
 
-Identifiziere die **3-5 auffälligsten Red Flags** und erkläre sie kurz.
+Identifiziere die **3-5 auffälligsten Warnsignale** und erkläre sie kurz.
 
 **Format:**
 
-🔴 **[Red Flag 1: Kurzer Titel]**
+🔴 **[Warnsignal 1: Kurzer Titel]**
 - **Was da steht:** "[Originalformulierung aus Job-Description]"
 - **Was es bedeutet:** [1-2 Sätze Erklärung]
 - **Risiko:** [SEHR HOCH / HOCH / MITTEL / NIEDRIG]
 
-🔴 **[Red Flag 2: Kurzer Titel]**
+🔴 **[Warnsignal 2: Kurzer Titel]**
 - **Was da steht:** "[Originalformulierung]"
 - **Was es bedeutet:** [1-2 Sätze]
 - **Risiko:** [SEHR HOCH / HOCH / MITTEL / NIEDRIG]
 
-🔴 **[Red Flag 3: Kurzer Titel]**
+🔴 **[Warnsignal 3: Kurzer Titel]**
 - **Was da steht:** "[Originalformulierung]"
 - **Was es bedeutet:** [1-2 Sätze]
 - **Risiko:** [SEHR HOCH / HOCH / MITTEL / NIEDRIG]
 
-*(Optional: 4. und 5. Red Flag, falls relevant)*
+*(Optional: 4. und 5. Warnsignal, falls relevant)*
 
-### 2. GESAMT-RED-FLAGS-ZAHL
+### 2. GESAMT-WARNSIGNALE-ZAHL
 
-Gib die **Gesamtzahl der identifizierten Red Flags** an (auch die, die du nicht im Detail zeigst).
-Format: "GESAMT: [Zahl] Red Flags"
+Gib die **Gesamtzahl der identifizierten Warnsignale** an (auch die, die du nicht im Detail zeigst).
+Format: "GESAMT: [Zahl] Warnsignale"
 
 ### 3. TEASER-TEXT
 
@@ -82,17 +82,17 @@ Antworte AUSSCHLIESSLICH in folgendem Format:
 
 GESAMT: [Zahl]
 
-RED FLAG 1: [Titel]
+WARNSIGNAL 1: [Titel]
 WAS DA STEHT: [Original-Zitat]
 WAS ES BEDEUTET: [Erklärung]
 RISIKO: [SEHR HOCH/HOCH/MITTEL/NIEDRIG]
 
-RED FLAG 2: [Titel]
+WARNSIGNAL 2: [Titel]
 WAS DA STEHT: [Original-Zitat]
 WAS ES BEDEUTET: [Erklärung]
 RISIKO: [SEHR HOCH/HOCH/MITTEL/NIEDRIG]
 
-RED FLAG 3: [Titel]
+WARNSIGNAL 3: [Titel]
 WAS DA STEHT: [Original-Zitat]
 WAS ES BEDEUTET: [Erklärung]
 RISIKO: [SEHR HOCH/HOCH/MITTEL/NIEDRIG]
@@ -116,18 +116,18 @@ function parseClaudeResponse(response: string): AnalysisResult {
   const redFlags: RedFlag[] = [];
   let currentFlag: Partial<RedFlag> | null = null;
 
-  // Parse Red Flags
+  // Parse Warnsignale
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
 
-    if (line.startsWith('RED FLAG')) {
+    if (line.startsWith('WARNSIGNAL')) {
       // Speichere vorherige Flag, falls vorhanden
       if (currentFlag && currentFlag.title && currentFlag.originalText && currentFlag.meaning && currentFlag.risk) {
         redFlags.push(currentFlag as RedFlag);
       }
       
       // Neue Flag starten
-      const title = line.replace(/RED FLAG \d+:\s*/i, '').trim();
+      const title = line.replace(/WARNSIGNAL \d+:\s*/i, '').trim();
       currentFlag = { 
         title,
         originalText: '',

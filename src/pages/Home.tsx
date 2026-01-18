@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Play, CheckCircle } from 'lucide-react';
+import HeroMiniDemo from '../components/landing/HeroMiniDemo';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'warnzeichen' | 'schluesselbegriffe' | 'passungspruefung'>('warnzeichen');
+  const [activeTab, setActiveTab] = useState<'warnsignale' | 'schluesselbegriffe' | 'passungspruefung'>('warnsignale');
   const [showVideoModal, setShowVideoModal] = useState(false);
 
   const testimonials = [
@@ -12,7 +13,7 @@ export default function Home() {
       author: "Sarah M.",
     },
     {
-      quote: "Die Warnzeichen haben mir mehrere Fehlbewerbungen erspart.",
+      quote: "Die Warnsignale haben mir mehrere Fehlbewerbungen erspart.",
       author: "Thomas K.",
     },
     {
@@ -41,94 +42,97 @@ export default function Home() {
       {/* Section 1: Hero */}
       <section className="section-hero" style={{ paddingTop: 'clamp(140px, 15vh, 180px)', paddingBottom: '60px' }}>
         <div className="container-narrow">
-          <div className="text-center">
-            <h1 style={{ 
-              color: 'var(--text)', 
-              marginBottom: '24px',
-              fontSize: 'clamp(40px, 5vw, 60px)',
-              lineHeight: '1.1'
-            }}>
-              Viele Absagen – und du weißt nicht, warum?
-            </h1>
-            
-            <p style={{ 
-              fontSize: 'clamp(18px, 2vw, 20px)', 
-              color: 'var(--text-muted)', 
-              marginBottom: '32px',
-              maxWidth: '70ch',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              lineHeight: '1.6'
-            }}>
-              Smarter2Job hilft, Stellenanzeigen zu lesen, Warnzeichen zu erkennen, Schlüsselbegriffe zu verstehen, Passung vorzubereiten.
-            </p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Left Column: Text */}
+            <div className="text-center md:text-left">
+              <h1 style={{ 
+                color: 'var(--text)', 
+                marginBottom: '20px',
+                fontSize: 'clamp(42px, 5vw, 60px)',
+                lineHeight: '1.1'
+              }}>
+                Viele Absagen – und niemand verrät dir warum?
+              </h1>
+              
+              <h2 style={{ 
+                fontSize: 'clamp(18px, 2vw, 20px)', 
+                color: 'var(--text-muted)', 
+                marginBottom: '24px',
+                lineHeight: '1.6',
+                fontWeight: 'normal'
+              }}>
+                Smarter2Job zeigt dir, was in der Stellenanzeige wirklich zählt – und wie du deinen Lebenslauf so formulierst, dass er passt.
+              </h2>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
-              <Link
-                to="/stellencheck"
-                className="btn btn-primary btn-lg"
-                style={{ 
-                  backgroundColor: '#ff6b35',
-                  textDecoration: 'none'
-                }}
-              >
-                Stellenanzeige prüfen
-              </Link>
+              <h3 style={{ 
+                fontSize: 'clamp(16px, 1.8vw, 18px)', 
+                color: 'var(--text)', 
+                marginBottom: '32px',
+                fontWeight: 'var(--font-weight-semibold)',
+                lineHeight: '1.5'
+              }}>
+                Mit Smarter2Job bekommst du Klarheit und einen Plan, was du besser machen kannst – noch bevor du deine Bewerbung absendest.
+              </h3>
+
               <Link
                 to="/so-funktionierts"
-                className="btn btn-secondary btn-lg"
-                style={{ 
-                  textDecoration: 'none'
-                }}
+                className="text-[#0a4f5c] hover:underline font-medium text-sm inline-block mb-6"
+                style={{ textDecoration: 'none', display: 'block' }}
               >
-                So funktioniert's
+                So funktioniert's →
               </Link>
             </div>
-            
-            <p style={{ 
-              fontSize: '14px',
-              color: 'var(--text-muted)',
-              textAlign: 'center'
-            }}>
-              Ohne Anmeldung · Ergebnis in 30–60 Sekunden · 3 Warnzeichen als Vorschau
-            </p>
-          </div>
-        </div>
-      </section>
 
-      {/* Section 2: Interaktiver Teaser */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-xl shadow-lg p-8 border-2" style={{ borderColor: '#ff6b35' }}>
-            <h2 className="text-2xl font-bold text-center mb-4" style={{ color: 'var(--text)' }}>
-              Vorschau: bis zu 3 Warnzeichen gratis
-            </h2>
-            <div className="mb-6">
-              <textarea
-                placeholder="Link oder Text der Stellenanzeige hier einfügen …"
-                className="w-full min-h-[100px] p-4 border-2 border-gray-200 rounded-lg focus:border-[#0a4f5c] focus:outline-none resize-y text-gray-900"
-                style={{ fontFamily: 'inherit' }}
+            {/* Right Column: Input Card */}
+            <div>
+              <HeroMiniDemo 
+                headline="Checke deine Wunschstelle, bevor du dich bewirbst."
+                subline="Wir zeigen dir 3 Warnsignale gratis."
+                buttonText="Stellenanzeige checken →"
+                footerText="Ohne Anmeldung · Ergebnis in 30–60 Sekunden · 3 Warnsignale gratis"
+                textareaHeight="min-h-[200px]"
               />
             </div>
-            <Link
-              to="/stellencheck"
-              className="block w-full text-center btn btn-primary"
-              style={{ 
-                backgroundColor: '#ff6b35',
-                textDecoration: 'none'
-              }}
-            >
-              Zum Stellencheck
-            </Link>
-            <p className="text-sm text-gray-500 text-center mt-4">
-              Kostenlos · Keine Anmeldung · Ergebnis in 30–60 Sekunden
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Section 3: 3-Step Erklärung */}
+      {/* Storyline-Block */}
       <section className="py-20 bg-white">
+        <div className="container-narrow">
+          <div className="max-w-3xl mx-auto">
+            <div style={{ 
+              fontSize: 'clamp(16px, 1.8vw, 18px)', 
+              color: 'var(--text)', 
+              lineHeight: '1.75'
+            }}>
+              <p className="mb-6">
+                <strong>Das Gemeine ist:</strong> Du bekommst Absagen – aber kein echtes Feedback. Oft nur Standardtexte, ohne ehrliche Begründung. So wiederholst du unbewusst dieselben Muster – und kassierst die nächste Absage.
+              </p>
+              
+              <p className="mb-6">
+                Das ist, als würdest du durch eine Matheklausur fallen oder die Fahrprüfung nicht bestehen – <strong>ohne zu erfahren, wo deine Fehler lagen</strong>. Und genau das ist unfair: Du sollst besser werden, bekommst aber keine Chance zu lernen.
+              </p>
+              
+              <p className="mb-6">
+                <strong>Genau hier setzt Smarter2Job an – wie ein Nachhilfelehrer für deinen Bewerbungsprozess.</strong> Wir dechiffrieren die Stellenanzeige (Schlüsselbegriffe, Anforderungen, Warnsignale), gleichen das mit deinem Profil ab und zeigen dir, <strong>wo du dich klarer und passender positionieren kannst</strong>. Und wenn du willst, gehen wir den Schritt weiter: von der konkreten Lebenslauf-Optimierung bis zur stimmigen Positionierung auf LinkedIn.
+              </p>
+            </div>
+            
+            <div className="text-center mt-8" style={{ 
+              fontSize: 'clamp(20px, 2.2vw, 24px)', 
+              fontWeight: '600',
+              letterSpacing: '0.05em',
+              color: 'var(--text)'
+            }}>
+              Verstehen. Entscheiden. Umsetzen.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2: 3-Step Erklärung */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12" style={{ color: 'var(--text)' }}>
             So funktioniert's
@@ -144,7 +148,7 @@ export default function Home() {
               <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#ff6b35', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
                 2
               </div>
-              <h3 className="text-lg font-semibold mb-2">Warnzeichen & Schlüsselbegriffe erkennen</h3>
+              <h3 className="text-lg font-semibold mb-2">Warnsignale & Schlüsselbegriffe erkennen</h3>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#0a4f5c', color: 'white', fontSize: '24px', fontWeight: 'bold' }}>
@@ -156,7 +160,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 4: Feature-Tabs */}
+      {/* Section 3: Feature-Tabs */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12" style={{ color: 'var(--text)' }}>
@@ -165,14 +169,14 @@ export default function Home() {
           
           <div className="flex justify-center gap-2 mb-8 flex-wrap">
             <button
-              onClick={() => setActiveTab('warnzeichen')}
+              onClick={() => setActiveTab('warnsignale')}
               className={`px-6 py-3 rounded-lg font-semibold transition ${
-                activeTab === 'warnzeichen'
+                activeTab === 'warnsignale'
                   ? 'bg-[#ff6b35] text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-100'
               }`}
             >
-              Warnzeichen
+              Warnsignale
             </button>
             <button
               onClick={() => setActiveTab('schluesselbegriffe')}
@@ -197,9 +201,9 @@ export default function Home() {
           </div>
 
           <div className="bg-white rounded-xl shadow-lg p-8 min-h-[300px]">
-            {activeTab === 'warnzeichen' && (
+            {activeTab === 'warnsignale' && (
               <div>
-                <h3 className="text-2xl font-bold mb-4">Warnzeichen erkennen</h3>
+                <h3 className="text-2xl font-bold mb-4">Warnsignale erkennen</h3>
                 <ul className="space-y-3 text-gray-700 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
@@ -207,7 +211,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
-                    <span>Red Flags in Formulierungen erkennen</span>
+                    <span>Warnsignale in Formulierungen erkennen</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
@@ -269,11 +273,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 5: Video Section */}
+      {/* Section 4: Video Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-8" style={{ color: 'var(--text)' }}>
-            In 90 Sekunden erklärt
+            Job-Decoding in 60 Sekunden erklärt
           </h2>
           <div 
             className="relative bg-gray-900 rounded-xl shadow-2xl cursor-pointer overflow-hidden group"
@@ -284,8 +288,8 @@ export default function Home() {
               <Play className="w-20 h-20 text-white group-hover:scale-110 transition-transform" style={{ marginLeft: '4px' }} />
             </div>
             <div className="absolute bottom-4 left-4 right-4 text-white text-center">
-              <p className="text-lg font-semibold mb-2">Smarter2Job erklärt</p>
-              <p className="text-sm opacity-90">Klick zum Abspielen</p>
+              <p className="text-lg font-semibold mb-2 text-center">Smarter2Job erklärt</p>
+              <p className="text-sm opacity-90 text-center">Klick zum Abspielen</p>
             </div>
           </div>
 
@@ -299,12 +303,20 @@ export default function Home() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="relative" style={{ aspectRatio: '16/9' }}>
-                  <div className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded">
-                    <p className="text-gray-500">Video Platzhalter – Hier kommt das Erklärvideo</p>
-                  </div>
+                  <video
+                    className="w-full h-full rounded-lg"
+                    controls
+                    autoPlay
+                    style={{ objectFit: 'contain' }}
+                  >
+                    <source src="/videos/Intro-Video-Smarter2Job.mov" type="video/quicktime" />
+                    <source src="/videos/Intro-Video-Smarter2Job.mov" type="video/mp4" />
+                    Ihr Browser unterstützt das Video-Element nicht.
+                  </video>
                   <button
                     onClick={() => setShowVideoModal(false)}
-                    className="absolute top-2 right-2 bg-white rounded-full p-2 hover:bg-gray-100"
+                    className="absolute top-2 right-2 bg-white rounded-full p-2 hover:bg-gray-100 shadow-lg z-10"
+                    aria-label="Video schließen"
                   >
                     ✕
                   </button>
@@ -315,7 +327,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 6: Pakete-Preview */}
+      {/* Section 5: Pakete-Preview */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12" style={{ color: 'var(--text)' }}>
@@ -323,15 +335,18 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { price: '59€', name: 'Stellencheck', features: ['3 Stellenanzeigen-Checks', 'Warnzeichen + Schlüsselbegriffe', 'Priorisierung'] },
-              { price: '149€', name: 'Bewerbung auf den Punkt', features: ['Passungsprüfung mit Lebenslauf', '1 zugeschnittener Lebenslauf', 'Empfehlung: Bewerben/Lassen'], highlight: true },
-              { price: '299€', name: 'Bewerbungs-Sprint', features: ['5 Stellenanzeigen-Checks (30 Tage)', '2 zugeschnittene Lebensläufe', 'LinkedIn-Profil Update'] },
+              { price: '59€', name: 'Verstehen', productName: 'Stellencheck (3 Stellen)', features: ['3 Stellenanzeigen-Checks', 'Du siehst, was wirklich gefordert ist', 'Du erkennst Warnsignale und Hinweise'], buttonText: 'Stellenanzeige verstehen' },
+              { price: '149€', name: 'Entscheiden', productName: 'Passungscheck (1 Stelle + Lebenslauf)', features: ['Abgleich: Stellenanzeige und Lebenslauf', '1 optimierter Lebenslauf', 'Klare Empfehlung: Go / No-Go'], buttonText: 'Chancen einschätzen', highlight: true },
+              { price: '299€', name: 'Umsetzen', productName: 'Bewerbungspaket (5 Stellen + Top-2)', features: ['5 Stellenanzeigen-Checks in 30 Tagen', '2 optimierte Lebensläufe', 'LinkedIn-Vorschläge'], buttonText: 'Lebenslauf optimieren' },
             ].map((pkg, index) => (
               <div
                 key={index}
                 className={`bg-white rounded-xl shadow-lg p-6 ${pkg.highlight ? 'border-2 border-[#ff6b35]' : ''}`}
               >
-                <h3 className="text-xl font-bold mb-2">{pkg.name}</h3>
+                <h3 className="text-xl font-bold mb-1">{pkg.name}</h3>
+                {pkg.productName && (
+                  <p className="text-gray-500 text-sm mb-2" style={{ fontSize: '14px' }}>{pkg.productName}</p>
+                )}
                 <div className="mb-4">
                   <span className="text-4xl font-bold">{pkg.price}</span>
                   <span className="text-gray-500 ml-2">einmalig</span>
@@ -367,7 +382,7 @@ export default function Home() {
                     }
                   }}
                 >
-                  Zu Preisen
+                  {pkg.buttonText || 'Zu Preisen'}
                 </Link>
               </div>
             ))}
@@ -375,7 +390,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 7: Social Proof */}
+      {/* Section 6: Social Proof */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12" style={{ color: 'var(--text)' }}>
@@ -392,7 +407,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 8: FAQ Preview */}
+      {/* Section 7: FAQ Preview */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12" style={{ color: 'var(--text)' }}>
