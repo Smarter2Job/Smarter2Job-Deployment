@@ -12,8 +12,10 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
     "@mollie/api-client": "^3.7.0",
+    "@netlify/blobs": "^10.5.0",
     "@netlify/functions": "^5.1.1",
     "lucide-react": "^0.555.0",
+    "nodemailer": "^7.0.12",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.10.1"

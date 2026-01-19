@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { AlertCircle, Loader2, CheckCircle } from 'lucide-react';
+import LeadMagnetCard from './LeadMagnetCard';
+import { trackEvent } from '../utils/analytics';
 
 // TypeScript Interfaces
 interface RedFlag {
@@ -289,6 +291,36 @@ export default function RedFlagTeaser() {
               <p className="text-yellow-700">
                 ⚠️ Keine Warnsignale konnten extrahiert werden. Bitte versuche es mit einer längeren Stellenbeschreibung (mindestens 200 Zeichen).
               </p>
+            </div>
+          )}
+
+          {/* Lead Magnet CTA (primärer Conversion-Hebel) */}
+          <LeadMagnetCard
+            placement="results"
+            variant="primary"
+            tag="checkliste"
+            headline="Willst du die Checkliste passend zu deinem Ergebnis?"
+            subline="Ich schicke dir die Checkliste + 3 kurze Tipps, was du als Nächstes ändern solltest."
+            buttonText="Jetzt senden"
+            successText="Bitte bestätige deine E-Mail (schau in dein Postfach)."
+          />
+
+          {/* Secondary CTA: Calendly (dezent) */}
+          {import.meta.env.VITE_CALENDLY_URL ? (
+            <div className="text-sm text-gray-600 text-center">
+              <a
+                href={import.meta.env.VITE_CALENDLY_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="underline"
+                onClick={() => trackEvent('calendly_click', { source: 'results' })}
+              >
+                Wenn du 15 Minuten Feedback willst: Termin buchen
+              </a>
+            </div>
+          ) : (
+            <div className="text-sm text-gray-500 text-center">
+              Wenn du 15 Minuten Feedback willst: Termin buchen (CALENDLY_URL setzen)
             </div>
           )}
 

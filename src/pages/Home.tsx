@@ -2,25 +2,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Play, CheckCircle } from 'lucide-react';
 import HeroMiniDemo from '../components/landing/HeroMiniDemo';
+import LeadMagnetCard from '../components/LeadMagnetCard';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'warnsignale' | 'schluesselbegriffe' | 'passungspruefung'>('warnsignale');
   const [showVideoModal, setShowVideoModal] = useState(false);
 
-  const testimonials = [
-    {
-      quote: "Endlich verstehe ich, was in Stellenanzeigen wirklich steht.",
-      author: "Sarah M.",
-    },
-    {
-      quote: "Die Warnsignale haben mir mehrere Fehlbewerbungen erspart.",
-      author: "Thomas K.",
-    },
-    {
-      quote: "Klarheit vor dem Absenden – genau das, was ich brauchte.",
-      author: "Lisa R.",
-    },
-  ];
+  // Testimonials: Nur Screenshots, keine Text-Zitate
+  const testimonialCount = 3;
 
   const faqPreview = [
     {
@@ -392,15 +381,18 @@ export default function Home() {
 
       {/* Section 6: Social Proof */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12" style={{ color: 'var(--text)' }}>
-            Was andere sagen
+            Was Teilnehmer sagen
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
+            {Array.from({ length: testimonialCount }).map((_, index) => (
               <div key={index} className="bg-gray-50 p-6 rounded-lg">
-                <p className="text-gray-700 italic mb-4">"{testimonial.quote}"</p>
-                <p className="text-sm text-gray-500">— {testimonial.author}</p>
+                <img 
+                  src={`/testimonials/Testimonial ${index + 1}.png`}
+                  alt={`Testimonial ${index + 1}`}
+                  className="w-full h-auto rounded-lg shadow-sm"
+                />
               </div>
             ))}
           </div>
@@ -428,6 +420,33 @@ export default function Home() {
             >
               Alle FAQs ansehen →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 8: Lead Magnet - Bewerbungs-Checkliste (sekundär) */}
+      <section id="checkliste" className="py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-4 md:gap-6">
+            <LeadMagnetCard
+              placement="homepage_faq_bottom"
+              variant="secondary"
+              tag="checkliste"
+              headline="Kostenlose Bewerbungs-Checkliste"
+              subline="In 5 Minuten prüfen: Schlüsselbegriffe, Aufbau, häufige Fehler – damit du nicht am ATS scheiterst."
+              buttonText="Checkliste per E-Mail erhalten"
+              successText="Bitte bestätige deine E-Mail (schau in dein Postfach)."
+            />
+
+            <LeadMagnetCard
+              placement="homepage_faq_bottom"
+              variant="secondary"
+              tag="webinar_next"
+              headline="Nächstes Webinar – Einladung per E-Mail"
+              subline="Du bekommst eine kurze Mail, sobald Termin & Link feststehen."
+              buttonText="Einladung erhalten"
+              successText="Bitte bestätige deine E-Mail (schau in dein Postfach)."
+            />
           </div>
         </div>
       </section>

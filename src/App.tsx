@@ -14,6 +14,8 @@ import Datenschutz from './pages/Datenschutz'
 import AGB from './pages/AGB'
 import Danke from './pages/Danke'
 import CheckoutReturn from './pages/CheckoutReturn'
+import Confirm from './pages/Confirm'
+import Unsubscribe from './pages/Unsubscribe'
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
       <Route path="/faq" element={<Layout><Faq /></Layout>} />
       <Route path="/stellencheck" element={<Layout><Smarter2JobLanding /></Layout>} />
       <Route path="/checkout/return" element={<CheckoutReturn />} />
+      <Route path="/confirm" element={<Confirm />} />
+      <Route path="/unsubscribe" element={<Unsubscribe />} />
       <Route path="/impressum" element={<Layout><Impressum /></Layout>} />
       <Route path="/datenschutz" element={<Layout><Datenschutz /></Layout>} />
       <Route path="/agb" element={<Layout><AGB /></Layout>} />
