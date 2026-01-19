@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { path: '/', label: 'Home' },
@@ -52,65 +55,77 @@ export default function Header() {
             ))}
           </div>
 
-          <Link
-            to="/stellencheck"
-            className="btn btn-primary hidden md:inline-block"
-            style={{ 
-              backgroundColor: '#0a4f5c', 
-              color: 'white', 
-              padding: '8px 24px', 
-              borderRadius: '8px', 
-              fontWeight: '500', 
-              border: 'none', 
-              cursor: 'pointer',
-              transition: 'background-color 0.2s',
-              boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-              textDecoration: 'none'
-            }}
-            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#083d47')}
-            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#0a4f5c')}
+          <div className="hidden md:flex items-center gap-4">
+            <Link
+              to="/stellencheck"
+              className="btn btn-primary"
+              style={{ 
+                backgroundColor: '#0a4f5c', 
+                color: 'white', 
+                padding: '8px 24px', 
+                borderRadius: '8px', 
+                fontWeight: '500', 
+                border: 'none', 
+                cursor: 'pointer',
+                transition: 'background-color 0.2s',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                textDecoration: 'none'
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#083d47')}
+              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#0a4f5c')}
+            >
+              Stellenanzeige prüfen
+            </Link>
+          </div>
+
+          {/* Mobile Burger Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-gray-600 hover:text-[#0a4f5c] transition-colors"
+            aria-label="Menü öffnen"
           >
-            Stellenanzeige prüfen
-          </Link>
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
 
-        {/* Mobile Navigation - simplified */}
-        <div className="md:hidden pb-4 border-t border-gray-200 mt-2 pt-4">
-          <div className="flex flex-wrap gap-2 mb-3">
-            {navLinks.map((link) => (
+        {/* Mobile Navigation - Burger Menu (collapsible) */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-gray-200 bg-white">
+            <div className="px-4 py-4 space-y-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block px-4 py-2 rounded-lg transition-colors ${
+                    location.pathname === link.path
+                      ? 'bg-[#0a4f5c] text-white font-semibold'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
               <Link
-                key={link.path}
-                to={link.path}
-                className={`text-xs px-3 py-1 rounded transition-colors ${
-                  location.pathname === link.path
-                    ? 'bg-[#0a4f5c] text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
+                to="/stellencheck"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full text-center mt-4 py-3 px-6 rounded-lg font-semibold text-white transition"
+                style={{ 
+                  backgroundColor: '#ff6b35',
+                  textDecoration: 'none'
+                }}
+                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#e55a2b')}
+                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#ff6b35')}
               >
-                {link.label}
+                Stellenanzeige prüfen
               </Link>
-            ))}
+            </div>
           </div>
-          <Link
-            to="/stellencheck"
-            className="block w-full text-center btn btn-primary text-sm"
-            style={{ 
-              backgroundColor: '#ff6b35', 
-              color: 'white', 
-              padding: '10px 24px', 
-              borderRadius: '8px', 
-              fontWeight: '500', 
-              border: 'none', 
-              cursor: 'pointer',
-              transition: 'background-color 0.2s',
-              textDecoration: 'none'
-            }}
-            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#e55a2b')}
-            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#ff6b35')}
-          >
-            Stellenanzeige prüfen
-          </Link>
-        </div>
+        )}
       </div>
     </nav>
   );

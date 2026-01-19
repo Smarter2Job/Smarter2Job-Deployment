@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Section 1: Hero */}
-      <section className="section-hero" style={{ paddingTop: 'clamp(140px, 15vh, 180px)', paddingBottom: '60px' }}>
+      <section className="section-hero" style={{ paddingTop: 'clamp(100px, 12vh, 180px)', paddingBottom: '60px' }}>
         <div className="container-narrow">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left Column: Text */}
