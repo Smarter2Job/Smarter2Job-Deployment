@@ -46,17 +46,23 @@ export async function sendMail(args: {
   subject: string;
   html: string;
   text: string;
+  bcc?: string; // Optional BCC address (e.g., for admin copies)
 }) {
   const from = process.env.SMTP_FROM || 'Smarter2Job <hey@smarter2job.com>';
   const transport = createTransport();
 
-  const message = {
+  const message: any = {
     from,
     to: args.to,
     subject: args.subject,
     text: args.text,
     html: args.html,
   };
+
+  // Add BCC if provided
+  if (args.bcc) {
+    message.bcc = args.bcc;
+  }
 
   if (!transport) {
     // local dev / no SMTP configured

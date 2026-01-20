@@ -55,11 +55,20 @@ export const handler: Handler = async (event) => {
         `<p>Wenn du willst, teste vorher noch schnell die Warnsignale in einer konkreten Stelle.</p>` +
         `<p style="font-size:12px;color:#6b7280"><a href="${unsubscribeUrl}">Abmelden</a> · <a href="${privacyUrl}">Datenschutz</a>.</p>`;
 
+      // Send to subscriber with admin BCC
       await sendMail({
         to: email,
         subject,
         text,
         html,
+        bcc: 'hey@smarter2job.com',
+      });
+      // Send admin copy separately
+      await sendMail({
+        to: 'hey@smarter2job.com',
+        subject: `[S2J] Checkliste bestätigt - ${email}`,
+        text: `Checkliste wurde bestätigt und versendet.\n\nE-Mail: ${email}\nTag: ${tag}`,
+        html: `<p><strong>Checkliste wurde bestätigt und versendet.</strong></p><p>E-Mail: ${email}<br>Tag: ${tag}</p>`,
       });
     }
 
@@ -76,7 +85,21 @@ export const handler: Handler = async (event) => {
         `<p>Du bist fürs nächste Webinar eingetragen.</p>` +
         `<p>Sobald Termin & Link feststehen, bekommst du die Einladung per E-Mail.</p>` +
         `<p style="font-size:12px;color:#6b7280"><a href="${unsubscribeUrl}">Abmelden</a> · <a href="${privacyUrl}">Datenschutz</a>.</p>`;
-      await sendMail({ to: email, subject, text, html });
+      // Send to subscriber with admin BCC
+      await sendMail({
+        to: email,
+        subject,
+        text,
+        html,
+        bcc: 'hey@smarter2job.com',
+      });
+      // Send admin copy separately
+      await sendMail({
+        to: 'hey@smarter2job.com',
+        subject: `[S2J] Webinar-Anmeldung bestätigt - ${email}`,
+        text: `Webinar-Anmeldung wurde bestätigt.\n\nE-Mail: ${email}\nTag: ${tag}`,
+        html: `<p><strong>Webinar-Anmeldung wurde bestätigt.</strong></p><p>E-Mail: ${email}<br>Tag: ${tag}</p>`,
+      });
     }
   } catch (e) {
     console.error('SMTP error:', e);

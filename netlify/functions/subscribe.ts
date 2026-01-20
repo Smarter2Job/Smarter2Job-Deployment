@@ -75,8 +75,21 @@ export const handler: Handler = async (event) => {
     `<p><a href="${confirmUrl}">E-Mail bestätigen</a></p>` +
     `<p style="font-size:12px;color:#6b7280">Abmelden jederzeit. <a href="${privacyUrl}">Datenschutz</a>.</p>`;
 
+  // Admin copy with subscriber info
+  const adminBcc = 'hey@smarter2job.com';
+  const adminText = `Neue Anmeldung:\n\nE-Mail: ${email}\nTag: ${tag}\nSource: ${source}\n\nBestätigungs-Link: ${confirmUrl}`;
+  const adminHtml = `<p><strong>Neue Anmeldung:</strong></p><p>E-Mail: ${email}<br>Tag: ${tag}<br>Source: ${source}</p><p><a href="${confirmUrl}">Bestätigungs-Link</a></p>`;
+
   try {
-    await sendMail({ to: email, subject, text, html });
+    // Send to subscriber
+    await sendMail({ to: email, subject, text, html, bcc: adminBcc });
+    // Send admin copy separately (so you see it clearly in your inbox)
+    await sendMail({
+      to: adminBcc,
+      subject: `[S2J] Neue Anmeldung: ${tag} - ${email}`,
+      text: adminText,
+      html: adminHtml,
+    });
   } catch (e) {
     console.error('SMTP error:', e);
     return json(500, { ok: false, error: 'Mailversand fehlgeschlagen. Bitte versuche es später erneut.' });
