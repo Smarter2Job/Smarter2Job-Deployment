@@ -16,11 +16,13 @@ import Danke from './pages/Danke'
 import CheckoutReturn from './pages/CheckoutReturn'
 import Confirm from './pages/Confirm'
 import Unsubscribe from './pages/Unsubscribe'
+import Check from './pages/Check'
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout><Home /></Layout>} />
+      <Route path="/check" element={<Layout><Check /></Layout>} />
       <Route path="/so-funktionierts" element={<Layout><SoFunktionierts /></Layout>} />
       <Route path="/preise" element={<Layout><Preise /></Layout>} />
       <Route path="/story" element={<Layout><Story /></Layout>} />

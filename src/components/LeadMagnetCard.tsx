@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { trackEvent } from '../utils/analytics';
 
-type LeadMagnetPlacement = 'homepage_faq_bottom' | 'results';
+type LeadMagnetPlacement = 'homepage_faq_bottom' | 'results' | 'check_page';
 
 type LeadMagnetVariant = 'secondary' | 'primary';
 

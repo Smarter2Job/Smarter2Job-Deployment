@@ -8,6 +8,7 @@ export default function Header() {
 
   const navLinks = [
     { path: '/', label: 'Home' },
+    { path: '/check', label: 'Gratis' },
     { path: '/so-funktionierts', label: 'So funktioniert\'s' },
     { path: '/preise', label: 'Preise' },
     { path: '/story', label: 'Gründerstory' },
