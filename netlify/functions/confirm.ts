@@ -1,7 +1,7 @@
 import type { Handler } from '@netlify/functions';
 import { getPublicUrls, sendMail } from './_mailer';
-import { subscribersStore, type SubscriberRecord } from './_subscribersStore';
-import { normalizeEmail, randomToken, sha256Hex } from './_tokens';
+import { verifySignedToken, randomToken, sha256Hex } from './_tokens';
+import type { SubscriberTag } from './_subscribersStore';
 
 function json(statusCode: number, body: unknown) {
   return {
@@ -14,43 +14,33 @@ function json(statusCode: number, body: unknown) {
 export const handler: Handler = async (event) => {
   if (event.httpMethod !== 'GET') return json(405, { ok: false, error: 'Method not allowed' });
 
-  const emailRaw = event.queryStringParameters?.email || '';
   const token = event.queryStringParameters?.token || '';
-  const email = normalizeEmail(String(emailRaw));
-  if (!email || !token) return json(400, { ok: false, error: 'Missing email/token' });
+  if (!token) return json(400, { ok: false, error: 'Missing token' });
 
-  const store = subscribersStore();
-  const record = (await store.get(email, { type: 'json' }).catch(() => null)) as SubscriberRecord | null;
-  if (!record) return json(404, { ok: false, error: 'Link ungültig oder abgelaufen.' });
-
-  const tokenHash = sha256Hex(String(token));
-  if (!record.confirmTokenHash || record.confirmTokenHash !== tokenHash) {
+  // Verify stateless token (no store lookup needed)
+  const verified = verifySignedToken(token);
+  if (!verified) {
+    // Log for debugging (without exposing sensitive data)
+    console.error('Token verification failed', {
+      tokenLength: token.length,
+      hasTokenSecret: !!process.env.TOKEN_SECRET,
+      hasBaseUrl: !!process.env.BASE_URL,
+    });
     return json(400, { ok: false, error: 'Link ungültig oder abgelaufen.' });
   }
-  if (record.confirmExpiresAt && Date.parse(record.confirmExpiresAt) < Date.now()) {
-    return json(400, { ok: false, error: 'Link abgelaufen. Bitte fordere die Bestätigung erneut an.' });
-  }
 
-  const nowIso = new Date().toISOString();
-  // For 1-click unsubscribe links in outgoing mails we mint a fresh token and store only its hash.
+  const { email, tag } = verified;
+  const tags: SubscriberTag[] = [tag as SubscriberTag];
+
+  // Generate unsubscribe token for follow-up mails
   const unsubscribeToken = randomToken(32);
   const unsubscribeTokenHash = sha256Hex(unsubscribeToken);
 
-  const updated: SubscriberRecord = {
-    ...record,
-    status: 'active',
-    confirmTokenHash: null,
-    confirmExpiresAt: null,
-    unsubscribeTokenHash,
-    updatedAt: nowIso,
-  };
-  await store.set(email, updated);
-
   const { checklistUrl, privacyUrl, baseUrl } = getPublicUrls();
 
-  // Send follow-up mail(s) depending on tags
+  // Send follow-up mail(s) depending on tag
   try {
-    if (updated.tags.includes('checkliste')) {
+    if (tags.includes('checkliste')) {
       const subject = 'Deine Bewerbungs-Checkliste';
       const unsubscribeUrl = `${baseUrl}/unsubscribe?email=${encodeURIComponent(email)}&token=${encodeURIComponent(unsubscribeToken)}`;
       const text =
@@ -73,7 +63,7 @@ export const handler: Handler = async (event) => {
       });
     }
 
-    if (updated.tags.includes('webinar_next')) {
+    if (tags.includes('webinar_next')) {
       const subject = 'Du bist fürs nächste Webinar eingetragen';
       const unsubscribeUrl = `${baseUrl}/unsubscribe?email=${encodeURIComponent(email)}&token=${encodeURIComponent(unsubscribeToken)}`;
       const text =
@@ -96,8 +86,7 @@ export const handler: Handler = async (event) => {
   return json(200, {
     ok: true,
     message: 'Erledigt – schau in dein Postfach.',
-    tags: updated.tags,
-    source: updated.source,
+    tags,
   });
 };
 

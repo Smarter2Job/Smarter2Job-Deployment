@@ -1,8 +1,7 @@
 import type { Handler } from '@netlify/functions';
-import crypto from 'node:crypto';
 import { getPublicUrls, sendMail } from './_mailer';
-import { subscribersStore, type SubscriberRecord, type SubscriberTag } from './_subscribersStore';
-import { isValidEmail, normalizeEmail, randomToken, sha256Hex } from './_tokens';
+import type { SubscriberTag } from './_subscribersStore';
+import { isValidEmail, normalizeEmail, createSignedToken } from './_tokens';
 
 const allowedTags: SubscriberTag[] = ['checkliste', 'webinar_next'];
 
@@ -56,39 +55,12 @@ export const handler: Handler = async (event) => {
   }
   rl.set(key, nowMs);
 
-  const store = subscribersStore();
-  const existing = (await store.get(email, { type: 'json' }).catch(() => null)) as SubscriberRecord | null;
-
-  const nowIso = new Date().toISOString();
-  const confirmToken = randomToken(32);
-  const confirmTokenHash = sha256Hex(confirmToken);
-  const confirmExpiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
-
-  const unsubscribeToken = existing ? null : randomToken(32);
-  const unsubscribeTokenHash = existing?.unsubscribeTokenHash || sha256Hex(unsubscribeToken!);
-
-  const tags = Array.from(new Set([...(existing?.tags || []), tag as SubscriberTag])) as SubscriberTag[];
-
-  const record: SubscriberRecord = {
-    id: existing?.id || crypto.randomUUID(),
-    email,
-    status: 'pending',
-    tags,
-    source,
-    consentAt: nowIso,
-    consentIp: ip,
-    consentUserAgent: event.headers['user-agent'] || null,
-    confirmTokenHash,
-    confirmExpiresAt,
-    unsubscribeTokenHash,
-    createdAt: existing?.createdAt || nowIso,
-    updatedAt: nowIso,
-  };
-
-  await store.set(email, record);
+  // Create stateless signed token (no store needed)
+  const expiresAtMs = Date.now() + 24 * 60 * 60 * 1000; // 24h
+  const confirmToken = createSignedToken(email, tag, expiresAtMs);
 
   const { baseUrl, privacyUrl } = getPublicUrls();
-  const confirmUrl = `${baseUrl}/confirm?email=${encodeURIComponent(email)}&token=${encodeURIComponent(confirmToken)}`;
+  const confirmUrl = `${baseUrl}/confirm?token=${encodeURIComponent(confirmToken)}`;
 
   const subject = 'Bitte bestätige kurz deine E-Mail';
   const text =

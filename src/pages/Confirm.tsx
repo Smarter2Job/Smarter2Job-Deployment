@@ -12,14 +12,17 @@ export default function Confirm() {
   const [message, setMessage] = useState<string>('');
 
   useEffect(() => {
-    const email = params.get('email') || '';
     const token = params.get('token') || '';
 
     const run = async () => {
+      if (!token) {
+        setState('error');
+        setMessage('Link ungültig oder abgelaufen.');
+        return;
+      }
+
       try {
-        const res = await fetch(
-          `/.netlify/functions/confirm?email=${encodeURIComponent(email)}&token=${encodeURIComponent(token)}`
-        );
+        const res = await fetch(`/.netlify/functions/confirm?token=${encodeURIComponent(token)}`);
         const data: ConfirmResponse = await res.json().catch(() => ({ ok: false, error: 'Unbekannter Fehler' }));
 
         if (!res.ok || !data.ok) {
