@@ -104,13 +104,13 @@ export default function AGB() {
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-700 mb-4">
               <li>
-                <strong>Starter:</strong> 49€ (3 Analysen)
+                <strong>Verstehen:</strong> 59€ (3 Analysen)
               </li>
               <li>
-                <strong>Professional:</strong> 129€ (7 Analysen + CV-Umformulierung + Gehaltsband)
+                <strong>Entscheiden:</strong> 149€ (1 Analyse + Lebenslauf-Optimierung)
               </li>
               <li>
-                <strong>Executive:</strong> 249€ (10 Analysen + CV + LinkedIn + Gehaltsband)
+                <strong>Umsetzen:</strong> 299€ (5 Analysen + 2 Lebensläufe + LinkedIn)
               </li>
             </ul>
             <p className="text-gray-700 leading-relaxed">

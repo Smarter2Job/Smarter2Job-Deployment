@@ -25,14 +25,22 @@ export default function Check() {
           />
         </div>
 
-        <div className="mt-12 text-center text-gray-600">
-          <p className="text-sm">
-            Kein Spam. Abmelden jederzeit.{' '}
-            <a href="/datenschutz" className="underline">
-              Datenschutz
-            </a>
-            .
-          </p>
+        <div className="mt-12 space-y-6">
+          <div className="text-center text-gray-600">
+            <p className="text-sm mb-4">
+              Kein Spam. Abmelden jederzeit.{' '}
+              <a href="/datenschutz" className="underline">
+                Datenschutz
+              </a>
+              .
+            </p>
+          </div>
+          
+          <div className="text-center">
+            <p className="text-gray-700 mb-3">
+              Regelmäßige Webinare. <a href="/#checkliste" className="text-[#0a4f5c] hover:underline font-medium">Melde dich jetzt schon an</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
