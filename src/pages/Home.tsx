@@ -34,6 +34,9 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left Column: Text */}
             <div className="text-center md:text-left">
+              <p className="text-sm md:text-base font-medium mb-3" style={{ color: 'var(--text-muted)' }}>
+                Frust bei der Jobsuche?
+              </p>
               <h1 style={{ 
                 color: 'var(--text)', 
                 marginBottom: '20px',
