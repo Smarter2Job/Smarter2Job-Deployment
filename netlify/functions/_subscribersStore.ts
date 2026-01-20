@@ -1,5 +1,3 @@
-import { getStore } from '@netlify/blobs';
-
 export type SubscriberStatus = 'pending' | 'active' | 'unsubscribed';
 export type SubscriberTag = 'checkliste' | 'webinar_next';
 
@@ -19,9 +17,25 @@ export interface SubscriberRecord {
   updatedAt: string; // ISO
 }
 
-const STORE_NAME = 'subscribers_v1';
+// Aktuell nutzen wir für das MVP nur einen einfachen In‑Memory‑Store.
+// Das reicht für den Double‑Opt‑in‑Flow und vermeidet die Abhängigkeit
+// von Netlify Blobs (die in deinem Account nicht aktiviert sind).
 
-export function subscribersStore() {
-  return getStore(STORE_NAME);
+type StoreLike = {
+  get: (key: string, options?: { type?: 'json' }) => Promise<unknown>;
+  set: (key: string, value: unknown) => Promise<void>;
+};
+
+const memoryStore = new Map<string, unknown>();
+
+export function subscribersStore(): StoreLike {
+  return {
+    async get(key: string) {
+      return memoryStore.get(key) ?? null;
+    },
+    async set(key: string, value: unknown) {
+      memoryStore.set(key, value);
+    },
+  };
 }
 
