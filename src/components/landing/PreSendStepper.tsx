@@ -9,7 +9,8 @@ export default function PreSendStepper() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-      window.location.href = 'mailto:post@martinbeyer.de?subject=Stellencheck%20anfragen&body=Hallo,%0A%0Aich%20möchte%20den%20Stellencheck%20nutzen.%0A%0AStellenlink:%20%5Bbitte%20einfügen%5D%0A%0AVielen%20Dank!';
+      // Fallback to pricing page if no element found
+      window.location.href = '/preise';
     }
   };
 

@@ -9,7 +9,8 @@ export default function ExampleReportTabs() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-      window.location.href = 'mailto:post@martinbeyer.de?subject=Stellencheck%20anfragen&body=Hallo,%0A%0Aich%20möchte%20den%20Stellencheck%20nutzen.%0A%0AStellenlink:%20%5Bbitte%20einfügen%5D%0A%0AVielen%20Dank!';
+      // Fallback to pricing page if no element found
+      window.location.href = '/preise';
     }
   };
 
@@ -97,13 +98,13 @@ export default function ExampleReportTabs() {
               </div>
             ))}
             
-            <button
-              onClick={() => scrollToId('pakete')}
-              className="w-full flex items-center gap-3 p-4 bg-gray-100 rounded-lg opacity-60 hover:opacity-80 transition cursor-pointer border-2 border-dashed border-gray-300"
+            <a
+              href="/preise"
+              className="block w-full flex items-center gap-3 p-4 bg-gray-100 rounded-lg opacity-60 hover:opacity-80 transition cursor-pointer border-2 border-dashed border-gray-300"
             >
               <Lock className="w-5 h-5 text-gray-500 flex-shrink-0" />
               <span className="text-gray-600">{lockedItem}</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

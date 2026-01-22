@@ -25,8 +25,8 @@ export default function HeroMiniDemo({
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-      // Fallback to mailto if no element found
-      window.location.href = 'mailto:post@martinbeyer.de?subject=Stellencheck%20anfragen&body=Hallo,%0A%0Aich%20möchte%20den%20Stellencheck%20nutzen.%0A%0AStellenlink:%20%5Bbitte%20einfügen%5D%0A%0AVielen%20Dank!';
+      // Fallback to pricing page if no element found
+      window.location.href = '/preise';
     }
   };
 
@@ -121,12 +121,13 @@ export default function HeroMiniDemo({
               Wir haben weitere Warnsignale erkannt.
             </p>
           </div>
-          <button
-            onClick={() => scrollToId('pakete')}
-            className="w-full text-white py-3 px-6 rounded-lg font-semibold transition"
+          <a
+            href="/preise"
+            className="block w-full text-white py-3 px-6 rounded-lg font-semibold transition text-center"
             style={{
               backgroundColor: '#0a4f5c',
-              boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+              boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+              textDecoration: 'none'
             }}
             onMouseOver={(e) => {
               e.currentTarget.style.backgroundColor = '#083d47';
@@ -136,7 +137,7 @@ export default function HeroMiniDemo({
             }}
           >
             Weitere Warnsignale anzeigen (Stellencheck)
-          </button>
+          </a>
         </div>
       )}
     </div>

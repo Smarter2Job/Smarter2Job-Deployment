@@ -333,7 +333,7 @@ export default function RedFlagTeaser() {
               Alle gefundenen Warnsignale inkl. Begründung und Hinweise, worauf du in der Bewerbung achten solltest.
             </p>
             <a
-              href="#pricing"
+              href="/preise"
               className="block w-full bg-[#ff6b35] text-white py-4 px-6 rounded-lg font-bold text-lg hover:bg-[#e55a2b] transition shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
             >
               Stellencheck aktivieren (59 €)
