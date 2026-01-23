@@ -1,6 +1,14 @@
 import { useState } from 'react';
 import { Loader2, AlertTriangle } from 'lucide-react';
 
+type TeaserRedFlag = {
+  title: string;
+};
+
+type TeaserResponse =
+  | { totalRedFlags: number; shownRedFlags: Array<{ title: string }>; hiddenRedFlagsCount: number; upsellText: string }
+  | { error: string };
+
 interface HeroMiniDemoProps {
   headline?: string;
   subline?: string;
@@ -19,6 +27,8 @@ export default function HeroMiniDemo({
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
+  const [redFlags, setRedFlags] = useState<TeaserRedFlag[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
@@ -30,21 +40,38 @@ export default function HeroMiniDemo({
     }
   };
 
-  const handleAnalyze = () => {
-    if (!input.trim()) return;
-    
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setShowPreview(true);
-    }, 900);
-  };
+  const handleAnalyze = async () => {
+    const jobText = input.trim();
+    if (!jobText) return;
 
-  const redFlags = [
-    "Unklare Verantwortlichkeiten (klingt nach 'alles machen')",
-    "'Dynamisches Umfeld' (kann Chaos / hoher Druck bedeuten)",
-    "'Hands-on' trotz Senior-Titel (Rollen-Mismatch möglich)"
-  ];
+    setLoading(true);
+    setError(null);
+    setShowPreview(false);
+    setRedFlags([]);
+
+    try {
+      const res = await fetch('/.netlify/functions/analyze-teaser', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jobText }),
+      });
+
+      const data: TeaserResponse = await res.json().catch(() => ({ error: 'Unbekannter Fehler' }));
+      if (!res.ok || 'error' in data) {
+        setError(('error' in data && data.error) || 'Analyse fehlgeschlagen. Bitte versuche es erneut.');
+        setLoading(false);
+        return;
+      }
+
+      const titles = (data.shownRedFlags || []).slice(0, 3).map((f) => ({ title: f.title }));
+      setRedFlags(titles);
+      setShowPreview(true);
+    } catch {
+      setError('Analyse fehlgeschlagen. Bitte versuche es erneut.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div id="hero-demo">
@@ -68,6 +95,11 @@ export default function HeroMiniDemo({
               disabled={loading}
             />
           </div>
+          {error && (
+            <p className="text-sm text-red-600 mt-3">
+              {error}
+            </p>
+          )}
           <button
             onClick={handleAnalyze}
             disabled={loading || !input.trim()}
@@ -112,7 +144,7 @@ export default function HeroMiniDemo({
             {redFlags.map((flag, index) => (
               <li key={index} className="flex items-start gap-3">
                 <AlertTriangle className="w-5 h-5 text-orange-500 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">{flag}</span>
+                <span className="text-gray-700">{flag.title}</span>
               </li>
             ))}
           </ul>
