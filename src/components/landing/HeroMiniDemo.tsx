@@ -3,10 +3,14 @@ import { Loader2, AlertTriangle } from 'lucide-react';
 
 type TeaserRedFlag = {
   title: string;
+  originalText: string;
+  meaning: string;
+  risk: 'HOCH' | 'SEHR HOCH' | 'MITTEL' | 'NIEDRIG';
+  riskColor: 'red' | 'yellow' | 'green';
 };
 
 type TeaserResponse =
-  | { totalRedFlags: number; shownRedFlags: Array<{ title: string }>; hiddenRedFlagsCount: number; upsellText: string }
+  | { totalRedFlags: number; shownRedFlags: TeaserRedFlag[]; hiddenRedFlagsCount: number; upsellText: string }
   | { error: string };
 
 interface HeroMiniDemoProps {
@@ -29,16 +33,6 @@ export default function HeroMiniDemo({
   const [showPreview, setShowPreview] = useState(false);
   const [redFlags, setRedFlags] = useState<TeaserRedFlag[]>([]);
   const [error, setError] = useState<string | null>(null);
-
-  const scrollToId = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      // Fallback to pricing page if no element found
-      window.location.href = '/preise';
-    }
-  };
 
   const handleAnalyze = async () => {
     const jobText = input.trim();
@@ -63,8 +57,8 @@ export default function HeroMiniDemo({
         return;
       }
 
-      const titles = (data.shownRedFlags || []).slice(0, 3).map((f) => ({ title: f.title }));
-      setRedFlags(titles);
+      const flags = (data.shownRedFlags || []).slice(0, 3);
+      setRedFlags(flags);
       setShowPreview(true);
     } catch {
       setError('Analyse fehlgeschlagen. Bitte versuche es erneut.');
@@ -140,14 +134,44 @@ export default function HeroMiniDemo({
           <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--text)' }}>
             Erste Warnsignale gefunden
           </h3>
-          <ul className="space-y-3 mb-6">
+          <div className="space-y-4 mb-6">
             {redFlags.map((flag, index) => (
-              <li key={index} className="flex items-start gap-3">
-                <AlertTriangle className="w-5 h-5 text-orange-500 mt-1 flex-shrink-0" />
-                <span className="text-gray-700">{flag.title}</span>
-              </li>
+              <div key={index} className="bg-gray-50 rounded-lg p-4">
+                <div className="flex items-start gap-3 mb-2">
+                  <AlertTriangle className="w-5 h-5 text-orange-500 mt-1 flex-shrink-0" />
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-3">
+                      <h4 className="font-semibold text-gray-900">
+                        Red Flag #{index + 1}: {flag.title}
+                      </h4>
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-bold ${
+                          flag.riskColor === 'red'
+                            ? 'bg-red-100 text-red-700'
+                            : flag.riskColor === 'yellow'
+                              ? 'bg-yellow-100 text-yellow-700'
+                              : 'bg-green-100 text-green-700'
+                        }`}
+                      >
+                        {flag.risk}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="ml-8 space-y-3">
+                  <div>
+                    <p className="text-xs font-semibold text-gray-600 mb-1">Was da steht:</p>
+                    <p className="text-gray-700 italic">"{flag.originalText}"</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-gray-600 mb-1">Was es bedeutet:</p>
+                    <p className="text-gray-800">{flag.meaning}</p>
+                  </div>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
           <div className="bg-gray-50 rounded-lg p-4 mb-6">
             <p className="text-gray-700 font-medium">
               Wir haben weitere Warnsignale erkannt.

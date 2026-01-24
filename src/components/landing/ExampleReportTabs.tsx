@@ -4,16 +4,6 @@ import { Lock } from 'lucide-react';
 export default function ExampleReportTabs() {
   const [activeTab, setActiveTab] = useState<'warnsignale' | 'schluesselbegriffe' | 'realismus'>('warnsignale');
 
-  const scrollToId = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      // Fallback to pricing page if no element found
-      window.location.href = '/preise';
-    }
-  };
-
   const tabs = {
     warnsignale: {
       items: [

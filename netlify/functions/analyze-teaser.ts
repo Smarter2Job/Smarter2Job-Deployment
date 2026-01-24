@@ -17,6 +17,12 @@ interface AnalysisResult {
   upsellText: string;
 }
 
+type ExtractedJobText = {
+  jobText: string;
+  sourceUrl?: string;
+  sourceStrategy?: 'direct_html' | 'jina_proxy';
+};
+
 // Modul 0 Prompt (Red Flag Teaser)
 const MODUL_0_PROMPT = `# MODUL 0: Freemium-Teaser "Erste Karte aufdecken"
 
@@ -92,6 +98,174 @@ TEASER: [1-2 Sätze für Upsell]
 ---
 
 JETZT ANALYSIERE DIESE STELLENBESCHREIBUNG:`;
+
+function decodeHtmlEntities(text: string): string {
+  return text
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&#x27;/g, "'")
+    .replace(/&#x2F;/g, '/')
+    .replace(/&#x60;/g, '`')
+    .replace(/&#x3D;/g, '=');
+}
+
+function stripHtml(html: string): string {
+  const withoutScripts = html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ');
+  const withNewlines = withoutScripts
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<\/h\d>/gi, '\n');
+  const withoutTags = withNewlines.replace(/<[^>]+>/g, ' ');
+  const decoded = decodeHtmlEntities(withoutTags);
+  return decoded.replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').replace(/[ \t]{2,}/g, ' ').trim();
+}
+
+function clampText(text: string, maxChars: number): string {
+  if (text.length <= maxChars) return text;
+  return `${text.slice(0, maxChars)}\n\n[... gekürzt ...]`;
+}
+
+function extractFirstUrl(input: string): string | null {
+  const match = input.match(/https?:\/\/[^\s)]+/i);
+  return match ? match[0] : null;
+}
+
+function normalizeJobUrl(url: string): string {
+  try {
+    const u = new URL(url);
+    const host = u.hostname.toLowerCase();
+    if (host.includes('linkedin.com')) {
+      const currentJobId = u.searchParams.get('currentJobId') || u.searchParams.get('currentjobid');
+      if (currentJobId) {
+        return `https://www.linkedin.com/jobs/view/${currentJobId}/`;
+      }
+    }
+    return url;
+  } catch {
+    return url;
+  }
+}
+
+function isLikelyUrlInput(raw: string, extractedUrl: string): boolean {
+  const trimmed = raw.trim();
+  if (trimmed === extractedUrl) return true;
+
+  // If user pasted a URL plus a tiny bit of fluff, still treat as URL input.
+  const remainder = trimmed.replace(extractedUrl, '').trim();
+  return remainder.length > 0 && remainder.length <= 30;
+}
+
+function extractJobDescriptionFromJsonLd(html: string): string | null {
+  const scripts: string[] = [];
+  const re = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(html)) !== null) {
+    scripts.push(match[1]);
+  }
+  if (scripts.length === 0) return null;
+
+  const findJobPostingDescription = (node: any): string | null => {
+    if (!node) return null;
+    if (Array.isArray(node)) {
+      for (const item of node) {
+        const found = findJobPostingDescription(item);
+        if (found) return found;
+      }
+      return null;
+    }
+    if (typeof node === 'object') {
+      const type = node['@type'];
+      const isJobPosting =
+        type === 'JobPosting' ||
+        (Array.isArray(type) && type.includes('JobPosting')) ||
+        (typeof type === 'string' && type.toLowerCase().includes('jobposting'));
+      if (isJobPosting && typeof node.description === 'string' && node.description.trim().length > 0) {
+        return node.description;
+      }
+      for (const key of Object.keys(node)) {
+        const found = findJobPostingDescription(node[key]);
+        if (found) return found;
+      }
+    }
+    return null;
+  };
+
+  for (const raw of scripts) {
+    try {
+      const json = JSON.parse(raw.trim());
+      const desc = findJobPostingDescription(json);
+      if (desc) return desc;
+    } catch {
+      // ignore invalid JSON-LD blocks
+    }
+  }
+  return null;
+}
+
+async function fetchText(url: string, timeoutMs: number): Promise<{ ok: boolean; status: number; text: string }> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      },
+      signal: controller.signal,
+    });
+    const text = await res.text();
+    return { ok: res.ok, status: res.status, text };
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+async function extractJobTextFromInput(input: string): Promise<ExtractedJobText> {
+  const url = extractFirstUrl(input);
+  if (!url || !isLikelyUrlInput(input, url)) {
+    return { jobText: input.trim() };
+  }
+
+  const normalizedUrl = normalizeJobUrl(url);
+  console.log(`🔎 URL input erkannt. Versuche Stellenanzeige zu laden: ${normalizedUrl}`);
+
+  // 1) Direct HTML fetch
+  try {
+    const direct = await fetchText(normalizedUrl, 12000);
+    if (direct.ok && direct.text && direct.text.length > 0) {
+      const jsonLdDesc = extractJobDescriptionFromJsonLd(direct.text);
+      const extracted = jsonLdDesc ? stripHtml(jsonLdDesc) : stripHtml(direct.text);
+      const cleaned = clampText(extracted, 12000);
+      if (cleaned.length >= 300) {
+        return { jobText: cleaned, sourceUrl: normalizedUrl, sourceStrategy: 'direct_html' };
+      }
+      console.log(`⚠️ Direct fetch zu kurz (${cleaned.length} chars). Fallback via Proxy.`);
+    } else {
+      console.log(`⚠️ Direct fetch nicht ok (status ${direct.status}). Fallback via Proxy.`);
+    }
+  } catch (e: any) {
+    console.log(`⚠️ Direct fetch failed (${e?.message || 'unknown'}). Fallback via Proxy.`);
+  }
+
+  // 2) Fallback: Jina AI proxy (returns readable text, often bypasses CORS/login walls)
+  const jinaUrl = `https://r.jina.ai/${normalizedUrl}`;
+  const proxied = await fetchText(jinaUrl, 15000);
+  const proxiedText = clampText(proxied.text.trim(), 12000);
+  if (proxied.ok && proxiedText.length >= 300) {
+    return { jobText: proxiedText, sourceUrl: normalizedUrl, sourceStrategy: 'jina_proxy' };
+  }
+
+  return { jobText: '', sourceUrl: normalizedUrl };
+}
 
 // Hilfsfunktion: Response parsen
 function parseClaudeResponse(response: string): AnalysisResult {
@@ -193,38 +367,6 @@ function parseClaudeResponse(response: string): AnalysisResult {
 
   console.log(`✅ Parsed ${redFlags.length} Red Flags`);
 
-  // Fallback: Wenn keine Flags geparst wurden, aber Total > 0, erstelle generische Flags
-  if (redFlags.length === 0 && totalRedFlags > 0) {
-    console.log('⚠️ No flags parsed, creating fallback flags');
-    
-    // Versuche, Red Flags aus dem Text zu extrahieren (einfache Heuristik)
-    const responseLower = response.toLowerCase();
-    
-    // Suche nach typischen Red Flag-Indikatoren
-    const redFlagIndicators = [
-      { keyword: 'unrealistisch', title: 'Unrealistische Anforderungen' },
-      { keyword: 'sofort', title: 'Dringende Besetzung signalisiert' },
-      { keyword: 'viel', title: 'Überlastung wahrscheinlich' },
-      { keyword: 'flexibel', title: 'Unklare Arbeitszeiten' },
-      { keyword: 'nach vereinbarung', title: 'Intransparente Gehaltsangaben' }
-    ];
-    
-    for (let i = 0; i < Math.min(totalRedFlags, 3); i++) {
-      const indicator = redFlagIndicators[i] || { keyword: 'unbekannt', title: 'Red Flag gefunden' };
-      if (responseLower.includes(indicator.keyword) || i < 3) {
-        redFlags.push({
-          title: indicator.title,
-          originalText: 'Aus der Stellenbeschreibung extrahiert',
-          meaning: 'Diese Stelle enthält potenzielle Warnsignale, die eine genauere Analyse erfordern.',
-          risk: i === 0 ? 'HOCH' : 'MITTEL',
-          riskColor: i === 0 ? 'red' : 'yellow'
-        });
-      }
-    }
-    
-    console.log(`✅ Created ${redFlags.length} fallback flags`);
-  }
-
   // Extrahiere Teaser-Text
   const teaserLine = lines.find(line => line.startsWith('TEASER:') || line.toUpperCase().includes('TEASER'));
   const teaserText = teaserLine 
@@ -294,18 +436,44 @@ export const handler: Handler = async (event: HandlerEvent, context: HandlerCont
     const body = JSON.parse(event.body || '{}');
     const { jobText } = body;
 
-    if (!jobText || jobText.trim().length < 50) {
+    if (!jobText || typeof jobText !== 'string') {
       return {
         statusCode: 400,
         headers,
         body: JSON.stringify({ 
-          error: 'Job-Beschreibung zu kurz. Bitte füge mindestens 50 Zeichen ein.' 
+          error: 'Bitte gib eine Stellen-URL oder eine Stellenbeschreibung ein.' 
+        }),
+      };
+    }
+
+    // URL → echten Text extrahieren (wenn der Input im Wesentlichen ein Link ist)
+    const extracted = await extractJobTextFromInput(jobText);
+    const effectiveJobText = extracted.jobText;
+
+    if (!effectiveJobText || effectiveJobText.trim().length < 200) {
+      const url = extracted.sourceUrl;
+      const extraHint =
+        url && url.includes('linkedin.com/jobs/search')
+          ? ' Tipp: Bei LinkedIn bitte den direkten Job-Link (…/jobs/view/123456/) oder den Text aus der Stellenanzeige einfügen (nicht die Suchseite).'
+          : '';
+
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({
+          error:
+            'Konnte die Stellenanzeige nicht zuverlässig auslesen. Bitte füge den Text der Stellenanzeige ein (mindestens 200 Zeichen) oder einen direkten Link zur konkreten Stellenanzeige.' +
+            extraHint,
         }),
       };
     }
 
     console.log(`📤 Sende Request an Claude API...`);
-    console.log(`   - Job Text Length: ${jobText.length} chars`);
+    console.log(`   - Job Text Length: ${effectiveJobText.length} chars`);
+    if (extracted.sourceUrl) {
+      console.log(`   - Source URL: ${extracted.sourceUrl}`);
+      console.log(`   - Fetch strategy: ${extracted.sourceStrategy || 'n/a'}`);
+    }
 
     // Claude API initialisieren
     const anthropic = new Anthropic({
@@ -322,7 +490,7 @@ export const handler: Handler = async (event: HandlerEvent, context: HandlerCont
       max_tokens: 1000,
       messages: [{
         role: 'user',
-        content: `${MODUL_0_PROMPT}\n\n${jobText}`
+        content: `${MODUL_0_PROMPT}\n\n${effectiveJobText}`
       }]
     });
 
@@ -340,6 +508,16 @@ export const handler: Handler = async (event: HandlerEvent, context: HandlerCont
 
     // Parse Response
     const result = parseClaudeResponse(responseText);
+    if (!result.shownRedFlags || result.shownRedFlags.length === 0) {
+      return {
+        statusCode: 502,
+        headers,
+        body: JSON.stringify({
+          error:
+            'Analyse war erfolgreich, aber es konnten keine konkreten Warnsignale extrahiert werden. Bitte versuche es mit einer anderen Stellenanzeige oder füge mehr Text ein.',
+        }),
+      };
+    }
 
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log('✅ ERFOLG - Parsed Result:');
