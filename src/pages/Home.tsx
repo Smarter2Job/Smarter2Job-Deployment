@@ -89,6 +89,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Storyline-Block */}
+      <section className="py-20 bg-white">
+        <div className="container-narrow">
+          <div className="max-w-3xl mx-auto">
+            <div style={{ 
+              fontSize: 'clamp(16px, 1.8vw, 18px)', 
+              color: 'var(--text)', 
+              lineHeight: '1.75'
+            }}>
+              <p className="mb-6">
+                <strong>Das Gemeine ist:</strong> Du bekommst Absagen – aber kein echtes Feedback. Oft nur Standardtexte, ohne ehrliche Begründung. So wiederholst du unbewusst dieselben Muster – und kassierst die nächste Absage.
+              </p>
+              
+              <p className="mb-6">
+                Das ist, als würdest du durch eine Matheklausur fallen oder die Fahrprüfung nicht bestehen – <strong>ohne zu erfahren, wo deine Fehler lagen</strong>. Und genau das ist unfair: Du sollst besser werden, bekommst aber keine Chance zu lernen.
+              </p>
+              
+              <p className="mb-6">
+                <strong>Genau hier setzt Smarter2Job an – wie ein Nachhilfelehrer für deinen Bewerbungsprozess.</strong> Wir dechiffrieren die Stellenanzeige (Schlüsselbegriffe, Anforderungen, Warnsignale), gleichen das mit deinem Profil ab und zeigen dir, <strong>wo du dich klarer und passender positionieren kannst</strong>. Und wenn du willst, gehen wir den Schritt weiter: von der konkreten Lebenslauf-Optimierung bis zur stimmigen Positionierung auf LinkedIn.
+              </p>
+            </div>
+            
+            <div className="text-center mt-8" style={{ 
+              fontSize: 'clamp(20px, 2.2vw, 24px)', 
+              fontWeight: '600',
+              letterSpacing: '0.05em',
+              color: 'var(--text)'
+            }}>
+              Verstehen. Entscheiden. Umsetzen.
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Section: Was du liefern musst / Was du bekommst */}
       <section className="py-16 bg-gray-50">
         <div className="container-narrow">
@@ -173,40 +207,6 @@ export default function Home() {
             <p className="text-sm text-gray-600 italic">
               Tipp: Paste die Stellenbeschreibung als Text – dann ist deine Analyse am treffsichersten.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Storyline-Block */}
-      <section className="py-20 bg-white">
-        <div className="container-narrow">
-          <div className="max-w-3xl mx-auto">
-            <div style={{ 
-              fontSize: 'clamp(16px, 1.8vw, 18px)', 
-              color: 'var(--text)', 
-              lineHeight: '1.75'
-            }}>
-              <p className="mb-6">
-                <strong>Das Gemeine ist:</strong> Du bekommst Absagen – aber kein echtes Feedback. Oft nur Standardtexte, ohne ehrliche Begründung. So wiederholst du unbewusst dieselben Muster – und kassierst die nächste Absage.
-              </p>
-              
-              <p className="mb-6">
-                Das ist, als würdest du durch eine Matheklausur fallen oder die Fahrprüfung nicht bestehen – <strong>ohne zu erfahren, wo deine Fehler lagen</strong>. Und genau das ist unfair: Du sollst besser werden, bekommst aber keine Chance zu lernen.
-              </p>
-              
-              <p className="mb-6">
-                <strong>Genau hier setzt Smarter2Job an – wie ein Nachhilfelehrer für deinen Bewerbungsprozess.</strong> Wir dechiffrieren die Stellenanzeige (Schlüsselbegriffe, Anforderungen, Warnsignale), gleichen das mit deinem Profil ab und zeigen dir, <strong>wo du dich klarer und passender positionieren kannst</strong>. Und wenn du willst, gehen wir den Schritt weiter: von der konkreten Lebenslauf-Optimierung bis zur stimmigen Positionierung auf LinkedIn.
-              </p>
-            </div>
-            
-            <div className="text-center mt-8" style={{ 
-              fontSize: 'clamp(20px, 2.2vw, 24px)', 
-              fontWeight: '600',
-              letterSpacing: '0.05em',
-              color: 'var(--text)'
-            }}>
-              Verstehen. Entscheiden. Umsetzen.
-            </div>
           </div>
         </div>
       </section>

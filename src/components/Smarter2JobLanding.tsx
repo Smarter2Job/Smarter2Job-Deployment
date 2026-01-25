@@ -102,6 +102,9 @@ export default function Smarter2JobLanding() {
         </div>
       </section>
 
+      {/* TABS-BEISPIELREPORT */}
+      <ExampleReportTabs />
+
       {/* Section: Was du liefern musst / Was du bekommst */}
       <section className="py-16 bg-gray-50">
         <div className="container-narrow">
@@ -189,9 +192,6 @@ export default function Smarter2JobLanding() {
           </div>
         </div>
       </section>
-
-      {/* TABS-BEISPIELREPORT */}
-      <ExampleReportTabs />
 
       {/* 4) SO FUNKTIONIERT'S Section */}
       <section id="so-funktionierts" className="py-20 bg-gray-50">
