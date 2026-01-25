@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, CheckCircle } from 'lucide-react';
 import HeroMiniDemo from './landing/HeroMiniDemo';
 import ExampleReportTabs from './landing/ExampleReportTabs';
 import PreSendStepper from './landing/PreSendStepper';
@@ -98,6 +98,94 @@ export default function Smarter2JobLanding() {
                 textareaHeight="min-h-[200px]"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section: Was du liefern musst / Was du bekommst */}
+      <section className="py-16 bg-gray-50">
+        <div className="container-narrow">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold mb-3" style={{ color: 'var(--text)' }}>
+              In 2 Minuten startklar: Das brauchen wir von dir
+            </h2>
+            <p className="text-lg text-gray-600">
+              Je sauberer der Input, desto präziser die Empfehlung.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            {/* Card 1: Was du liefern musst */}
+            <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+              <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--text)' }}>
+                Was du liefern musst
+              </h3>
+              <ul className="space-y-3 text-gray-700 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#ff6b35] mt-1">•</span>
+                  <span>Deinen Lebenslauf (PDF oder Text)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#ff6b35] mt-1">•</span>
+                  <span>Deine ‚Das will ich‘-Liste (z. B. Rolle, Branche, Gehalt, Arbeitsmodell, Standort)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#ff6b35] mt-1">•</span>
+                  <span>Deine ‚Das will ich nicht‘-Liste (klare No-Gos & Ausschlusskriterien)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#ff6b35] mt-1">•</span>
+                  <span>Die Stellenbeschreibung – am besten als kompletter Text (Copy & Paste)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#ff6b35] mt-1">•</span>
+                  <span>Alternativ: der Link zur Stelle (funktioniert, Volltext ist aber genauer)</span>
+                </li>
+              </ul>
+              <p className="text-xs text-gray-500 italic mt-4 pt-4 border-t border-gray-200">
+                Warum Volltext besser ist: Viele Job-Portale kürzen Inhalte dynamisch oder laden Teile nach – mit dem kompletten Text erkennen wir Anforderungen und Keywords zuverlässiger.
+              </p>
+            </div>
+
+            {/* Card 2: Was du bekommst */}
+            <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+              <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--text)' }}>
+                Was du bekommst
+              </h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                  <span>Eine klare Empfehlung: GO / CONDITIONAL GO / NO GO</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                  <span>Begründung in Klartext: Was passt – und was passt (noch) nicht</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                  <span>ATS- & Keyword-Check: Welche Begriffe fehlen oder sind schwach abgedeckt</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                  <span>Risikocheck der Stelle: Warnsignale, Realismus, versteckte Anforderungen</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                  <span>Konkreter Maßnahmenplan: Was du sofort verbessern kannst (priorisiert)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
+                  <span>Optionaler Text-Output: Vorschlag für ein passendes Anschreiben (auf die Stelle zugeschnitten)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Micro-CTA */}
+          <div className="text-center">
+            <p className="text-sm text-gray-600 italic">
+              Tipp: Paste die Stellenbeschreibung als Text – dann ist deine Analyse am treffsichersten.
+            </p>
           </div>
         </div>
       </section>
